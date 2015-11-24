@@ -1,4 +1,4 @@
-package server;
+package pub.server;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
