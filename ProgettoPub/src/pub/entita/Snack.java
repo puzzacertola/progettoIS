@@ -8,3 +8,4 @@ public class Snack extends Prodotti {
 	}
 
 }
+//classe eliminabile?
