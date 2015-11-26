@@ -44,6 +44,8 @@ public class Server {
 		
 			ss.close();
 			conn.close();
+			
+			
 		} catch(IOException e){
 			e.printStackTrace();			
 		}

@@ -1,8 +1,17 @@
 package pub.entita;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+
+
 public class Cameriere {
 	
 	//Istanze
+	static final int PORTA = 80;
 	private int IdCameriere;
 	private String Nome;
 	private String Cognome;
@@ -38,7 +47,28 @@ public class Cameriere {
 		Cognome = cognome;
 	}
 
-	
+	public static void main (String[] args){
+		
+		Cameriere client =new Cameriere();
+		try {
+			Socket s=new Socket ("127.0.0.1" , PORTA);
+
+			PrintWriter out = new PrintWriter (s.getOutputStream(),true);
+			BufferedReader in = new BufferedReader (new InputStreamReader(s.getInputStream()));
+			
+			out.println("select * from Menu");
+			String rcvd =in.readLine ();
+			System.out.print(rcvd);
+
+			s.close();
+		}
+		catch (IOException e){
+			System.err.println(e.getMessage());	
+		}
+		
+		
+	}
 	
 	
 }
+	
