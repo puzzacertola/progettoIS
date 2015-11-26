@@ -25,33 +25,30 @@ public class Server {
 	
 	public static void main (String[] args) throws Exception{
 		
-		new Server();
-		
 		try {
+			Class.forName(JDBC_DRIVER);
 			String ricevuto = "";
 			ServerSocket ss = new ServerSocket(PORTA);
+			System.out.println("Server in attesa");
+			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			Statement stm = conn.createStatement();
+			
 			Socket s = ss.accept();
 			
 			PrintWriter out = new PrintWriter (s.getOutputStream(),true);
 			BufferedReader in = new BufferedReader (new InputStreamReader(s.getInputStream()));
 			
-			Class.forName(JDBC_DRIVER);
-			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			Statement stm = conn.createStatement();
 			ricevuto = in.readLine();
 			ResultSet rs = stm.executeQuery(ricevuto);
 			out.println(rs);
 		
 			ss.close();
 			conn.close();
-			
-			
+						
 		} catch(IOException e){
 			e.printStackTrace();			
 		}
-		
-		
+				
 	}
-	
-	
+		
 }

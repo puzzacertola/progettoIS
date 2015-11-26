@@ -51,14 +51,14 @@ public class Cameriere {
 		
 		Cameriere client =new Cameriere();
 		try {
-			Socket s=new Socket ("127.0.0.1" , PORTA);
+			Socket s = new Socket ("localhost" , PORTA);
 
 			PrintWriter out = new PrintWriter (s.getOutputStream(),true);
 			BufferedReader in = new BufferedReader (new InputStreamReader(s.getInputStream()));
 			
 			out.println("select * from Menu");
 			String rcvd =in.readLine ();
-			System.out.print(rcvd);
+			System.out.println(rcvd);
 
 			s.close();
 		}
