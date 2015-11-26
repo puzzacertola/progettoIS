@@ -19,7 +19,7 @@ public class Server {
 	public static void main (String[] args) throws Exception{
 		
 		new Server();
-		try {
+		try  {
 			String ricevuto=" ";
 			ServerSocket ss= new ServerSocket(80);
 			Socket s=ss.accept();
@@ -33,6 +33,9 @@ public class Server {
 			ricevuto= in.readLine();
 			ResultSet rs= stm.executeQuery(ricevuto);
 			String risposta = new String();
+			out.println("ok\n"+risposta);
+			
+			
 			ss.close();
 			conn.close();
 		}
