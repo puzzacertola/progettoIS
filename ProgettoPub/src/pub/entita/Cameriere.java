@@ -16,6 +16,7 @@ public class Cameriere {
 	private String Nome;
 	private String Cognome;
 	
+	
 	//Costruttore
 	public Cameriere(){
 		
@@ -50,6 +51,7 @@ public class Cameriere {
 	public static void main (String[] args){
 		
 		Cameriere client =new Cameriere();
+		
 		try {
 			Socket s = new Socket ("localhost" , PORTA);
 
