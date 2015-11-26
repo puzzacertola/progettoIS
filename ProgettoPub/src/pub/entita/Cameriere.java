@@ -56,6 +56,7 @@ public class Cameriere {
 			PrintWriter out = new PrintWriter (s.getOutputStream(),true);
 			BufferedReader in = new BufferedReader (new InputStreamReader(s.getInputStream()));
 			
+			
 			out.println("select * from Menu");
 			String rcvd =in.readLine ();
 			System.out.println(rcvd);
