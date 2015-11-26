@@ -7,10 +7,15 @@ public abstract class Prodotti {
 	private String nome;
 	private String descrizione;
 	private float costo;
+	private String tipo;
 	
 	//Costruttore
-	public Prodotti(){
-		
+	public Prodotti(int id, String nome, String descrizione, float costo, String tipo){
+		this.idProdotto=id;
+		this.nome=nome;
+		this.descrizione=descrizione;
+		this.costo=costo;
+		this.tipo=tipo;
 	}
 
 	//Get & Set

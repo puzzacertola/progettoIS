@@ -3,21 +3,16 @@ package pub.entita;
 public class Bevanda extends Prodotti {
 	
 	//Istanze
-	private boolean alcolico;
+	
 	
 	//Costruttore
-	public Bevanda(){
+	public Bevanda(int id, String nome, String descrizione, float costo, String tipo){
+		super(id,nome,descrizione,costo,tipo);
+		
 		
 	}
 
-	public boolean isAlcolico() {
-		return alcolico;
-	}
-
-	//Get & Set
-	public void setAlcolico(boolean alcolico) {
-		this.alcolico = alcolico;
-	}
+	
 	
 	//Metodi
 

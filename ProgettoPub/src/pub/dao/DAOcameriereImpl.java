@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import pub.entita.Bevanda;
 import pub.entita.Ordine;
 import pub.entita.Prodotti;
 
@@ -13,16 +14,16 @@ public class DAOcameriereImpl implements DAOcameriere {
 
 
 	@Override
-	public List<Prodotti> mostraBevande() {
+	public List<Bevanda> mostraBevande() {
 		String tipo = "B";
-		ArrayList<Prodotti> listabevande= new ArrayList<Prodotti>();
+		ArrayList<Bevanda> listabevande= new ArrayList<Bevanda>();
 		try {
 			Statement stat = DAOSetting.getStatement();
 			String query = "select * from Menu where Tipo like '" + tipo +"%'";
 			
 			ResultSet rs = stat.executeQuery(query);
             while(rs.next()){
-                    listabevande.add(new Prodotti(rs.getString("nome"), 
+                    listabevande.add(new Bevanda(rs.getString("nome"), 
                                     rs.getString("cognome"), 
                                     rs.getString("telefono"),
                                     rs.getString("email")));
