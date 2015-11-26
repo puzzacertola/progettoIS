@@ -15,7 +15,7 @@ public class Cameriere {
 	private int IdCameriere;
 	private String Nome;
 	private String Cognome;
-	
+	private String operazione;
 	
 	//Costruttore
 	public Cameriere(){
