@@ -4,7 +4,7 @@ import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;
 
-public abstract class MyModel extends AbstractTableModel{
+public class MyModel extends AbstractTableModel{
 	
 	Vector<Bevanda> bevanda;
 	String[] headers;
@@ -39,19 +39,23 @@ public abstract class MyModel extends AbstractTableModel{
 	//aggiungi prodotto
 	public void addProdotti(String risposta){
 		
-		String[] arrayRiga= risposta.split("\n",-1);
+		String[] arrayRiga= risposta.split("\\\n",-1);
 		
 		for(int i=0; i<arrayRiga.length;i++){
-			String[] arrayRisposta= arrayRiga[i].split(" ",-1);
-			Bevanda b=new Bevanda(Integer.getInteger(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.valueOf(arrayRisposta[3]));
+			String[] arrayRisposta= arrayRiga[i].split("\\ ",-1);
+			Bevanda b=new Bevanda(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.parseFloat(arrayRisposta[3]));
 			bevanda.add(b);
-			
-		}
-		
-		
+		}	
 	}
-	public static void main(String[] arg0){
-		Bevanda
-		
+	
+	@Override
+	public int getColumnCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
