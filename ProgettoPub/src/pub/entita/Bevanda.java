@@ -11,7 +11,12 @@ public class Bevanda extends Prodotti {
 		super(id,nome,descrizione,costo,tipo);		
 		
 	}
-
+	
+public Bevanda(int id, String nome, String descrizione, float costo){
+		
+		super(id,nome,descrizione,costo);	
+		
+	}
 	
 	
 	//Metodi

@@ -18,6 +18,13 @@ public abstract class Prodotti {
 		this.tipo=tipo;
 	}
 
+	public Prodotti(int id, String nome, String descrizione, float costo){
+		this.idProdotto=id;
+		this.nome=nome;
+		this.descrizione=descrizione;
+		this.costo=costo;
+		
+	}
 	//Get & Set
 	public int getIdProdotto() {
 		return idProdotto;
