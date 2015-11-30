@@ -7,8 +7,8 @@ public class Bevanda extends Prodotti {
 	
 	//Costruttore
 	public Bevanda(int id, String nome, String descrizione, float costo, String tipo){
-		super(id,nome,descrizione,costo,tipo);
 		
+		super(id,nome,descrizione,costo,tipo);		
 		
 	}
 
