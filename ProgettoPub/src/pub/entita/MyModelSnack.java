@@ -11,20 +11,20 @@ import javax.swing.table.AbstractTableModel;
 
 import pub.server.Server;
 
-public class MyModel extends AbstractTableModel{
+public class MyModelSnack extends AbstractTableModel{
 	
-	Vector<Bevanda> bevanda;
+	Vector<Snack> snack;
 	String[] headers;
 	//costruttore
-	public MyModel(){
+	public MyModelSnack(){
 		
-		bevanda = new Vector<Bevanda>();
+		snack = new Vector<Snack>();
 		headers = new String[]{"IdProdotto", "Nome", "Descrizione", "Costo"};
 
 	}
 	//numero di righe
 	public int contaRighe(){
-	    return this.bevanda.size();
+	    return this.snack.size();
 	 
 	}
 	//numero colonne
@@ -49,8 +49,8 @@ public class MyModel extends AbstractTableModel{
 		
 		for(int i=0; i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
 			String[] arrayRisposta = arrayRiga[i].split("\\;",-1);
-			Bevanda b=new Bevanda(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.parseFloat(arrayRisposta[3]));
-			bevanda.add(b);
+			Snack s = new Snack(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.parseFloat(arrayRisposta[3]));
+			snack.add(s);
 
 		}	
 	}
@@ -59,8 +59,8 @@ public class MyModel extends AbstractTableModel{
 		String lista = "";
 		String[] listaArray;
 		
-		for (Bevanda b: this.bevanda)
-			lista += b.getNome() + " " + b.getCosto() + ";";
+		for (Snack s: this.snack)
+			lista += s.getNome() + " " + s.getCosto() + ";";
 
 		listaArray = lista.split("\\;",-1);
 		

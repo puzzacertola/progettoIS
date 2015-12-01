@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -22,7 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import pub.entita.MyModel;
+import pub.entita.MyModelBevanda;
+import pub.entita.MyModelSnack;
 import pub.server.Server;
 
 
@@ -33,7 +35,9 @@ public class CameriereGui extends JFrame{
 	private JTextField idcameriere = new JTextField(" ",5);
 	private static JButton invia = new JButton("Invia");
 	private static JButton reset = new JButton("Reset");	
-	private static String[] listaBevande= null;
+	private static String[] listaBevande = null;
+	private static String[] listaSnack = null;
+	private static String[] listaOrdini = {""};
 	
 //ascoltatore pulsante invia
 	private static class MyButtonokListener implements ActionListener {
@@ -48,6 +52,36 @@ public class CameriereGui extends JFrame{
 		}
 		}
 	
+	public static String ottieniStringaDalDatabase(String req){
+		Socket s;
+		try {
+			s = new Socket(Server.HOST, Server.PORTA);
+			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+
+			out.println(req);
+
+			String line = in.readLine();
+			String risposta = line;
+
+			while(line.length() > 0){
+				line = in.readLine();
+				risposta += "\n" + line;
+			}
+			
+			s.close();
+			
+			return risposta;
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+
+	}
+
+
 	//creazione interfaccia
 	public CameriereGui(){
 		
@@ -133,9 +167,8 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getList(listaBevande),c);
-        
-		
+		pane.add(getList(listaOrdini),c);
+        		
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 1;
 		c.gridy = 2;
@@ -162,7 +195,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getList(listaBevande), c);
+		pane.add(getList(listaSnack), c);
 		
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 0;
@@ -226,39 +259,25 @@ public class CameriereGui extends JFrame{
 	   
 	   
 	public static void main(String[] args) {
+		MyModelBevanda modelloBevande = new MyModelBevanda();
+		MyModelSnack modelloSnack = new MyModelSnack();
+		String risposta = null;
+		String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
+		
+		risposta = ottieniStringaDalDatabase(req);
 
-		Socket s;
-		MyModel pasquale = new MyModel();
-
-		try {
-			s = new Socket(Server.HOST, Server.PORTA);
-			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+		modelloBevande.addProdotti(risposta);
 			
-			String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
-			out.println(req);
-
-			String line = in.readLine();
-			String risposta = line;
-
-			while(line.length() > 0){
-				line = in.readLine();
-				risposta += "\n" + line;
-			}
+		listaBevande = modelloBevande.creaLista();
 			
-			pasquale.addProdotti(risposta);
+		req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_SNACK;
+		
+		risposta = ottieniStringaDalDatabase(req);
+		
+		modelloSnack.addProdotti(risposta);
 			
-			listaBevande = pasquale.creaLista();
+		listaSnack = modelloSnack.creaLista();
 			
-			
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-	
 		MyButtonokListener listener = new MyButtonokListener();
     	invia.addActionListener(listener);
     	MyButtonResetListener listener1 = new MyButtonResetListener();

@@ -12,7 +12,7 @@ public class Bevanda extends Prodotti {
 		
 	}
 	
-public Bevanda(int id, String nome, String descrizione, float costo){
+	public Bevanda(int id, String nome, String descrizione, float costo){
 		
 		super(id,nome,descrizione,costo);	
 		
