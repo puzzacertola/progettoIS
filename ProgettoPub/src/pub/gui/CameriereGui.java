@@ -48,7 +48,7 @@ public class CameriereGui extends JFrame{
 //ascoltatore puòsante reset
 	private static class MyButtonResetListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-				System.out.print("Reset pressed \n");
+				listaOrdini=null;
 		}
 		}
 	
