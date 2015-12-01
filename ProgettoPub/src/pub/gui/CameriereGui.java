@@ -6,9 +6,13 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,6 +22,9 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import pub.entita.MyModel;
+import pub.server.Server;
+
 
 public class CameriereGui extends JFrame{
 
@@ -26,8 +33,7 @@ public class CameriereGui extends JFrame{
 	private JTextField idcameriere = new JTextField(" ",5);
 	private static JButton invia = new JButton("Invia");
 	private static JButton reset = new JButton("Reset");	
-	public static List<String> prova= null;
-	private static String[] po= null;
+	private static String[] listaBevande= null;
 	
 //ascoltatore pulsante invia
 	private static class MyButtonokListener implements ActionListener {
@@ -127,7 +133,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getList(po),c);
+		pane.add(getList(listaBevande),c);
         
 		
 		c.fill = GridBagConstraints.RELATIVE;
@@ -142,7 +148,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getList(po),c);
+		pane.add(getList(listaBevande),c);
 		
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 3;
@@ -156,7 +162,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getList(po), c);
+		pane.add(getList(listaBevande), c);
 		
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 0;
@@ -220,8 +226,39 @@ public class CameriereGui extends JFrame{
 	   
 	   
 	public static void main(String[] args) {
-		//poi l'arraylist gli verrà da fuori
-		//dichiarazione listener
+
+		Socket s;
+		MyModel pasquale = new MyModel();
+
+		try {
+			s = new Socket(Server.HOST, Server.PORTA);
+			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+			
+			String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
+			out.println(req);
+
+			String line = in.readLine();
+			String risposta = line;
+
+			while(line.length() > 0){
+				line = in.readLine();
+				risposta += "\n" + line;
+			}
+			
+			pasquale.addProdotti(risposta);
+			
+			listaBevande = pasquale.creaLista();
+			
+			
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+	
 		MyButtonokListener listener = new MyButtonokListener();
     	invia.addActionListener(listener);
     	MyButtonResetListener listener1 = new MyButtonResetListener();
@@ -246,14 +283,13 @@ public class CameriereGui extends JFrame{
 		}
 		UIManager.put("swing.boldMetal", Boolean.FALSE);
 
-		new CameriereGui();
-	/*un modo più fine sarebbe sostituire new Guipub(); con
-	  javax.swing.SwingUtilities.invokeLater(new Runnable() {
+		//new CameriereGui();
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				 new Guipub();
+				new CameriereGui();
 			}
 		}); 
-	 */
+
 	}
 	
 }
