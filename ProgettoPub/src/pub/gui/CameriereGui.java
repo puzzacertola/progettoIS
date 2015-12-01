@@ -27,7 +27,7 @@ public class CameriereGui extends JFrame{
 	private static JButton invia = new JButton("Invia");
 	private static JButton reset = new JButton("Reset");	
 	public static List<String> prova= null;
-	private static ArrayList po= new ArrayList();
+	private static String[] po= null;
 	
 //ascoltatore pulsante invia
 	private static class MyButtonokListener implements ActionListener {
@@ -209,17 +209,10 @@ public class CameriereGui extends JFrame{
 		
 	}
 	//creazione JList
-	   private static JScrollPane getList(ArrayList a){
+	   private static JScrollPane getList(String[] a){
 		   //creare listmodel personalizzato
 		   
-		    
-	        DefaultListModel<String> listModel = new DefaultListModel<String>();  
-	        JList<String> list = new JList<String>(listModel);
-
-	        for(int i=0; i<a.size(); i++)
-	        	listModel.addElement((String) a.get(i));
-	        
-	        
+	        JList<String> list = new JList<String>(a);
 	        JScrollPane pane = new JScrollPane(list);
 	        return pane;
 	    }
@@ -228,12 +221,6 @@ public class CameriereGui extends JFrame{
 	   
 	public static void main(String[] args) {
 		//poi l'arraylist gli verrà da fuori
-		po.add("pollo");
-		po.add("collo3 ");
-		po.add("collo4 ");
-		po.add("collocollo ");
-		po.add("collo6 ");
-		po.add("collo7 ");
 		//dichiarazione listener
 		MyButtonokListener listener = new MyButtonokListener();
     	invia.addActionListener(listener);
