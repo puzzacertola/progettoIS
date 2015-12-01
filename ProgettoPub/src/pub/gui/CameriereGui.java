@@ -212,7 +212,7 @@ public class CameriereGui extends JFrame{
 	   private static JScrollPane getList(ArrayList a){
 		   //creare listmodel personalizzato
 		   
-		   
+		    
 	        DefaultListModel<String> listModel = new DefaultListModel<String>();  
 	        JList<String> list = new JList<String>(listModel);
 

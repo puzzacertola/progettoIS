@@ -38,9 +38,9 @@ public class Server {
 		String risposta = "";
 
 		for(Bevanda b: lista){
-			risposta += b.getIdProdotto() + " ";
-			risposta += b.getNome() + " ";
-			risposta += b.getDescrizione() + " ";
+			risposta += b.getIdProdotto() + ";";
+			risposta += b.getNome() + ";";
+			risposta += b.getDescrizione() + ";";
 			risposta += b.getCosto() + "\n";					
 		}
 
@@ -51,9 +51,9 @@ public class Server {
 		String risposta = "";
 
 		for(Snack s: lista){
-			risposta += s.getIdProdotto() + " ";
-			risposta += s.getNome() + " ";
-			risposta += s.getDescrizione() + " ";
+			risposta += s.getIdProdotto() + ";";
+			risposta += s.getNome() + ";";
+			risposta += s.getDescrizione() + ";";
 			risposta += s.getCosto() + "\n";					
 		}
 
@@ -64,10 +64,10 @@ public class Server {
 		String risposta = "";
 
 		for(Ordine o: lista){
-			risposta += o.getIdOrdine() + " ";
-			risposta += o.getIdProdotto() + " ";
-			risposta += o.getTavolo() + " ";
-			risposta += o.getIdCameriere() + " ";
+			risposta += o.getIdOrdine() + ";";
+			risposta += o.getIdProdotto() + ";";
+			risposta += o.getTavolo() + ";";
+			risposta += o.getIdCameriere() + ";";
 			risposta += o.getStato() + "\n";
 		}
 
