@@ -67,6 +67,12 @@ public class MyModelSnack extends AbstractTableModel{
 		return listaArray;
 	}
 	
+	public Vector<Snack> getSnack() {
+		return snack;
+	}
+	public void setSnack(Vector<Snack> snack) {
+		this.snack = snack;
+	}
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub

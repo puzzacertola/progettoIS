@@ -24,6 +24,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import pub.entita.MyModelBevanda;
+import pub.entita.MyModelOrdini;
 import pub.entita.MyModelSnack;
 import pub.server.Server;
 
@@ -37,19 +38,28 @@ public class CameriereGui extends JFrame{
 	private static JButton reset = new JButton("Reset");	
 	private static String[] listaBevande = null;
 	private static String[] listaSnack = null;
-	private static String[] listaOrdini = {""};
-	
-//ascoltatore pulsante invia
+	private static String[] listaOrdini = new String[20];
+	private static Container pane;
+	private static MyModelBevanda modelloBevande = new MyModelBevanda();
+	private static MyModelSnack modelloSnack = new MyModelSnack();
+	private static MyModelOrdini modelloOrdini = new MyModelOrdini();
+
+	//ascoltatore pulsante invia
 	private static class MyButtonokListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-				System.out.print("ok pressed \n");
+			System.out.print("ok pressed \n");
+			listaOrdini[0] = modelloOrdini.addProdotti(modelloBevande.getBevanda().get(0));
+			listaOrdini[1] = modelloOrdini.addProdotti(modelloSnack.getSnack().get(0));
+			pane.repaint();
 		}
-		}
+	}
 //ascoltatore puòsante reset
 	private static class MyButtonResetListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-				listaOrdini=null;
-		}
+				for(int i=0;i<listaOrdini.length;i++)
+					listaOrdini[i] = " ";
+				pane.repaint();
+			}
 		}
 	
 	public static String ottieniStringaDalDatabase(String req){
@@ -86,12 +96,10 @@ public class CameriereGui extends JFrame{
 	public CameriereGui(){
 		
 		super("modulo ordinazioni");
-		Container pane = getContentPane();
+		pane = getContentPane();
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-		
-	
-		
+
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 0;
 		c.gridy = 0;
@@ -259,11 +267,11 @@ public class CameriereGui extends JFrame{
 	   
 	   
 	public static void main(String[] args) {
-		MyModelBevanda modelloBevande = new MyModelBevanda();
-		MyModelSnack modelloSnack = new MyModelSnack();
 		String risposta = null;
 		String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
 		
+		for(int i=0;i<listaOrdini.length;i++)
+			listaOrdini[i] = " ";
 		risposta = ottieniStringaDalDatabase(req);
 
 		modelloBevande.addProdotti(risposta);

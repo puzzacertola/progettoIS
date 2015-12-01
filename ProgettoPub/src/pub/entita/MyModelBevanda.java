@@ -22,6 +22,12 @@ public class MyModelBevanda extends AbstractTableModel{
 		headers = new String[]{"IdProdotto", "Nome", "Descrizione", "Costo"};
 
 	}
+	public Vector<Bevanda> getBevanda() {
+		return bevanda;
+	}
+	public void setBevanda(Vector<Bevanda> bevanda) {
+		this.bevanda = bevanda;
+	}
 	//numero di righe
 	public int contaRighe(){
 	    return this.bevanda.size();
