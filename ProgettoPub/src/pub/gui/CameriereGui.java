@@ -62,7 +62,9 @@ public class CameriereGui extends JFrame{
 	private static class MyButtonstatoordini implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 				System.out.print("statoOrdini pressed \n");
-				new OrdiniGui();
+				String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + idcameriere.getText() + "\n";
+				String risposta = ottieniStringaDalDatabase(req);
+				new OrdiniGui(risposta);
 			}
 		}
 	//ascoltatore pulsante invia

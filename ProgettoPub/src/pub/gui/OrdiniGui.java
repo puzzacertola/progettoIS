@@ -20,7 +20,7 @@ public class OrdiniGui extends JFrame{
 	private static Container pane ;
 	
 	//creazione interfaccia
-	public OrdiniGui(){
+	public OrdiniGui(String elenco){
 		
 		super("stato ordini");
 		pane = getContentPane();
@@ -41,7 +41,7 @@ public class OrdiniGui extends JFrame{
 		c.weighty = 1;
 		pane.add(ordini, c);
 		
-		
+		ordini.append(elenco);
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
