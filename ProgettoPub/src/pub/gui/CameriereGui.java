@@ -40,8 +40,8 @@ import pub.server.Server;
 public class CameriereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private JTextField tavolo = new JTextField(" ",5);
-	private JTextField idcameriere = new JTextField(" ",5);
+	private static JTextField tavolo = new JTextField("",5);
+	private static JTextField idcameriere = new JTextField("",5);
 	private static JButton invia = new JButton("Invia");
 	private static JButton reset = new JButton("Reset");	
 	private static String[] listaBevande = null;
@@ -68,10 +68,14 @@ public class CameriereGui extends JFrame{
 	private static class MyButtonOkListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			System.out.print("ok pressed \n");
-			listaOrdini[0] = modelloOrdini.addProdotti(modelloBevande.getBevanda().get(0));
-			listaOrdini[1] = modelloOrdini.addProdotti(modelloSnack.getSnack().get(0));
-			listaOrdini[2] = modelloOrdini.getProdotto().get(1).getNome();
-			pane.repaint();
+			for(int i=0;i<indiceListaOrdini;i++){
+				if(listaOrdini != null){
+					String req = "pub:\n" + Server.INSERT_CAMERIERE_ORDINI + "\nid:" + modelloOrdini.getProdotto().get(i).getIdProdotto() 
+							+ "\ntavolo:" + tavolo.getText() + "\nidCameriere:" + idcameriere.getText() + "\n";
+					mandaInsertAlServer(req);
+				}
+			}
+			
 		}
 	}
 	//ascoltatore pulsante reset
@@ -201,8 +205,7 @@ public class CameriereGui extends JFrame{
 		}
 	}
 	
-
-	public static String ottieniStringaDalDatabase(String req){
+	public static void mandaInsertAlServer(String req){
 		Socket s;
 		try {
 			s = new Socket(Server.HOST, Server.PORTA);
@@ -210,18 +213,35 @@ public class CameriereGui extends JFrame{
 			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
 			out.println(req);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
+	public static String ottieniStringaDalDatabase(String req){
+		Socket s;
+		try {
+			s = new Socket(Server.HOST, Server.PORTA);
+			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+		
+			out.println(req);
+			
 			String line = in.readLine();
 			String risposta = line;
 
-			while(line.length() > 0){
-				line = in.readLine();
-				risposta += "\n" + line;
-			}
-
-			s.close();
-
+				while(line.length() > 0){
+					line = in.readLine();
+					risposta += "\n" + line;
+					s.close();
+				}
+				
 			return risposta;
+			
+			
+			
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -230,6 +250,7 @@ public class CameriereGui extends JFrame{
 		return null;
 
 	}
+		
 
 
 	//creazione interfaccia
