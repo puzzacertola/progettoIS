@@ -30,6 +30,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+
 import pub.entita.MyModelBevanda;
 import pub.entita.MyModelOrdini;
 import pub.entita.MyModelSnack;
@@ -51,11 +52,18 @@ public class CameriereGui extends JFrame{
 	private static MyModelSnack modelloSnack = new MyModelSnack();
 	private static MyModelOrdini modelloOrdini = new MyModelOrdini();
 	private static int indiceListaOrdini = 0;
-
+	private static JButton statoOrdini = new JButton("Visualizza ordini");
+	
 	static JList<String> jListBevande = new JList<String>();
 	static JList<String> jListSnack = new JList<String>();
 	static JList<String> jListOrdini = new JList<String>();
 	
+	
+	private static class MyButtonstatoordini implements ActionListener {
+		public void actionPerformed(ActionEvent evt) {
+				System.out.print("statoOrdini pressed \n");
+			}
+		}
 	//ascoltatore pulsante invia
 	private static class MyButtonOkListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
@@ -379,11 +387,30 @@ public class CameriereGui extends JFrame{
 		c.weighty = 1;
 		pane.add(reset, c);
 
-
+		c.fill = GridBagConstraints.RELATIVE;
+		c.gridx = 3;
+		c.gridy = 4;
+		c.weightx = 1;
+		c.weighty = 1;
+		pane.add(new JLabel (" "), c);
+		
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 4;
+		c.gridy = 4;
+		c.weightx = 1;
+		c.weighty = 1;
+		pane.add(statoOrdini, c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
+		MyButtonOkListener listener = new MyButtonOkListener();
+		invia.addActionListener(listener);
+		MyButtonResetListener listener1 = new MyButtonResetListener();
+		reset.addActionListener(listener1);
+		MyButtonstatoordini listener2= new MyButtonstatoordini();
+    	statoOrdini.addActionListener(listener2);
 
 	}
 	//creazione JList
@@ -437,10 +464,7 @@ public class CameriereGui extends JFrame{
 
 		listaSnack = modelloSnack.creaLista();
 
-		MyButtonOkListener listener = new MyButtonOkListener();
-		invia.addActionListener(listener);
-		MyButtonResetListener listener1 = new MyButtonResetListener();
-		reset.addActionListener(listener1);
+		
 
 
 		try {
