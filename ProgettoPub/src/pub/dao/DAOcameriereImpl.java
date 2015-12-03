@@ -9,7 +9,6 @@ import java.util.List;
 
 import pub.entita.Bevanda;
 import pub.entita.Ordine;
-import pub.entita.Prodotti;
 import pub.entita.Snack;
 
 
@@ -41,6 +40,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaBevande;		
 	}
@@ -58,6 +58,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaSnack;		
 	}
@@ -75,6 +76,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaOrdini;		
 	}
@@ -109,6 +111,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaBevande;
 	}
@@ -128,6 +131,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaSnack;
 	}
@@ -147,6 +151,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 
 	}
@@ -166,6 +171,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaOrdini;
 	}
@@ -183,6 +189,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 	}
 
@@ -198,6 +205,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 
 	}
@@ -217,6 +225,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 
 		} catch (SQLException e){
 			e.printStackTrace();
+			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaOrdini;
 	}
@@ -235,6 +244,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 			DAOSetting.closeStatement(stat);
 
 		} catch (SQLException e){
+			System.out.println("Errore nella richiesta al DB");
 			e.printStackTrace();
 		}
 		return listaOrdini;

@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 public class OrdiniGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private static JTextArea ordini=new JTextArea(20,50);
+	private static JTextArea ordiniTextArea = new JTextArea(20,50);
 
 	private static Container pane ;
 	
@@ -39,16 +39,14 @@ public class OrdiniGui extends JFrame{
 		c.gridy = 1;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(ordini, c);
+		pane.add(ordiniTextArea, c);
 		
-		ordini.append(elenco);
+		ordiniTextArea.append(elenco);
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
-		
-		
+				
 	}
-	
 	   
 }

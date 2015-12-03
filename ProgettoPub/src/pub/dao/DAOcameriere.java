@@ -4,7 +4,6 @@ import java.util.List;
 
 import pub.entita.Bevanda;
 import pub.entita.Ordine;
-import pub.entita.Prodotti;
 import pub.entita.Snack;
 
 public interface DAOcameriere {

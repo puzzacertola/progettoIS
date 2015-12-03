@@ -1,12 +1,10 @@
 package pub.gui;
 
-
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
@@ -14,213 +12,204 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-
-import pub.entita.MyModelBevanda;
-import pub.entita.MyModelOrdini;
-import pub.entita.MyModelSnack;
+import pub.entita.Prodotti;
 import pub.server.Server;
-
 
 public class CameriereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private static JTextField tavolo = new JTextField("",5);
-	private static JTextField idcameriere = new JTextField("",5);
-	private static JButton invia = new JButton("Invia");
-	private static JButton reset = new JButton("Reset");	
-	private static String[] listaBevande = null;
-	private static String[] listaSnack = null;
-	private static String[] listaOrdini = new String[20];
+	private static JTextField tavoloTextField = new JTextField("",5);
+	private static JTextField idCameriereTextField = new JTextField("",5);
+	private static JButton inviaButton = new JButton("Invia");
+	private static JButton resetButton = new JButton("Reset");	
 	private static Container pane;
 	private static MyListModelBevanda modelloBevande = null;
-	private static MyModelSnack modelloSnack = new MyModelSnack();
-	private static MyModelOrdini modelloOrdini = new MyModelOrdini();
-	private static int indiceListaOrdini = 0;
-	private static JButton statoOrdini = new JButton("Visualizza ordini");
-	
+	private static MyListModelSnack modelloSnack = null;
+	private static MyListModelOrdini modelloOrdini = null;
+	private static JButton statoOrdiniButton = new JButton("Visualizza ordini");
+
 	static JList jListBevande = new JList();
-	static JList<String> jListSnack = new JList<String>();
-	static JList<String> jListOrdini = new JList<String>();
-	
-	
-	private static class MyButtonstatoordini implements ActionListener {
+	static JList jListSnack = new JList();
+	static JList jListOrdini = new JList();
+
+	//ascoltatore pulsante StatoOrdini
+	private static class StatoOrdiniButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-				System.out.print("statoOrdini pressed \n");
-				String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + idcameriere.getText() + "\n";
-				String risposta = ottieniStringaDalDatabase(req);
-				new OrdiniGui(risposta);
-			}
+			System.out.print("statoOrdini pressed \n");
+			String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + idCameriereTextField.getText() + "\n";
+			String risposta = ottieniStringaDalDatabase(req);
+			new OrdiniGui(risposta);
 		}
+	}
+
 	//ascoltatore pulsante invia
-	private static class MyButtonOkListener implements ActionListener {
+	private static class MyButtonInviaListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			System.out.print("ok pressed \n");
-			for(int i=0;i<indiceListaOrdini;i++){
-				if(listaOrdini != null){
-					String req = "pub:\n" + Server.INSERT_CAMERIERE_ORDINI + "\nid:" + modelloOrdini.getProdotto().get(i).getIdProdotto() 
-							+ "\ntavolo:" + tavolo.getText() + "\nidCameriere:" + idcameriere.getText() + "\n";
+			for(int i=0;i<modelloOrdini.getSize();i++){
+				if(jListOrdini != null && idCameriereTextField != null && tavoloTextField != null){
+					String req = "pub:\n" + Server.INSERT_CAMERIERE_ORDINI + "\nid:" + modelloOrdini.getProdotti().get(i).getIdProdotto() 
+							+ "\ntavolo:" + tavoloTextField.getText() + "\nidCameriere:" + idCameriereTextField.getText() + "\n";
 					mandaInsertAlServer(req);
 				}
+				else 
+					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento. "
+							+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
+
 			}
-			
+
+			JOptionPane.showMessageDialog(new JFrame(), "Ordini inseriti");
+
 		}
 	}
-	//ascoltatore pulsante reset
+	//ascoltatore pulsante ok
 	private static class MyButtonResetListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			for(int i=0;i<listaOrdini.length;i++)
-				listaOrdini[i] = " ";
-			indiceListaOrdini = 0;
-			pane.repaint();
+			modelloOrdini.resetta();
+			jListOrdini.updateUI();
 		}
 	}
-	
+
 	//listener selezione bevande
-	
+
 	public static class BevandeSelezioneListener implements MouseListener{		
 		@Override
-	    public void mouseClicked(MouseEvent evt) {
-	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
-	            if (jListBevande.getSelectedIndex() != -1) {
-	                int index = jListBevande.locationToIndex(evt.getPoint());
-	                listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloBevande.getBevande().get(index));
-	    			pane.repaint();
-	    			indiceListaOrdini++;
-	            }
-	        }
-	    }
+		public void mouseClicked(MouseEvent evt) {
+			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
+				if (jListBevande.getSelectedIndex() != -1) {
+					int index = jListBevande.locationToIndex(evt.getPoint());
+					modelloOrdini.addProdotti(modelloBevande.getBevande().get(index));
+					jListOrdini.updateUI();
+				}
+			}
+		}
 
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
-	
+
 	//Listner selezione snack
 	public static class SnackSelezioneListener implements MouseListener{		
 		@Override
-	    public void mouseClicked(MouseEvent evt) {
-	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
-	            if (jListSnack.getSelectedIndex() != -1) {
-	                int index = jListSnack.locationToIndex(evt.getPoint());
-	                listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloSnack.getSnack().get(index));
-	    			pane.repaint();
-	    			indiceListaOrdini++;
-	            }
-	        }
-	    }
+		public void mouseClicked(MouseEvent evt) {
+			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
+				if (jListSnack.getSelectedIndex() != -1) {
+					int index = jListSnack.locationToIndex(evt.getPoint());
+					modelloOrdini.addProdotti(modelloSnack.getSnack().get(index));
+					jListOrdini.updateUI();
+				}
+			}
+		}
 
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
-	
+
 	public static class OrdiniSelezioneListener implements MouseListener{		
 		@Override
-	    public void mouseClicked(MouseEvent evt) {
-	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
-	            if (jListOrdini.getSelectedIndex() != -1) {
-	                int index = jListOrdini.locationToIndex(evt.getPoint());
-	                listaOrdini[index] = null;
-	    			pane.repaint();
-	    			indiceListaOrdini--;
-	            }
-	        }
-	    }
+		public void mouseClicked(MouseEvent evt) {
+			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
+				int index = jListOrdini.locationToIndex(evt.getPoint());
+				int n = JOptionPane.showConfirmDialog(new JFrame(),"Cancellare " 
+						+ modelloOrdini.getProdotti().get(index).getNome() + "?"
+						,"Eliminazione Ordine",JOptionPane.YES_NO_OPTION);
+				if (n == 0){
+					if (jListOrdini.getSelectedIndex() != -1) {
+						modelloOrdini.deleteProdotto(index);   
+						jListOrdini.updateUI();
+					}
+				}
+
+			}
+		}
 
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseExited(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
-	
+
 	public static void mandaInsertAlServer(String req){
 		Socket s;
 		try {
 			s = new Socket(Server.HOST, Server.PORTA);
-			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-
 			out.println(req);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Errore nella connessione al server");
 		}
-		
+
 	}
 
 	public static String ottieniStringaDalDatabase(String req){
@@ -229,32 +218,31 @@ public class CameriereGui extends JFrame{
 			s = new Socket(Server.HOST, Server.PORTA);
 			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-		
+
 			out.println(req);
-			
+
 			String line = in.readLine();
 			String risposta = line;
 
-				while(line.length() > 0){
-					line = in.readLine();
-					risposta += "\n" + line;
-					s.close();
-				}
-				
+			while(line.length() > 0){
+				line = in.readLine();
+				risposta += "\n" + line;
+				s.close();
+			}
+
 			return risposta;
-			
-			
-			
+
+
+
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Errore nella connessione al server");
 		}
 
 		return null;
 
 	}
-		
-
 
 	//creazione interfaccia
 	public CameriereGui(){
@@ -297,7 +285,7 @@ public class CameriereGui extends JFrame{
 		c.gridy =0;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(idcameriere, c);
+		pane.add(idCameriereTextField, c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 0;
@@ -339,7 +327,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getListOrdini(listaOrdini),c);
+		pane.add(getListOrdini(),c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 1;
@@ -353,7 +341,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getListBevande(jListBevande),c);
+		pane.add(getListBevande(),c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 3;
@@ -367,7 +355,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getListSnack(listaSnack), c);
+		pane.add(getListSnack(), c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 0;
@@ -388,14 +376,14 @@ public class CameriereGui extends JFrame{
 		c.gridy = 3;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(tavolo, c);
+		pane.add(tavoloTextField, c);
 
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 4;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(invia, c);
+		pane.add(inviaButton, c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 1;
@@ -410,7 +398,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 4;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(reset, c);
+		pane.add(resetButton, c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 3;
@@ -418,54 +406,64 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
-		
+
+
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 4;
 		c.gridy = 4;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(statoOrdini, c);
+		pane.add(statoOrdiniButton, c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
-		MyButtonOkListener listener = new MyButtonOkListener();
-		invia.addActionListener(listener);
-		MyButtonResetListener listener1 = new MyButtonResetListener();
-		reset.addActionListener(listener1);
-		MyButtonstatoordini listener2= new MyButtonstatoordini();
-    	statoOrdini.addActionListener(listener2);
+
+		MyButtonInviaListener inviaListener = new MyButtonInviaListener();
+		inviaButton.addActionListener(inviaListener);
+		MyButtonResetListener resetListner = new MyButtonResetListener();
+		resetButton.addActionListener(resetListner);
+		StatoOrdiniButton statoOrdiniListner= new StatoOrdiniButton();
+		statoOrdiniButton.addActionListener(statoOrdiniListner);
 
 	}
+
 	//creazione JList
-	private static JScrollPane getListBevande(JList lista){
-		
-		JScrollPane pane = new JScrollPane(lista);
+	private static JScrollPane getListBevande(){
+		jListBevande = new JList(modelloBevande);
+
+		JScrollPane pane = new JScrollPane(jListBevande);
 
 		BevandeSelezioneListener ml = new BevandeSelezioneListener();
-		  
-		lista.addMouseListener(ml);
-		
-		return pane;
-	}
-	
-	private static JScrollPane getListSnack(String[] lista){
-		jListSnack = new JList<String>(lista);
-		JScrollPane pane = new JScrollPane(jListSnack);
-		SnackSelezioneListener selezione = new SnackSelezioneListener();
-		jListSnack.addMouseListener(selezione);
-		
+
+		jListBevande.addMouseListener(ml);
+
 		return pane;
 	}
 
-	private static JScrollPane getListOrdini(String[] lista){
-		jListOrdini = new JList<String>(lista);
-		JScrollPane pane = new JScrollPane(jListOrdini);
-		OrdiniSelezioneListener selezione = new OrdiniSelezioneListener();
-		jListOrdini.addMouseListener(selezione);
-		
+	private static JScrollPane getListSnack(){
+		jListSnack = new JList(modelloSnack);
+
+		JScrollPane pane = new JScrollPane(jListSnack);
+
+		SnackSelezioneListener ml = new SnackSelezioneListener();
+
+		jListSnack.addMouseListener(ml);
+
 		return pane;
+	}
+
+	private static JScrollPane getListOrdini(){
+		jListOrdini = new JList(modelloOrdini);
+
+		JScrollPane pane = new JScrollPane(jListOrdini);
+
+		OrdiniSelezioneListener ml = new OrdiniSelezioneListener();
+
+		jListOrdini.addMouseListener(ml);
+
+		return pane;
+
 	}
 
 
@@ -473,27 +471,17 @@ public class CameriereGui extends JFrame{
 		String risposta = null;
 		String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
 
-		for(int i=0;i<listaOrdini.length;i++)
-			listaOrdini[i] = " ";
 		risposta = ottieniStringaDalDatabase(req);
 
-		//modelloBevande.addProdotti(risposta);
-		
 		modelloBevande = new MyListModelBevanda(risposta);
-		
-		jListBevande = new JList(modelloBevande);
-
-		//listaBevande = modelloBevande.creaLista();
 
 		req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_SNACK;
 
 		risposta = ottieniStringaDalDatabase(req);
 
-		modelloSnack.addProdotti(risposta);
+		modelloSnack = new MyListModelSnack(risposta);
 
-		listaSnack = modelloSnack.creaLista();
-
-		
+		modelloOrdini = new MyListModelOrdini();
 
 
 		try {
@@ -521,7 +509,7 @@ public class CameriereGui extends JFrame{
 				new CameriereGui();
 			}
 		}); 
-		
+
 
 	}
 

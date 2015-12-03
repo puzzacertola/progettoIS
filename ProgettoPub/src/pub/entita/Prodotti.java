@@ -57,7 +57,4 @@ public class Prodotti {
 	public void setCosto(float costo) {
 		this.costo = costo;
 	}
-	
-	//Metodi
-
 }

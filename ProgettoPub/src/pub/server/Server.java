@@ -5,14 +5,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
-import pub.dao.DAOcameriere;
 import pub.dao.DAOcameriereImpl;
 import pub.entita.Bevanda;
 import pub.entita.Ordine;
@@ -173,7 +167,8 @@ public class Server {
 				s.close();
 
 			} catch(IOException e){
-				e.printStackTrace();			
+				e.printStackTrace();	
+				System.out.println("Errore nella comunicazione");
 			}
 
 		}
