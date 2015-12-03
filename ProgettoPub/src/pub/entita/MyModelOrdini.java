@@ -14,9 +14,11 @@ import pub.server.Server;
 public class MyModelOrdini extends AbstractTableModel{
 	
 	String lista = "";
+	Vector<Prodotti> prodotto;
 	
 	//costruttore
 	public MyModelOrdini(){
+		this.prodotto = new Vector<Prodotti>();
 		
 	}
 	//aggiungi prodotto
@@ -24,10 +26,16 @@ public class MyModelOrdini extends AbstractTableModel{
 	public String addProdotti(Prodotti prodotto){
 		
 		lista = prodotto.getNome() + " " + prodotto.getCosto();
-
+		
+		this.prodotto.add(prodotto);
+		
 		return lista;
 	}
 	
+	public Vector<Prodotti> getProdotto() {
+		return prodotto;
+	}
+
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub

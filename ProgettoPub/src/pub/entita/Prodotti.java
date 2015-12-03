@@ -1,6 +1,6 @@
 package pub.entita;
 
-public abstract class Prodotti {
+public class Prodotti {
 	
 	//Istanze
 	private int idProdotto;
