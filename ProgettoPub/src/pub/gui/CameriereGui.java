@@ -48,13 +48,13 @@ public class CameriereGui extends JFrame{
 	private static String[] listaSnack = null;
 	private static String[] listaOrdini = new String[20];
 	private static Container pane;
-	private static MyModelBevanda modelloBevande = new MyModelBevanda();
+	private static MyListModelBevanda modelloBevande = null;
 	private static MyModelSnack modelloSnack = new MyModelSnack();
 	private static MyModelOrdini modelloOrdini = new MyModelOrdini();
 	private static int indiceListaOrdini = 0;
 	private static JButton statoOrdini = new JButton("Visualizza ordini");
 	
-	static JList<String> jListBevande = new JList<String>();
+	static JList jListBevande = new JList();
 	static JList<String> jListSnack = new JList<String>();
 	static JList<String> jListOrdini = new JList<String>();
 	
@@ -99,7 +99,7 @@ public class CameriereGui extends JFrame{
 	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
 	            if (jListBevande.getSelectedIndex() != -1) {
 	                int index = jListBevande.locationToIndex(evt.getPoint());
-	                listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloBevande.getBevanda().get(index));
+	                listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloBevande.getBevande().get(index));
 	    			pane.repaint();
 	    			indiceListaOrdini++;
 	            }
@@ -353,7 +353,7 @@ public class CameriereGui extends JFrame{
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(getListBevande(listaBevande),c);
+		pane.add(getListBevande(jListBevande),c);
 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 3;
@@ -439,13 +439,13 @@ public class CameriereGui extends JFrame{
 
 	}
 	//creazione JList
-	private static JScrollPane getListBevande(String[] lista){
-		jListBevande = new JList<String>(lista);
-		JScrollPane pane = new JScrollPane(jListBevande);
+	private static JScrollPane getListBevande(JList lista){
+		
+		JScrollPane pane = new JScrollPane(lista);
 
 		BevandeSelezioneListener ml = new BevandeSelezioneListener();
 		  
-		jListBevande.addMouseListener(ml);
+		lista.addMouseListener(ml);
 		
 		return pane;
 	}
@@ -477,12 +477,13 @@ public class CameriereGui extends JFrame{
 			listaOrdini[i] = " ";
 		risposta = ottieniStringaDalDatabase(req);
 
-		modelloBevande.addProdotti(risposta);
+		//modelloBevande.addProdotti(risposta);
 		
+		modelloBevande = new MyListModelBevanda(risposta);
 		
-		JList lista = new JList(new MyListModel(risposta));
+		jListBevande = new JList(modelloBevande);
 
-		listaBevande = modelloBevande.creaLista();
+		//listaBevande = modelloBevande.creaLista();
 
 		req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_SNACK;
 

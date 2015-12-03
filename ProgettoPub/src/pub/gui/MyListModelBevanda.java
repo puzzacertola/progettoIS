@@ -7,17 +7,27 @@ import javax.swing.event.ListDataListener;
 
 import pub.entita.Bevanda;
 
-public class MyListModel implements ListModel<String> {
+public class MyListModelBevanda implements ListModel<String> {
 
 	private ArrayList<Bevanda> bevande = null;
 	
-	public MyListModel(String risposta){
+	public MyListModelBevanda(String risposta){
 
 		setData(risposta);
 		
 	}
 	
 	
+	public ArrayList<Bevanda> getBevande() {
+		return bevande;
+	}
+
+
+	public void setBevande(ArrayList<Bevanda> bevande) {
+		this.bevande = bevande;
+	}
+
+
 	public void setData(String risposta){
 		// Split della stringa e aggiunto a lista
 
