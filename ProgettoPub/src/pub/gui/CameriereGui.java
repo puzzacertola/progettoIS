@@ -478,6 +478,9 @@ public class CameriereGui extends JFrame{
 		risposta = ottieniStringaDalDatabase(req);
 
 		modelloBevande.addProdotti(risposta);
+		
+		
+		JList lista = new JList(new MyListModel(risposta));
 
 		listaBevande = modelloBevande.creaLista();
 
