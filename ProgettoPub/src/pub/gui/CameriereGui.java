@@ -79,6 +79,7 @@ public class CameriereGui extends JFrame{
 		public void actionPerformed(ActionEvent evt) {
 			for(int i=0;i<listaOrdini.length;i++)
 				listaOrdini[i] = " ";
+			indiceListaOrdini = 0;
 			pane.repaint();
 		}
 	}
