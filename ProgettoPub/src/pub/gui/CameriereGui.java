@@ -6,6 +6,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,6 +24,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ListSelectionEvent;
@@ -72,31 +76,122 @@ public class CameriereGui extends JFrame{
 	}
 	
 	//listener selezione bevande
-	public static class BevandeSelezioneListener implements ListSelectionListener{
-		public void valueChanged(ListSelectionEvent e){
-			listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloBevande.getBevanda().get(jListBevande.getSelectedIndex()));
-			pane.repaint();
-			indiceListaOrdini++;
+	
+	public static class BevandeSelezioneListener implements MouseListener{		
+		@Override
+	    public void mouseClicked(MouseEvent evt) {
+	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
+	            if (jListBevande.getSelectedIndex() != -1) {
+	                int index = jListBevande.locationToIndex(evt.getPoint());
+	                listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloBevande.getBevanda().get(index));
+	    			pane.repaint();
+	    			indiceListaOrdini++;
+	            }
+	        }
+	    }
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 	
 	//Listner selezione snack
-	public static class SnackSelezioneListener implements ListSelectionListener{
-		public void valueChanged(ListSelectionEvent e){
-			listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloSnack.getSnack().get(jListSnack.getSelectedIndex()));
-			pane.repaint();
-			indiceListaOrdini++;
+	public static class SnackSelezioneListener implements MouseListener{		
+		@Override
+	    public void mouseClicked(MouseEvent evt) {
+	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
+	            if (jListSnack.getSelectedIndex() != -1) {
+	                int index = jListSnack.locationToIndex(evt.getPoint());
+	                listaOrdini[indiceListaOrdini] = modelloOrdini.addProdotti(modelloSnack.getSnack().get(index));
+	    			pane.repaint();
+	    			indiceListaOrdini++;
+	            }
+	        }
+	    }
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 	
-	//listner selezione Ordini
-	public static class OrdiniSelezioneListener implements ListSelectionListener{
-		public void valueChanged(ListSelectionEvent e){
-			listaOrdini[indiceListaOrdini - 1] = null;
-			pane.repaint();
-			indiceListaOrdini++;
+	public static class OrdiniSelezioneListener implements MouseListener{		
+		@Override
+	    public void mouseClicked(MouseEvent evt) {
+	        if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
+	            if (jListOrdini.getSelectedIndex() != -1) {
+	                int index = jListOrdini.locationToIndex(evt.getPoint());
+	                listaOrdini[index] = null;
+	    			pane.repaint();
+	    			indiceListaOrdini--;
+	            }
+	        }
+	    }
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
+	
 
 	public static String ottieniStringaDalDatabase(String req){
 		Socket s;
@@ -295,8 +390,10 @@ public class CameriereGui extends JFrame{
 	private static JScrollPane getListBevande(String[] lista){
 		jListBevande = new JList<String>(lista);
 		JScrollPane pane = new JScrollPane(jListBevande);
-		BevandeSelezioneListener selezione = new BevandeSelezioneListener();
-		jListBevande.addListSelectionListener(selezione);
+
+		BevandeSelezioneListener ml = new BevandeSelezioneListener();
+		  
+		jListBevande.addMouseListener(ml);
 		
 		return pane;
 	}
@@ -305,7 +402,7 @@ public class CameriereGui extends JFrame{
 		jListSnack = new JList<String>(lista);
 		JScrollPane pane = new JScrollPane(jListSnack);
 		SnackSelezioneListener selezione = new SnackSelezioneListener();
-		jListSnack.addListSelectionListener(selezione);
+		jListSnack.addMouseListener(selezione);
 		
 		return pane;
 	}
@@ -314,7 +411,7 @@ public class CameriereGui extends JFrame{
 		jListOrdini = new JList<String>(lista);
 		JScrollPane pane = new JScrollPane(jListOrdini);
 		OrdiniSelezioneListener selezione = new OrdiniSelezioneListener();
-		jListOrdini.addListSelectionListener(selezione);
+		jListOrdini.addMouseListener(selezione);
 		
 		return pane;
 	}
