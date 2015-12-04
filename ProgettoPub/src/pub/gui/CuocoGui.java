@@ -85,7 +85,7 @@ public class CuocoGui extends JFrame{
 		//new BaristaGui();
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new BaristaGui();
+				new CuocoGui();
 			}
 		}); 
 
