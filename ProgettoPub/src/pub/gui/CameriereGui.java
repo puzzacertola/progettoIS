@@ -22,159 +22,31 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
+import pub.gui.CameriereGuiSetting;
+import pub.gui.CameriereGuiSetting.BevandeSelezioneListener;
+import pub.gui.CameriereGuiSetting.MyButtonInviaListener;
+import pub.gui.CameriereGuiSetting.MyButtonResetListener;
+import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
+import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener.SnackSelezioneListener;
+import pub.gui.CameriereGuiSetting.StatoOrdiniButton;
 import pub.server.Server;
 
 public class CameriereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private static JTextField tavoloTextField = new JTextField("",5);
-	private static JTextField idCameriereTextField = new JTextField("id",5);
+	public static JTextField tavoloTextField = new JTextField("",5);
+	public static JTextField idCameriereTextField = new JTextField("id",5);
 	private static JButton inviaButton = new JButton("Invia");
 	private static JButton resetButton = new JButton("Reset");	
 	private static Container pane;
-	private static MyListModelBevanda modelloBevande = null;
-	private static MyListModelSnack modelloSnack = null;
-	private static MyListModelOrdini modelloOrdini = null;
-	private static JButton statoOrdiniButton = new JButton("Visualizza ordini");
+	public static MyListModelBevanda modelloBevande = null;
+	public static MyListModelSnack modelloSnack = null;
+	public static MyListModelOrdini modelloOrdini = null;
+	public static JButton statoOrdiniButton = new JButton("Visualizza ordini");
 
 	static JList jListBevande = new JList();
 	static JList jListSnack = new JList();
 	static JList jListOrdini = new JList();
-
-	//ascoltatore pulsante StatoOrdini
-	private static class StatoOrdiniButton implements ActionListener {
-		public void actionPerformed(ActionEvent evt) {
-			System.out.print("statoOrdini pressed \n");
-			String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + idCameriereTextField.getText() + "\n";
-			String risposta = ottieniStringaDalDatabase(req);
-			new OrdiniGui(risposta);
-		}
-	}
-
-	//ascoltatore pulsante invia
-	private static class MyButtonInviaListener implements ActionListener {
-		public void actionPerformed(ActionEvent evt) {
-			boolean inserito = true;
-			if(/*modelloOrdini.getProdotti().get(0).getNome() == "" ||*/ idCameriereTextField.getText() != "id" /*|| tavoloTextField.getText() == ""*/){
-				for(int i=0;i<modelloOrdini.getSize();i++){
-					String req = "pub:\n" + Server.INSERT_CAMERIERE_ORDINI + "\nid:" + modelloOrdini.getProdotti().get(i).getIdProdotto() 
-							+ "\ntavolo:" + tavoloTextField.getText() + "\nidCameriere:" + idCameriereTextField.getText() + "\n";
-					mandaInsertAlServer(req);										 					
-				}
-			}else
-				inserito = false;
-
-			if(inserito == false)
-				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento. "
-						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
-			else
-				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");
-
-
-		}
-	}
-	//ascoltatore pulsante ok
-	private static class MyButtonResetListener implements ActionListener {
-		public void actionPerformed(ActionEvent evt) {
-			modelloOrdini.resetta();
-			jListOrdini.updateUI();
-		}
-	}
-
-	//listener selezione bevande
-
-	public static class BevandeSelezioneListener extends MouseAdapter {	
-		
-		@Override
-		public void mouseClicked(MouseEvent evt) {
-			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
-				if (jListBevande.getSelectedIndex() != -1) {
-					int index = jListBevande.locationToIndex(evt.getPoint());
-					modelloOrdini.addProdotti(modelloBevande.getBevande().get(index));
-					jListOrdini.updateUI();
-				}
-			}
-		}
-	}
-
-	//Listner selezione snack
-	public static class SnackSelezioneListener extends MouseAdapter{		
-		@Override
-		public void mouseClicked(MouseEvent evt) {
-			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
-				if (jListSnack.getSelectedIndex() != -1) {
-					int index = jListSnack.locationToIndex(evt.getPoint());
-					modelloOrdini.addProdotti(modelloSnack.getSnack().get(index));
-					jListOrdini.updateUI();
-				}
-			}
-		}
-	}
-
-	public static class OrdiniSelezioneListener extends MouseAdapter{		
-		@Override
-		public void mouseClicked(MouseEvent evt) {
-			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
-				int index = jListOrdini.locationToIndex(evt.getPoint());
-				int n = JOptionPane.showConfirmDialog(new JFrame(),"Cancellare " 
-						+ modelloOrdini.getProdotti().get(index).getNome() + "?"
-						,"Eliminazione Ordine",JOptionPane.YES_NO_OPTION);
-				if (n == 0){
-					if (jListOrdini.getSelectedIndex() != -1) {
-						modelloOrdini.deleteProdotto(index);   
-						jListOrdini.updateUI();
-					}
-				}
-
-			}
-		}
-	}
-
-	public static void mandaInsertAlServer(String req){
-		Socket s;
-		try {
-			s = new Socket(Server.HOST, Server.PORTA);
-			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-			out.println(req);
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println("Errore nella connessione al server");
-		}
-
-	}
-
-	public static String ottieniStringaDalDatabase(String req){
-		Socket s;
-		try {
-			s = new Socket(Server.HOST, Server.PORTA);
-			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-
-			out.println(req);
-
-			String line = in.readLine();
-			String risposta = line;
-
-			while(line.length() > 0){
-				line = in.readLine();
-				risposta += "\n" + line;
-				s.close();
-			}
-
-			return risposta;
-
-
-
-		}catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Errore nella connessione al server");
-		}
-
-		return null;
-
-	}
 
 	//creazione interfaccia
 	public CameriereGui(){
@@ -399,17 +271,19 @@ public class CameriereGui extends JFrame{
 	}
 
 
+	
+
 	public static void main(String[] args) {
 		String risposta = null;
 		String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
 
-		risposta = ottieniStringaDalDatabase(req);
+		risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
 
 		modelloBevande = new MyListModelBevanda(risposta);
 
 		req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_SNACK;
 
-		risposta = ottieniStringaDalDatabase(req);
+		risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
 
 		modelloSnack = new MyListModelSnack(risposta);
 

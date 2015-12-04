@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import pub.gui.CameriereGui.OrdiniSelezioneListener;
+import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
 import pub.server.Server;
 
 public class CassiereGui extends JFrame{
