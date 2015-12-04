@@ -5,6 +5,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
@@ -22,6 +23,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import org.w3c.dom.views.AbstractView;
+
 import pub.entita.Prodotti;
 import pub.server.Server;
 
@@ -29,7 +33,7 @@ public class CameriereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private static JTextField tavoloTextField = new JTextField("",5);
-	private static JTextField idCameriereTextField = new JTextField("",5);
+	private static JTextField idCameriereTextField = new JTextField("id",5);
 	private static JButton inviaButton = new JButton("Invia");
 	private static JButton resetButton = new JButton("Reset");	
 	private static Container pane;
@@ -55,19 +59,22 @@ public class CameriereGui extends JFrame{
 	//ascoltatore pulsante invia
 	private static class MyButtonInviaListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			for(int i=0;i<modelloOrdini.getSize();i++){
-				if(jListOrdini != null && idCameriereTextField != null && tavoloTextField != null){
+			boolean inserito = true;
+			if(/*modelloOrdini.getProdotti().get(0).getNome() == "" ||*/ idCameriereTextField.getText() != "id" /*|| tavoloTextField.getText() == ""*/){
+				for(int i=0;i<modelloOrdini.getSize();i++){
 					String req = "pub:\n" + Server.INSERT_CAMERIERE_ORDINI + "\nid:" + modelloOrdini.getProdotti().get(i).getIdProdotto() 
 							+ "\ntavolo:" + tavoloTextField.getText() + "\nidCameriere:" + idCameriereTextField.getText() + "\n";
-					mandaInsertAlServer(req);
+					mandaInsertAlServer(req);										 					
 				}
-				else 
-					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento. "
-							+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
+			}else
+				inserito = false;
 
-			}
+			if(inserito == false)
+				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento. "
+						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
+			else
+				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");
 
-			JOptionPane.showMessageDialog(new JFrame(), "Ordini inseriti");
 
 		}
 	}
@@ -81,7 +88,8 @@ public class CameriereGui extends JFrame{
 
 	//listener selezione bevande
 
-	public static class BevandeSelezioneListener implements MouseListener{		
+	public static class BevandeSelezioneListener extends MouseAdapter {	
+		
 		@Override
 		public void mouseClicked(MouseEvent evt) {
 			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
@@ -92,34 +100,10 @@ public class CameriereGui extends JFrame{
 				}
 			}
 		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
 	}
 
 	//Listner selezione snack
-	public static class SnackSelezioneListener implements MouseListener{		
+	public static class SnackSelezioneListener extends MouseAdapter{		
 		@Override
 		public void mouseClicked(MouseEvent evt) {
 			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
@@ -130,33 +114,9 @@ public class CameriereGui extends JFrame{
 				}
 			}
 		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
 	}
 
-	public static class OrdiniSelezioneListener implements MouseListener{		
+	public static class OrdiniSelezioneListener extends MouseAdapter{		
 		@Override
 		public void mouseClicked(MouseEvent evt) {
 			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
@@ -172,30 +132,6 @@ public class CameriereGui extends JFrame{
 				}
 
 			}
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-
 		}
 	}
 
