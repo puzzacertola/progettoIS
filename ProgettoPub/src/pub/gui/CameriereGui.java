@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Calendar;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,7 +29,7 @@ import pub.gui.CameriereGuiSetting.BevandeSelezioneListener;
 import pub.gui.CameriereGuiSetting.MyButtonInviaListener;
 import pub.gui.CameriereGuiSetting.MyButtonResetListener;
 import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
-import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener.SnackSelezioneListener;
+import pub.gui.CameriereGuiSetting.SnackSelezioneListener;
 import pub.gui.CameriereGuiSetting.StatoOrdiniButton;
 import pub.server.Server;
 
@@ -270,9 +272,6 @@ public class CameriereGui extends JFrame{
 
 	}
 
-
-	
-
 	public static void main(String[] args) {
 		String risposta = null;
 		String req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_BEVANDE;
@@ -288,7 +287,6 @@ public class CameriereGui extends JFrame{
 		modelloSnack = new MyListModelSnack(risposta);
 
 		modelloOrdini = new MyListModelOrdini();
-
 
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");

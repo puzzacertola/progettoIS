@@ -13,7 +13,6 @@ import pub.entita.Snack;
 
 
 public class DAOcameriereImpl implements DAOcameriere {
-	private static final int CONVERSIONE_ORE = 3600 * 1000;
 	public static final int LIMITE = 22;
 
 	private DAOcameriereImpl(){}
@@ -38,6 +37,7 @@ public class DAOcameriereImpl implements DAOcameriere {
 						rs.getFloat("Costo"),
 						rs.getString("Tipo")));
 			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Errore nella stringa di risposta");
@@ -84,21 +84,17 @@ public class DAOcameriereImpl implements DAOcameriere {
 	@Override
 	public List<Bevanda> mostraBevande() {
 		Calendar limite = Calendar.getInstance();
-		limite.set(Calendar.HOUR_OF_DAY,LIMITE);
+		limite.set(Calendar.HOUR,LIMITE);
 		limite.set(Calendar.MINUTE,0);
 		limite.set(Calendar.SECOND,0);
 		limite.set(Calendar.MILLISECOND,0);
 		Calendar cal = Calendar.getInstance();
-		boolean dopoLeDieci = true;
-
-		if((limite.getTime().getTime() - cal.getTime().getTime())/(CONVERSIONE_ORE) > 0)
-			dopoLeDieci = false;
 
 		String query = "";
 		ArrayList<Bevanda> listaBevande = new ArrayList<Bevanda>();
 		try {
 			Statement stat = DAOSetting.getStatement();
-			if(!dopoLeDieci)
+			if((limite.get(Calendar.HOUR) - cal.get(Calendar.HOUR)) > 0)
 				query = "select * from Menu where Tipo like 'B%'";
 			else
 				query = "select * from Menu where Tipo like 'B%' and Tipo != 'BA'";
