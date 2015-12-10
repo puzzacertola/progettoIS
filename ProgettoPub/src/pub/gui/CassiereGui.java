@@ -18,7 +18,7 @@ public class CassiereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private static Container pane ;
-	private static JTextField texttavolo= new JTextField("",5);
+	private static JTextField tavoloTextArea= new JTextField("",5);
 	private static JTextArea contoTextArea = new JTextArea(20,10);
 	
 	//creazione interfaccia
@@ -41,7 +41,7 @@ public class CassiereGui extends JFrame{
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(texttavolo, c);
+		pane.add(tavoloTextArea, c);
 		
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;

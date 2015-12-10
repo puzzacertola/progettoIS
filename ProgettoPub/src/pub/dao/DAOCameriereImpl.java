@@ -12,16 +12,16 @@ import pub.entita.Ordine;
 import pub.entita.Snack;
 
 
-public class DAOcameriereImpl implements DAOcameriere {
+public class DAOCameriereImpl implements DAOCameriere {
 	public static final int LIMITE = 22;
 
-	private DAOcameriereImpl(){}
+	private DAOCameriereImpl(){}
 
-	private static DAOcameriereImpl dao = null;
+	private static DAOCameriereImpl dao = null;
 
-	public static DAOcameriereImpl getInstance(){
+	public static DAOCameriereImpl getInstance(){
 		if (dao == null){
-			dao = new DAOcameriereImpl();
+			dao = new DAOCameriereImpl();
 		}
 		return dao;
 	}
@@ -129,7 +129,6 @@ public class DAOcameriereImpl implements DAOcameriere {
 
 	@Override
 	public void inserisciOrdini(Ordine o) {
-
 		try {
 			Statement stat = DAOSetting.getStatement();
 

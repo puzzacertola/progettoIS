@@ -34,7 +34,4 @@ public class Ordinazioni {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
-	
 }

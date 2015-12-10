@@ -1,7 +1,6 @@
 package pub.entita;
 
-public class Conto {
-	
+public class Conto {	
 	//Istanze
 	private String nomeProdotto;
 	private float costo;
@@ -46,7 +45,4 @@ public class Conto {
 		this.totale = totale;
 	}
 	
-	//Metodi
-	
-
 }

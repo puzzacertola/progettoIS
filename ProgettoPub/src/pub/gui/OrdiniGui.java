@@ -13,7 +13,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class OrdiniGui extends JFrame{
-
 	private static final long serialVersionUID = 1L;
 	private static JTextArea ordiniTextArea = new JTextArea(20,50);
 

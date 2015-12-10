@@ -12,9 +12,7 @@ public class MyListModelSnack implements ListModel<String> {
 	private ArrayList<Snack> snack = null;
 
 	public MyListModelSnack(String risposta){
-
 		setData(risposta);
-
 	}
 
 	public ArrayList<Snack> getSnack() {
@@ -26,13 +24,12 @@ public class MyListModelSnack implements ListModel<String> {
 		this.snack = snack;
 	}
 
-
 	public void setData(String risposta){
 		snack = new ArrayList<Snack>();
 
-		String[] arrayRiga= risposta.split("\\\n",-1);
+		String[] arrayRiga = risposta.split("\\\n",-1);
 
-		for(int i=0; i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
+		for(int i=0;i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
 			String[] arrayRisposta = arrayRiga[i].split("\\;",-1);
 			Snack s = new Snack(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.parseFloat(arrayRisposta[3]));
 			snack.add(s);

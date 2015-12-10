@@ -1,7 +1,6 @@
 package pub.entita;
 
 public class Cameriere {
-
 	//Istanze
 	static final int PORTA = 80;
 	private int IdCameriere;

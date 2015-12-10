@@ -6,8 +6,7 @@ import pub.entita.Bevanda;
 import pub.entita.Ordine;
 import pub.entita.Snack;
 
-public interface DAOcameriere {
-	
+public interface DAOCameriere {	
 	public List<Bevanda> mostraBevande();
 	public List<Snack> mostraSnack();
 	public void inserisciOrdini(Ordine o);
@@ -16,5 +15,4 @@ public interface DAOcameriere {
 	public void eliminaOrdine (int idOrdine);
 	public List<Ordine> mostraOrdiniCameriere(int idCameriere);
 	public List<Ordine>	mostraOrdiniTavolo(int tavolo);
-
 }

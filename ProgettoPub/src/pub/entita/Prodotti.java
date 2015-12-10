@@ -1,7 +1,6 @@
 package pub.entita;
 
-public class Prodotti {
-	
+public class Prodotti {	
 	//Istanze
 	private int idProdotto;
 	private String nome;
@@ -22,9 +21,9 @@ public class Prodotti {
 		this.idProdotto=id;
 		this.nome=nome;
 		this.descrizione=descrizione;
-		this.costo=costo;
-		
+		this.costo=costo;		
 	}
+	
 	//Get & Set
 	public int getIdProdotto() {
 		return idProdotto;

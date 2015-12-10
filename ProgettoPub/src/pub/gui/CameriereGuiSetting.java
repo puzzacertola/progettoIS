@@ -28,7 +28,6 @@ abstract class CameriereGuiSetting {
 			e.printStackTrace();
 			System.out.println("Errore nella connessione al server");
 		}
-
 	}
 
 	public static String ottieniStringaDalDatabase(String req){
@@ -51,16 +50,12 @@ abstract class CameriereGuiSetting {
 
 			return risposta;
 
-
-
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Errore nella connessione al server");
 		}
-
 		return null;
-
 	}
 
 	public static class MyButtonResetListener implements ActionListener {
@@ -70,7 +65,6 @@ abstract class CameriereGuiSetting {
 
 		}
 	}
-
 
 	//ascoltatore pulsante StatoOrdini
 	public static class StatoOrdiniButton implements ActionListener {
@@ -87,8 +81,8 @@ abstract class CameriereGuiSetting {
 		public void actionPerformed(ActionEvent evt) {
 			boolean inserito = true;
 			if(CameriereGui.modelloOrdini.getProdotti().get(0).getIdProdotto() != -1 && 
-					!CameriereGui.idCameriereTextField.getText().equals("id") 
-					&& !CameriereGui.tavoloTextField.getText().equals("")){
+					!CameriereGui.idCameriereTextField.getText().equals("id") && 
+					!CameriereGui.tavoloTextField.getText().equals("")){
 
 				for(int i=0;i<CameriereGui.modelloOrdini.getSizeOfProdotti();i++){
 
@@ -104,7 +98,7 @@ abstract class CameriereGuiSetting {
 				inserito = false;
 
 			if(inserito == false)
-				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento. "
+				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
 						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
 			else
 				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");

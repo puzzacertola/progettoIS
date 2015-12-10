@@ -15,7 +15,7 @@ import pub.server.Server;
 public class BaristaGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private static String[] appo ={""};
+	private static String[] appo = {""}; //ANCORA DA FARE
 	private static Container pane ;
 	
 	//creazione interfaccia
@@ -40,16 +40,11 @@ public class BaristaGui extends JFrame{
 		c.weighty = 1;
 		pane.add(getListOrdini(appo), c);
 	
-		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
-		setVisible(true);
-		
-		
-				
+		setVisible(true);		
 	}
-	   
-	
+
 	private static JScrollPane getListOrdini(String[] a){
 		JList jListOrdini = new JList(a);
 

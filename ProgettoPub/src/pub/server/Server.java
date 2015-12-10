@@ -7,13 +7,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 
-import pub.dao.DAOcameriereImpl;
+import pub.dao.DAOCameriereImpl;
 import pub.entita.Bevanda;
 import pub.entita.Ordine;
 import pub.entita.Snack;
 
 public class Server {
-
 	public static final int PORTA = 80;
 	public static final String USER = "server";
 	public static final String PASS = "server";
@@ -86,7 +85,7 @@ public class Server {
 				String comando = in.readLine();
 
 				if(comando.equals(SELECT_CAMERIERE_MENU_BEVANDE)){
-					List<Bevanda> lista = DAOcameriereImpl.getInstance().mostraBevande();
+					List<Bevanda> lista = DAOCameriereImpl.getInstance().mostraBevande();
 
 					risposta = rispostaBevande(lista);
 
@@ -94,7 +93,7 @@ public class Server {
 				}
 
 				else if(comando.equals(SELECT_CAMERIERE_MENU_SNACK)){
-					List<Snack> lista = DAOcameriereImpl.getInstance().mostraSnack();
+					List<Snack> lista = DAOCameriereImpl.getInstance().mostraSnack();
 
 					risposta = rispostaSnack(lista);
 
@@ -109,12 +108,12 @@ public class Server {
 
 					Ordine ordine = new Ordine(idProdotto, tavolo, idCameriere, "Da Fare");
 
-					DAOcameriereImpl.getInstance().inserisciOrdini(ordine);
+					DAOCameriereImpl.getInstance().inserisciOrdini(ordine);
 
 				}
 
 				else if(comando.equals(SELECT_CAMERIERE_ORDINI)){
-					List<Ordine> lista = DAOcameriereImpl.getInstance().mostraOrdini();
+					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdini();
 
 					risposta = rispostaOrdini(lista);
 
@@ -124,7 +123,7 @@ public class Server {
 				else if(comando.equals(DELETE_CAMERIERE_ORDINI)){
 					int idOrdine = Integer.parseInt(in.readLine().replace("id:", ""));
 
-					DAOcameriereImpl.getInstance().eliminaOrdine(idOrdine);
+					DAOCameriereImpl.getInstance().eliminaOrdine(idOrdine);
 
 				}
 
@@ -133,12 +132,12 @@ public class Server {
 					int idOrdine = Integer.parseInt(in.readLine().replace("idOrdine:", ""));
 					int idProdotto = Integer.parseInt(in.readLine().replace("idProdotto:", ""));
 
-					DAOcameriereImpl.getInstance().modificaOrdine(idOrdine, idProdotto);
+					DAOCameriereImpl.getInstance().modificaOrdine(idOrdine, idProdotto);
 
 				}
 
 				else if(comando.equals(SELECT_CAMERIERE_IDORDINI)){
-					List<Ordine> lista = DAOcameriereImpl.getInstance().mostraOrdini();
+					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdini();
 
 					for(Ordine o: lista)
 						risposta += o.getIdOrdine() + "\n";
@@ -148,7 +147,7 @@ public class Server {
 
 				else if(comando.equals(SELECT_CAMERIERE_ORDINI_CAMERIERE)){
 					int idCameriere = Integer.parseInt(in.readLine().replace("id:", ""));
-					List<Ordine> lista = DAOcameriereImpl.getInstance().mostraOrdiniCameriere(idCameriere);
+					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdiniCameriere(idCameriere);
 
 					risposta = rispostaOrdini(lista);
 
@@ -157,7 +156,7 @@ public class Server {
 
 				else if(comando.equals(SELECT_CAMERIERE_ORDINI_TAVOLO)){
 					int tavolo = Integer.parseInt(in.readLine().replace("id:", ""));
-					List<Ordine> lista = DAOcameriereImpl.getInstance().mostraOrdiniTavolo(tavolo);
+					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdiniTavolo(tavolo);
 
 					risposta = rispostaOrdini(lista);
 

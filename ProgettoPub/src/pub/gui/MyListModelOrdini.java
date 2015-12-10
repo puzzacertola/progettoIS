@@ -12,6 +12,13 @@ public class MyListModelOrdini extends AbstractListModel {
 	private ArrayList<Prodotti> prodotti = null;
 
 	private ArrayList<Ordinazioni> ordinazioni = null;
+	
+	private static final int ID_PRODOTTO_INIZIALIZZAZIONE = -1;
+	private static final int COSTO_INIZIALIZZAZIONE = 0;
+	private static final int NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE = 1;
+	private static final int NUMERO_PRODOTTI_DIVERSI_INIZIALIZZAZIONE = 0;
+	private static final String DESCRIZIONE_INIZIALIZZAZIONE = " ";
+	private static final String NOME_INIZIALIZZAZIONE = " ";
 
 	//indice per sapere quanti prodotti uguali ci sono
 	private int numeroProdottiUguali;
@@ -20,9 +27,10 @@ public class MyListModelOrdini extends AbstractListModel {
 	public MyListModelOrdini(){	
 		this.prodotti = new ArrayList<Prodotti>();
 		this.ordinazioni = new ArrayList<Ordinazioni>();
-		this.prodotti.add(new Prodotti(-1," "," ",0));		
-		this.numeroProdottiUguali = 1;
-		this.numeroProdottiDiversi = 0; 
+		this.prodotti.add(new Prodotti(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
+				COSTO_INIZIALIZZAZIONE));		
+		this.numeroProdottiUguali = NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE;
+		this.numeroProdottiDiversi = NUMERO_PRODOTTI_DIVERSI_INIZIALIZZAZIONE; 
 	}
 
 	public ArrayList<Prodotti> getProdotti() {
@@ -49,7 +57,7 @@ public class MyListModelOrdini extends AbstractListModel {
 
 		this.prodotti.add(prodotto);
 
-		if(this.prodotti.get(0).getIdProdotto() == -1)
+		if(this.prodotti.get(0).getIdProdotto() == ID_PRODOTTO_INIZIALIZZAZIONE)
 			this.prodotti.remove(0);	
 	}
 
@@ -76,13 +84,14 @@ public class MyListModelOrdini extends AbstractListModel {
 
 		}
 		else{
-			prodotti.add(new Prodotti(-1," "," ",0));
+			prodotti.add(new Prodotti(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
+					COSTO_INIZIALIZZAZIONE));
 		}
 	}
 
 	@Override
 	public String getElementAt(int index) {
-		if(this.prodotti.get(index).getIdProdotto() == -1)
+		if(this.prodotti.get(index).getIdProdotto() == ID_PRODOTTO_INIZIALIZZAZIONE)
 			return this.prodotti.get(index).getNome();
 
 		return this.ordinazioni.get(index).getQuantita() + "x " + this.ordinazioni.get(index).getNome() + " "
@@ -97,13 +106,14 @@ public class MyListModelOrdini extends AbstractListModel {
 	public void resetta(){
 		this.prodotti.clear();
 		this.ordinazioni.clear();
-		this.numeroProdottiDiversi = 0;
-		this.numeroProdottiUguali = 1;
-		prodotti.add(new Prodotti(-1," "," ",0));
+		this.numeroProdottiDiversi = NUMERO_PRODOTTI_DIVERSI_INIZIALIZZAZIONE;
+		this.numeroProdottiUguali = NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE;
+		prodotti.add(new Prodotti(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
+				COSTO_INIZIALIZZAZIONE));
 	}
 
 	public void numeroProdottiUguali(Prodotti p){
-		this.numeroProdottiUguali = 1;
+		this.numeroProdottiUguali = NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE;
 		for(Prodotti prodotto: this.prodotti)
 			if(prodotto.equals(p))
 				this.numeroProdottiUguali++;	
@@ -113,12 +123,9 @@ public class MyListModelOrdini extends AbstractListModel {
 	public void numeroProdottiDiversi(Prodotti p){
 		if(!this.prodotti.contains(p))
 			this.numeroProdottiDiversi++;
-
 	}
 
 	public int getSizeOfProdotti(){
 		return this.prodotti.size();
 	}
-
-
 }

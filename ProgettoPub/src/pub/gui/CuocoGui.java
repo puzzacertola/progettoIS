@@ -1,4 +1,4 @@
-package pub.gui;
+		package pub.gui;
 
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -45,8 +45,7 @@ public class CuocoGui extends JFrame{
 		pack();
 		setVisible(true);
 				
-	}
-	   
+	}   
 	
 	private static JScrollPane getListOrdini(String[] a){
 		JList jListOrdini = new JList(a);

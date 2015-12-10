@@ -12,9 +12,7 @@ public class MyListModelBevanda implements ListModel<String> {
 	private ArrayList<Bevanda> bevande = null;
 
 	public MyListModelBevanda(String risposta){
-
 		setData(risposta);
-
 	}
 
 	public ArrayList<Bevanda> getBevande() {
