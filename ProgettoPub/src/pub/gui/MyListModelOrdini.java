@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
 
-import pub.entita.Ordinazioni;
-import pub.entita.Prodotti;
+import pub.entita.Ordinazione;
+import pub.entita.Prodotto;
 
 public class MyListModelOrdini extends AbstractListModel {
 
-	private ArrayList<Prodotti> prodotti = null;
+	private ArrayList<Prodotto> prodotti = null;
 
-	private ArrayList<Ordinazioni> ordinazioni = null;
+	private ArrayList<Ordinazione> ordinazioni = null;
 	
 	private static final int ID_PRODOTTO_INIZIALIZZAZIONE = -1;
 	private static final int COSTO_INIZIALIZZAZIONE = 0;
@@ -25,30 +25,30 @@ public class MyListModelOrdini extends AbstractListModel {
 	private int numeroProdottiDiversi;
 
 	public MyListModelOrdini(){	
-		this.prodotti = new ArrayList<Prodotti>();
-		this.ordinazioni = new ArrayList<Ordinazioni>();
-		this.prodotti.add(new Prodotti(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
+		this.prodotti = new ArrayList<Prodotto>();
+		this.ordinazioni = new ArrayList<Ordinazione>();
+		this.prodotti.add(new Prodotto(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
 				COSTO_INIZIALIZZAZIONE));		
 		this.numeroProdottiUguali = NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE;
 		this.numeroProdottiDiversi = NUMERO_PRODOTTI_DIVERSI_INIZIALIZZAZIONE; 
 	}
 
-	public ArrayList<Prodotti> getProdotti() {
+	public ArrayList<Prodotto> getProdotti() {
 		return prodotti;
 	}
 
-	public ArrayList<Ordinazioni> getOrdinazioni(){
+	public ArrayList<Ordinazione> getOrdinazioni(){
 		return ordinazioni;
 	}
 
 
-	public void addProdotti(Prodotti prodotto) {
+	public void addProdotti(Prodotto prodotto) {
 
 		if(!this.prodotti.contains(prodotto))
-			this.ordinazioni.add(new Ordinazioni(this.numeroProdottiUguali,prodotto.getCosto(), prodotto.getNome()));
+			this.ordinazioni.add(new Ordinazione(this.numeroProdottiUguali,prodotto.getCosto(), prodotto.getNome()));
 
 		else{
-			for (Ordinazioni o: this.ordinazioni)
+			for (Ordinazione o: this.ordinazioni)
 				if(o.getNome() == prodotto.getNome()){
 					int i = this.ordinazioni.indexOf(o);
 					this.ordinazioni.get(i).setQuantita(this.numeroProdottiUguali);
@@ -63,7 +63,7 @@ public class MyListModelOrdini extends AbstractListModel {
 
 	public void deleteProdotto(int index){
 		if(index >= 0){
-			Ordinazioni appo = this.ordinazioni.get(index);
+			Ordinazione appo = this.ordinazioni.get(index);
 			boolean cancellato = false;
 			for(int i=0;i<this.prodotti.size();i++){
 				if(this.prodotti.get(i).getNome() == appo.getNome() && !cancellato){
@@ -84,7 +84,7 @@ public class MyListModelOrdini extends AbstractListModel {
 
 		}
 		else{
-			prodotti.add(new Prodotti(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
+			prodotti.add(new Prodotto(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
 					COSTO_INIZIALIZZAZIONE));
 		}
 	}
@@ -108,19 +108,19 @@ public class MyListModelOrdini extends AbstractListModel {
 		this.ordinazioni.clear();
 		this.numeroProdottiDiversi = NUMERO_PRODOTTI_DIVERSI_INIZIALIZZAZIONE;
 		this.numeroProdottiUguali = NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE;
-		prodotti.add(new Prodotti(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
+		prodotti.add(new Prodotto(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
 				COSTO_INIZIALIZZAZIONE));
 	}
 
-	public void numeroProdottiUguali(Prodotti p){
+	public void numeroProdottiUguali(Prodotto p){
 		this.numeroProdottiUguali = NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE;
-		for(Prodotti prodotto: this.prodotti)
+		for(Prodotto prodotto: this.prodotti)
 			if(prodotto.equals(p))
 				this.numeroProdottiUguali++;	
 
 	}
 
-	public void numeroProdottiDiversi(Prodotti p){
+	public void numeroProdottiDiversi(Prodotto p){
 		if(!this.prodotti.contains(p))
 			this.numeroProdottiDiversi++;
 	}

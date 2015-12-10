@@ -1,6 +1,6 @@
 package pub.entita;
 
-public class Prodotti {	
+public class Prodotto {	
 	//Istanze
 	private int idProdotto;
 	private String nome;
@@ -9,7 +9,7 @@ public class Prodotti {
 	private String tipo;
 	
 	//Costruttore
-	public Prodotti(int id, String nome, String descrizione, float costo, String tipo){
+	public Prodotto(int id, String nome, String descrizione, float costo, String tipo){
 		this.idProdotto=id;
 		this.nome=nome;
 		this.descrizione=descrizione;
@@ -17,7 +17,7 @@ public class Prodotti {
 		this.tipo=tipo;
 	}
 
-	public Prodotti(int id, String nome, String descrizione, float costo){
+	public Prodotto(int id, String nome, String descrizione, float costo){
 		this.idProdotto=id;
 		this.nome=nome;
 		this.descrizione=descrizione;
@@ -31,6 +31,12 @@ public class Prodotti {
 
 	public void setIdProdotto(int idProdotto) {
 		this.idProdotto = idProdotto;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		Prodotto p = (Prodotto)o;
+		return p.idProdotto == this.idProdotto;
 	}
 
 	public String getNome() {

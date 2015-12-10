@@ -1,11 +1,11 @@
 package pub.entita;
 
-public class Ordinazioni {
+public class Ordinazione {
 	private int quantita;
 	private float costo;
 	private String nome;
 	
-	public Ordinazioni(int quantita, float costo, String nome){
+	public Ordinazione(int quantita, float costo, String nome){
 		this.quantita = quantita;
 		this.costo = costo;
 		this.nome = nome;

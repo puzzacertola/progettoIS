@@ -11,9 +11,16 @@ import pub.entita.Bevanda;
 import pub.entita.Ordine;
 import pub.entita.Snack;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Implementa l'interfaccia DAOCameriere.
+ * Contiene quindi l'override dei metodi definiti nell'interfaccia.
+ * 
+ */
 
 public class DAOCameriereImpl implements DAOCameriere {
-	public static final int LIMITE = 22;
+	public static final int ORARIO_LIMITE = 22; //Orario dopo il quale le bevande alcoliche non sono disponibili.
 
 	private DAOCameriereImpl(){}
 
@@ -26,6 +33,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 		return dao;
 	}
 
+	/*
+	 * getListaBevande restituisce un ArrayList di Bevanda.
+	 * Ogni Bevanda è costituita dai valori ottenuti dal ResultSet della query eseguita.  
+	 */
+	
 	private ArrayList<Bevanda> getListaBevande(ResultSet rs){
 		ArrayList<Bevanda> listaBevande = new ArrayList<Bevanda>();
 
@@ -44,6 +56,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaBevande;		
 	}
+	
+	/*
+	 * getListaSnack restituisce un ArrayList di Snack.
+	 * Ogni Snack è costituito dai valori ottenuti dal ResultSet della query eseguita.  
+	 */
 
 	private ArrayList<Snack> getListaSnack(ResultSet rs){
 		ArrayList<Snack> listaSnack = new ArrayList<Snack>();
@@ -62,6 +79,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaSnack;		
 	}
+	
+	/*
+	 * getListaOrdini restituisce un ArrayList di Ordine.
+	 * Ogni Ordine è costituito dai valori ottenuti dal ResultSet della query eseguita.  
+	 */
 
 	private ArrayList<Ordine> getListaOrdini(ResultSet rs){
 		ArrayList<Ordine> listaOrdini = new ArrayList<Ordine>();
@@ -80,6 +102,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;		
 	}
+	
+	/*
+	 * mostraBevande fa una select sulla tabella Menu mostrando tutti i campi.
+	 * Fa un controllo sull'orario, in modo tale da non mostrare le bevande alcoliche dopo le 22:00.
+	 */
 
 	@Override
 	public List<Bevanda> mostraBevande() {
@@ -89,7 +116,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		ArrayList<Bevanda> listaBevande = new ArrayList<Bevanda>();
 		try {
 			Statement stat = DAOSetting.getStatement();
-			if((LIMITE - cal.get(Calendar.HOUR_OF_DAY)) > 0)
+			if((ORARIO_LIMITE - cal.get(Calendar.HOUR_OF_DAY)) > 0)
 				query = "select * from Menu where Tipo like 'B%'";
 			else
 				query = "select * from Menu where Tipo like 'B%' and Tipo != 'BA'";
