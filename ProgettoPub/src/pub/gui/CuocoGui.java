@@ -15,8 +15,8 @@ import pub.server.Server;
 public class CuocoGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private static String[] appo ={""};
-	private static Container pane ;
+	private static String[] appo = {""};
+	private static Container pane;
 	
 	//creazione interfaccia
 	public CuocoGui(){
