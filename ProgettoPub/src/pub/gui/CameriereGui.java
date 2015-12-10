@@ -275,11 +275,6 @@ public class CameriereGui extends JFrame{
 		modelloSnack = new MyListModelSnack(risposta);
 
 		modelloOrdini = new MyListModelOrdini();
-		
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.HOUR_OF_DAY, 22);
-		
-		System.out.println(cal.get(Calendar.HOUR_OF_DAY));
 
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");

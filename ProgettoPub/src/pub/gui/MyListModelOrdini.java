@@ -45,7 +45,6 @@ public class MyListModelOrdini extends AbstractListModel {
 					int i = this.ordinazioni.indexOf(o);
 					this.ordinazioni.get(i).setQuantita(this.numeroProdottiUguali);
 				}
-
 		}
 
 		this.prodotti.add(prodotto);
@@ -65,7 +64,6 @@ public class MyListModelOrdini extends AbstractListModel {
 					cancellato = true;
 				}
 			}
-
 
 			if(this.ordinazioni.get(index).getQuantita() > 1){
 				this.ordinazioni.get(index).setQuantita(this.ordinazioni.get(index).getQuantita()-1);
@@ -89,7 +87,6 @@ public class MyListModelOrdini extends AbstractListModel {
 
 		return this.ordinazioni.get(index).getQuantita() + "x " + this.ordinazioni.get(index).getNome() + " "
 		+ this.ordinazioni.get(index).getCosto();
-
 	}
 
 	@Override

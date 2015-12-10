@@ -126,7 +126,6 @@ abstract class CameriereGuiSetting {
 					CameriereGui.modelloOrdini.numeroProdottiDiversi(CameriereGui.modelloBevande.getBevande().get(index));
 					CameriereGui.modelloOrdini.addProdotti(CameriereGui.modelloBevande.getBevande().get(index));
 					CameriereGui.jListOrdini.updateUI();
-					//CameriereGui.jListOrdini.
 				}
 			}
 		}
