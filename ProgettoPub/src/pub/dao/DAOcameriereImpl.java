@@ -83,18 +83,13 @@ public class DAOcameriereImpl implements DAOcameriere {
 
 	@Override
 	public List<Bevanda> mostraBevande() {
-		Calendar limite = Calendar.getInstance();
-		limite.set(Calendar.HOUR,LIMITE);
-		limite.set(Calendar.MINUTE,0);
-		limite.set(Calendar.SECOND,0);
-		limite.set(Calendar.MILLISECOND,0);
 		Calendar cal = Calendar.getInstance();
 
 		String query = "";
 		ArrayList<Bevanda> listaBevande = new ArrayList<Bevanda>();
 		try {
 			Statement stat = DAOSetting.getStatement();
-			if((limite.get(Calendar.HOUR) - cal.get(Calendar.HOUR)) > 0)
+			if((LIMITE - cal.get(Calendar.HOUR_OF_DAY)) > 0)
 				query = "select * from Menu where Tipo like 'B%'";
 			else
 				query = "select * from Menu where Tipo like 'B%' and Tipo != 'BA'";
