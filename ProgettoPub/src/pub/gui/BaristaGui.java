@@ -9,7 +9,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
+import pub.gui.BaristaGuiSetting.OrdiniSelezioneListener;
 import pub.server.Server;
 
 public class BaristaGui extends JFrame{
@@ -44,6 +44,8 @@ public class BaristaGui extends JFrame{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
+		
+		
 				
 	}
 	   
