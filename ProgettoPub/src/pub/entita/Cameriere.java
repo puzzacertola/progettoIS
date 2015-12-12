@@ -1,5 +1,12 @@
 package pub.entita;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Un cameriere ha i dati salvati all'interno della tabella Camerieri del database.
+ *
+ */
+
 public class Cameriere {
 	//Istanze
 	static final int PORTA = 80;
@@ -17,26 +24,6 @@ public class Cameriere {
 	public int getIdCameriere() {
 		return IdCameriere;
 	}
-
-	public void setIdCameriere(int idCameriere) {
-		IdCameriere = idCameriere;
-	}
-
-	public String getNome() {
-		return Nome;
-	}
-
-	public void setNome(String nome) {
-		Nome = nome;
-	}
-
-	public String getCognome() {
-		return Cognome;
-	}
-
-	public void setCognome(String cognome) {
-		Cognome = cognome;
-	}
-
+	
 }
 

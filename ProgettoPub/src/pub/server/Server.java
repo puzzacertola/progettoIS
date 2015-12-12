@@ -12,6 +12,13 @@ import pub.entita.Bevanda;
 import pub.entita.Ordine;
 import pub.entita.Snack;
 
+/**
+ * @authors Giuseppe, Giovanni
+ *
+ * Parte server del progetto.
+ * 
+ */
+
 public class Server {
 	public static final int PORTA = 80;
 	public static final String USER = "server";
@@ -27,6 +34,8 @@ public class Server {
 	public static final String SELECT_CAMERIERE_ORDINI_CAMERIERE = "req_select_cameriere_ordini_cameriere";
 	public static final String SELECT_CAMERIERE_ORDINI_TAVOLO = "req_select_cameriere_ordini_tavolo";
 
+	//rispostaBevande restituisce la risposta da inviare alla richiesta di una select delle bevande nella tabella Menu
+	
 	public static String rispostaBevande(List<Bevanda> lista){
 		String risposta = "";
 
@@ -39,6 +48,8 @@ public class Server {
 
 		return risposta;
 	}
+	
+	//rispostaSnack restituisce la risposta da inviare alla richiesta di una select degli snack nella tabella Menu
 
 	public static String rispostaSnack(List<Snack> lista){
 		String risposta = "";
@@ -52,6 +63,8 @@ public class Server {
 
 		return risposta;
 	}
+	
+	//rispostaOrdini restituisce la risposta da inviare alla richiesta di una select nella tabella Ordini
 
 	public static String rispostaOrdini(List<Ordine> lista){
 		String risposta = "";
@@ -83,6 +96,8 @@ public class Server {
 
 				protocollo = in.readLine();
 				String comando = in.readLine();
+				
+				//Query di selezione delle bevande fatta da un cameriere.
 
 				if(comando.equals(SELECT_CAMERIERE_MENU_BEVANDE)){
 					List<Bevanda> lista = DAOCameriereImpl.getInstance().mostraBevande();
@@ -92,6 +107,8 @@ public class Server {
 					out.println(risposta);
 				}
 
+				//Query di selezione degli snack fatta da un cameriere.
+				
 				else if(comando.equals(SELECT_CAMERIERE_MENU_SNACK)){
 					List<Snack> lista = DAOCameriereImpl.getInstance().mostraSnack();
 
@@ -99,6 +116,8 @@ public class Server {
 
 					out.println(risposta);
 				}
+				
+				//Query di insert nella tabella Ordini fatta da un cameriere.
 
 				else if(comando.equals(INSERT_CAMERIERE_ORDINI)){
 
@@ -109,8 +128,9 @@ public class Server {
 					Ordine ordine = new Ordine(idProdotto, tavolo, idCameriere, "Da Fare");
 
 					DAOCameriereImpl.getInstance().inserisciOrdini(ordine);
-
 				}
+				
+				//Query di selezione degli Ordini fatta da un cameriere.
 
 				else if(comando.equals(SELECT_CAMERIERE_ORDINI)){
 					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdini();
@@ -119,13 +139,16 @@ public class Server {
 
 					out.println(risposta);
 				}
+				
+				//Query di delete di un ordine fatta da un cameriere.
 
 				else if(comando.equals(DELETE_CAMERIERE_ORDINI)){
 					int idOrdine = Integer.parseInt(in.readLine().replace("id:", ""));
 
 					DAOCameriereImpl.getInstance().eliminaOrdine(idOrdine);
-
 				}
+				
+				//Query di update di un ordine fatta da un cameriere.
 
 				else if(comando.equals(UPDATE_CAMERIERE_ORDINI)){
 
@@ -133,8 +156,9 @@ public class Server {
 					int idProdotto = Integer.parseInt(in.readLine().replace("idProdotto:", ""));
 
 					DAOCameriereImpl.getInstance().modificaOrdine(idOrdine, idProdotto);
-
 				}
+				
+				//Query di selezione di un Ordine fatta da un Cameriere.
 
 				else if(comando.equals(SELECT_CAMERIERE_IDORDINI)){
 					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdini();
@@ -144,6 +168,8 @@ public class Server {
 
 					out.println(risposta);
 				}
+				
+				//Query di selezione degli Ordini fatti da un cameriere, fatta da un cameriere.
 
 				else if(comando.equals(SELECT_CAMERIERE_ORDINI_CAMERIERE)){
 					int idCameriere = Integer.parseInt(in.readLine().replace("id:", ""));
@@ -153,6 +179,8 @@ public class Server {
 
 					out.println(risposta);
 				}
+				
+				//Query di selezione degli ordini fatti ad un tavolo, fatta da un cameriere.
 
 				else if(comando.equals(SELECT_CAMERIERE_ORDINI_TAVOLO)){
 					int tavolo = Integer.parseInt(in.readLine().replace("id:", ""));

@@ -14,6 +14,14 @@ import javax.swing.UnsupportedLookAndFeelException;
 import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
 import pub.server.Server;
 
+/**
+ * @authors Giuseppe, Giovanni
+ *  
+ * Interfaccia grafica del cassiere. Mostra gli ordini "Consegnati" ad un tavolo, il prezzo di ogni prodotto
+ * ordinato e il conto totale.
+ *
+ */
+
 public class CassiereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -86,7 +94,7 @@ public class CassiereGui extends JFrame{
 		}
 		UIManager.put("swing.boldMetal", Boolean.FALSE);
 
-		//new BaristaGui();
+		//new CassiereGui();
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new CassiereGui();

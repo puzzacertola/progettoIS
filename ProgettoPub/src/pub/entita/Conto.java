@@ -1,5 +1,12 @@
 package pub.entita;
 
+/**
+ * @authors Giuseppe, Gillini
+ * 
+ * Utilizzata per stampare le ordinazioni fatte su uno scontrino.
+ *
+ */
+
 public class Conto {	
 	//Istanze
 	private String nomeProdotto;

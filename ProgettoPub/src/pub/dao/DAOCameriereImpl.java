@@ -104,7 +104,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 	}
 	
 	/*
-	 * mostraBevande fa una select sulla tabella Menu mostrando tutti i campi.
+	 * mostraBevande fa una select sulla tabella Menu mostrando tutti i campi delle bevande.
 	 * Fa un controllo sull'orario, in modo tale da non mostrare le bevande alcoliche dopo le 22:00.
 	 */
 
@@ -133,6 +133,10 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaBevande;
 	}
+	
+	/*
+	 * mostraSnack() fa una select sulla tabella Menu mostrando tutti i campi degli snack
+	 */
 
 	@Override
 	public List<Snack> mostraSnack() {
@@ -153,6 +157,12 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaSnack;
 	}
+	
+	/*
+	 * inserisciOrdini fa un insert nella tabella Ordini, inserendo una singola ordinazione specificando
+	 * l'id del prodotto ordinato, il tavolo da servire, il cameriere che ha fatto l'ordinazione, e lo stato
+	 * dell'ordine. Quando il cameriere inserisce l'ordine, di default lo stato verrà settato a "da fare".
+	 */
 
 	@Override
 	public void inserisciOrdini(Ordine o) {
@@ -170,9 +180,12 @@ public class DAOCameriereImpl implements DAOCameriere {
 			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
-
 	}
-
+	
+	/*
+	 * mostraOrdini() fa una select sulla tabella Ordini mostrando tutti i campi di ogni Ordine.
+	 */	
+	
 	@Override
 	public List<Ordine> mostraOrdini() {
 		ArrayList<Ordine> listaOrdini = new ArrayList<Ordine>();
@@ -192,6 +205,10 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;
 	}
+	
+	/*
+	 * modificaOrdine() fa un update sulla tabella ordini, modificando l'id di un prodotto.
+	 */
 
 	@Override
 	public void modificaOrdine(int idOrdine, int idProdotto) {
@@ -209,6 +226,10 @@ public class DAOCameriereImpl implements DAOCameriere {
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
+	
+	/*
+	 * eliminaOrdine() fa un delete sulla tabella ordini andando ad eliminare un ordine inserito.
+	 */
 
 	@Override
 	public void eliminaOrdine(int idOrdine) {
@@ -224,8 +245,12 @@ public class DAOCameriereImpl implements DAOCameriere {
 			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
-
 	}
+
+	/*
+	 * mostraOrdiniCameriere() fa una select sulla tabella Ordini, mostrando tutti gli ordini fatti
+	 * da un cameriere.
+	 */
 
 	@Override
 	public List<Ordine> mostraOrdiniCameriere(int idCameriere) {
@@ -246,6 +271,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;
 	}
+	
+	/*
+	 * mostraOrdiniTavolo() fa una select sulla tabella Ordini, mostrando tutti gli ordini fatti
+	 * ad un tavolo.
+	 */
 
 	@Override
 	public List<Ordine> mostraOrdiniTavolo(int tavolo) {
@@ -267,5 +297,4 @@ public class DAOCameriereImpl implements DAOCameriere {
 		return listaOrdini;
 
 	}
-
 }

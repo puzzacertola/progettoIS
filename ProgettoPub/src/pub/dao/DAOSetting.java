@@ -4,6 +4,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Crea la connessione con il database da utilizzare.
+ * 
+ */
 public class DAOSetting {
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";

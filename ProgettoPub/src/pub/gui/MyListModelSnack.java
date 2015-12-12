@@ -1,13 +1,17 @@
 package pub.gui;
 
 import java.util.ArrayList;
-
-import javax.swing.ListModel;
-import javax.swing.event.ListDataListener;
-
+import javax.swing.AbstractListModel;
 import pub.entita.Snack;
 
-public class MyListModelSnack implements ListModel<String> {
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Modello utilizzato dalla JList degli Snack.
+ *
+ */
+
+public class MyListModelSnack extends AbstractListModel {
 
 	private ArrayList<Snack> snack = null;
 
@@ -20,10 +24,16 @@ public class MyListModelSnack implements ListModel<String> {
 	}
 
 
-	public void setBevande(ArrayList<Snack> snack) {
+	public void setSnack(ArrayList<Snack> snack) {
 		this.snack = snack;
 	}
 
+	/*
+	 * setData splitta la stringa di risposta ottenuta dal database, e ne salva il contenuto
+	 * in un oggetto di tipo Snack, che sarà poi inserito nell'ArrayList snack.
+	 * 
+	 */
+	
 	public void setData(String risposta){
 		snack = new ArrayList<Snack>();
 
@@ -31,31 +41,23 @@ public class MyListModelSnack implements ListModel<String> {
 
 		for(int i=0;i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
 			String[] arrayRisposta = arrayRiga[i].split("\\;",-1);
-			Snack s = new Snack(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.parseFloat(arrayRisposta[3]));
+			Snack s = new Snack(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],
+					Float.parseFloat(arrayRisposta[3]));
 			snack.add(s);
 		}			
 	}
-
-
-	@Override
-	public void addListDataListener(ListDataListener arg0) {
-		// TODO Auto-generated method stub
-	}
+	
+	//getElementAt è il metodo utilizzato dalla JList per stampare le stringhe in un JScrollPane
 
 	@Override
 	public String getElementAt(int index) {
 		return snack.get(index).getNome() + " " + snack.get(index).getCosto();
 	}
+	
+	//getSize ottiene la dimensione dell'ArrayList snack.
 
 	@Override
 	public int getSize() {
 		return snack.size();
 	}
-
-	@Override
-	public void removeListDataListener(ListDataListener arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

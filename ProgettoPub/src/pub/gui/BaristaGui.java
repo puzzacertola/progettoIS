@@ -12,16 +12,23 @@ import javax.swing.UnsupportedLookAndFeelException;
 import pub.gui.BaristaGuiSetting.OrdiniSelezioneListener;
 import pub.server.Server;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Interfaccia grafica del baristaPermette di visualizzare gli ordini "Da Fare",
+ * e di modificare lo stato in "Pronto".
+ * 
+ */
+
 public class BaristaGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private static String[] appo = {""}; //ANCORA DA FARE
 	private static Container pane ;
 	
-	//creazione interfaccia
 	public BaristaGui(){
 		
-		super("Snack in attesa");
+		super("Bevande in attesa");
 		pane = getContentPane();
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -31,7 +38,7 @@ public class BaristaGui extends JFrame{
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(new JLabel("Da fare ci sono i seguenti Snack:"), c);
+		pane.add(new JLabel("Da fare ci sono le seguenti bevande:"), c);
 		
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;

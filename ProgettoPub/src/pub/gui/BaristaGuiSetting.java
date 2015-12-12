@@ -7,6 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Settaggi della Gui del Barista.
+ *
+ */
+
 public class BaristaGuiSetting {
 
 	public static class OrdiniSelezioneListener extends MouseAdapter{		

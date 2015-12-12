@@ -16,7 +16,16 @@ import javax.swing.SwingUtilities;
 
 import pub.server.Server;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Settaggi della Gui del cameriere.
+ *
+ */
+
 abstract class CameriereGuiSetting {
+	
+	//mandaInsertAlServer riceve come parametro la query di insert da fare e la manda al server
 
 	public static void mandaInsertAlServer(String req){
 		Socket s;
@@ -29,6 +38,10 @@ abstract class CameriereGuiSetting {
 			System.out.println("Errore nella connessione al server");
 		}
 	}
+	
+	/* ottieniStringaDalDatabase riceve come parametro la query di select da inviare al server.
+	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
+	 */
 
 	public static String ottieniStringaDalDatabase(String req){
 		Socket s;
@@ -57,6 +70,8 @@ abstract class CameriereGuiSetting {
 		}
 		return null;
 	}
+	
+	// Listener del bottone reset. Resetta la Jlist degli Ordini correnti.
 
 	public static class MyButtonResetListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
@@ -66,7 +81,10 @@ abstract class CameriereGuiSetting {
 		}
 	}
 
-	//ascoltatore pulsante StatoOrdini
+	/* Listener del bottone StatoOrdini. Visualizza nella Gui OrdiniGui, le ordinazioni fatte da un cameriere segnate
+	 * come "Pronto" presenti nella tabella Ordini.
+	 */
+	
 	public static class StatoOrdiniButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			System.out.print("statoOrdini pressed \n");
@@ -76,7 +94,10 @@ abstract class CameriereGuiSetting {
 		}
 	}
 
-	//ascoltatore pulsante invia
+	/* Listener bottone invia. Controlla se tutti i campi sono inseriti correttamente. 
+	 * Fa un insert di ogni ordine presente nella JList Ordini. 	
+	 */
+	
 	public static class MyButtonInviaListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			boolean inserito = true;
@@ -102,13 +123,13 @@ abstract class CameriereGuiSetting {
 						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
 			else
 				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");
-
-
 		}
 	}
 
-	//listener selezione bevande
-
+	/* Listener della selezione di un campo della JList delle Bevande.
+	 * Aggiunge una bevanda alla JList degli ordini, e la salva in memoria.
+	 */
+	
 	public static class BevandeSelezioneListener extends MouseAdapter {	
 
 		@Override
@@ -124,6 +145,10 @@ abstract class CameriereGuiSetting {
 			}
 		}
 	}
+	
+	/* Listener della selezione di un campo della JList degli Ordini.
+	 * Quando viene selezionato un ordine, viene chiesto se questo deve essere cancellato.
+	 */
 
 	public static class OrdiniSelezioneListener extends MouseAdapter{		
 		@Override
@@ -146,7 +171,10 @@ abstract class CameriereGuiSetting {
 		}
 	}
 
-	//Listner selezione snack
+	/* Listener della selezione di un campo della JList degli Snack.
+	 * Aggiunge uno snack alla JList degli ordini, e lo salva in memoria.
+	 */
+	
 	public static class SnackSelezioneListener extends MouseAdapter{		
 		@Override
 		public void mouseClicked(MouseEvent evt) {

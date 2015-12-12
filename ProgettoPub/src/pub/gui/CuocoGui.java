@@ -1,4 +1,4 @@
-		package pub.gui;
+package pub.gui;
 
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -12,6 +12,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import pub.gui.CuocoGuiSetting.OrdiniSelezioneListener;
 import pub.server.Server;
 
+/**
+ * @authors Giuseppe, Giovanni
+ *
+ * Interfaccia grafica del cuoco. Permette di visualizzare gli ordini "Da Fare",
+ * e di modificare lo stato in "Pronto".
+ * 
+ */
 public class CuocoGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -43,9 +50,10 @@ public class CuocoGui extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
-		setVisible(true);
-				
+		setVisible(true);				
 	}   
+	
+	//Crea il JScrollPane dove verrà mostrata la JList degli ordini
 	
 	private static JScrollPane getListOrdini(String[] a){
 		JList jListOrdini = new JList(a);

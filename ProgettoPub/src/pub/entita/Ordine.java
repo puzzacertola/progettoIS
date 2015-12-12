@@ -1,5 +1,14 @@
 package pub.entita;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Utilizzata per stampare sulla jList degli ordini della Gui di cuoco e barista, le ordinazioni da fare,
+ * e sulla Gui del cassiere le ordinazioni fatte.
+ *
+ */
+
+
 public class Ordine {
 	private int idOrdine;
 	private int idProdotto;

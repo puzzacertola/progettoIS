@@ -1,5 +1,13 @@
 package pub.entita;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Utilizzata per tenere in memoria le ordinazioni prese ad un tavolo, per poi inserirle nella tabella
+ * Ordini del database.
+ *
+ */
+
 public class Prodotto {	
 	//Istanze
 	private int idProdotto;

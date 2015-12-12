@@ -1,5 +1,12 @@
 package pub.entita;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Utilizzata per stampare sulla jList degli ordini della Gui di cameriere, le ordinazioni correnti.
+ *
+ */
+
 public class Ordinazione {
 	private int quantita;
 	private float costo;

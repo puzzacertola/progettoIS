@@ -3,6 +3,13 @@ package pub.gui;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Settaggi della Gui del Cuoco
+ *
+ */
+
 public class CuocoGuiSetting {
 
 	public static class OrdiniSelezioneListener extends MouseAdapter{		

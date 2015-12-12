@@ -1,13 +1,17 @@
 package pub.gui;
 
 import java.util.ArrayList;
-
-import javax.swing.ListModel;
-import javax.swing.event.ListDataListener;
-
+import javax.swing.AbstractListModel;
 import pub.entita.Bevanda;
 
-public class MyListModelBevanda implements ListModel<String> {
+/**
+ * @authors Giuseppe, Giovanni
+ * 
+ * Modello utilizzato dalla JList delle bevande.
+ *
+ */
+
+public class MyListModelBevanda extends AbstractListModel {
 
 	private ArrayList<Bevanda> bevande = null;
 
@@ -23,6 +27,12 @@ public class MyListModelBevanda implements ListModel<String> {
 		this.bevande = bevande;
 	}
 
+	/*
+	 * setData splitta la stringa di risposta ottenuta dal database, e ne salva il contenuto
+	 * in un oggetto di tipo Bevanda, che sarà poi inserito nell'ArrayList bevande.
+	 * 
+	 */
+	
 	public void setData(String risposta){
 		bevande = new ArrayList<Bevanda>();
 
@@ -30,30 +40,24 @@ public class MyListModelBevanda implements ListModel<String> {
 
 		for(int i=0; i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
 			String[] arrayRisposta = arrayRiga[i].split("\\;",-1);
-			Bevanda b=new Bevanda(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],Float.parseFloat(arrayRisposta[3]));
+			Bevanda b = new Bevanda(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],
+					Float.parseFloat(arrayRisposta[3]));
 			bevande.add(b);
 		}			
 
 	}
 
-	@Override
-	public void addListDataListener(ListDataListener arg0) {
-		// TODO Auto-generated method stub
-	}
-
+	//getElementAt è il metodo utilizzato dalla JList per stampare le stringhe in un JScrollPane
+	
 	@Override
 	public String getElementAt(int index) {
 		return bevande.get(index).getNome() + " " + bevande.get(index).getCosto();
 	}
+	
+	//getSize ottiene la dimensione dell'ArrayList bevande.
 
 	@Override
 	public int getSize() {
 		return bevande.size();
 	}
-
-	@Override
-	public void removeListDataListener(ListDataListener arg0) {
-		// TODO Auto-generated method stub
-	}
-
 }
