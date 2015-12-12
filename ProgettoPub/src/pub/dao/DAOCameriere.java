@@ -22,7 +22,7 @@ public interface DAOCameriere {
 	public List<Snack> mostraSnack();
 	public void inserisciOrdini(Ordine o);
 	public List<Ordine> mostraOrdini();
-	public void modificaOrdine(int idOrdine, int idProdotto);
+	public void modificaOrdine(int idOrdine, String stato);
 	public void eliminaOrdine (int idOrdine);
 	public List<Ordine> mostraOrdiniCameriere(int idCameriere);
 	public List<Ordine>	mostraOrdiniTavolo(int tavolo);

@@ -25,7 +25,7 @@ import pub.server.Server;
 
 abstract class CameriereGuiSetting {
 	
-	//mandaInsertAlServer riceve come parametro la query di insert da fare e la manda al server
+	//mandaInsertAlServer riceve come parametro la richiesta di query di insert da fare e la manda al server
 
 	public static void mandaInsertAlServer(String req){
 		Socket s;
@@ -39,7 +39,7 @@ abstract class CameriereGuiSetting {
 		}
 	}
 	
-	/* ottieniStringaDalDatabase riceve come parametro la query di select da inviare al server.
+	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
 	 */
 
@@ -87,10 +87,14 @@ abstract class CameriereGuiSetting {
 	
 	public static class StatoOrdiniButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			System.out.print("statoOrdini pressed \n");
-			String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + CameriereGui.idCameriereTextField.getText() + "\n";
-			String risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
-			new OrdiniGui(risposta);
+			if(!CameriereGui.idCameriereTextField.getText().equals("id")){
+				String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + CameriereGui.idCameriereTextField.getText() + "\n";
+				String risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
+				new OrdiniGui(risposta);
+			}
+			else
+				JOptionPane.showMessageDialog(new JFrame(), "Errore: id Cameriere errato" 
+						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -111,7 +115,7 @@ abstract class CameriereGuiSetting {
 							+ CameriereGui.modelloOrdini.getProdotti().get(i).getIdProdotto() 
 							+ "\ntavolo:" + CameriereGui.tavoloTextField.getText() + "\nidCameriere:" 
 							+ CameriereGui.idCameriereTextField.getText() + "\n";
-					CameriereGuiSetting.mandaInsertAlServer(req);										 					
+					mandaInsertAlServer(req);										 					
 
 				}
 
@@ -189,10 +193,4 @@ abstract class CameriereGuiSetting {
 			}
 		}
 	}
-
-
-
-
-
-
 }

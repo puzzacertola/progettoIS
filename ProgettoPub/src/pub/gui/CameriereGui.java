@@ -37,9 +37,9 @@ public class CameriereGui extends JFrame{
 	private static JButton inviaButton = new JButton("Invia");
 	private static JButton resetButton = new JButton("Reset");	
 	private static Container pane;
-	public static MyListModelBevanda modelloBevande = null;
-	public static MyListModelSnack modelloSnack = null;
-	public static MyListModelOrdini modelloOrdini = null;
+	public static ModelloBevande modelloBevande = null;
+	public static ModelloSnack modelloSnack = null;
+	public static ModelloOrdini modelloOrdini = null;
 	public static JButton statoOrdiniButton = new JButton("Visualizza ordini");
 
 	static JList jListBevande = new JList();
@@ -302,15 +302,15 @@ public class CameriereGui extends JFrame{
 
 		risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
 
-		modelloBevande = new MyListModelBevanda(risposta);
+		modelloBevande = new ModelloBevande(risposta);
 
 		req = "pub:\n" + Server.SELECT_CAMERIERE_MENU_SNACK;
 
 		risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
 
-		modelloSnack = new MyListModelSnack(risposta);
+		modelloSnack = new ModelloSnack(risposta);
 
-		modelloOrdini = new MyListModelOrdini();
+		modelloOrdini = new ModelloOrdini();
 
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");

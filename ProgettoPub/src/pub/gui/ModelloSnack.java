@@ -11,11 +11,11 @@ import pub.entita.Snack;
  *
  */
 
-public class MyListModelSnack extends AbstractListModel {
+public class ModelloSnack extends AbstractListModel {
 
 	private ArrayList<Snack> snack = null;
 
-	public MyListModelSnack(String risposta){
+	public ModelloSnack(String risposta){
 		setData(risposta);
 	}
 
@@ -35,15 +35,15 @@ public class MyListModelSnack extends AbstractListModel {
 	 */
 	
 	public void setData(String risposta){
-		snack = new ArrayList<Snack>();
+		this.snack = new ArrayList<Snack>();
 
 		String[] arrayRiga = risposta.split("\\\n",-1);
 
 		for(int i=0;i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
 			String[] arrayRisposta = arrayRiga[i].split("\\;",-1);
-			Snack s = new Snack(Integer.parseInt(arrayRisposta[0]),arrayRisposta[1],arrayRisposta[2],
+			Snack s = new Snack(Integer.parseInt(arrayRisposta[0]), arrayRisposta[1], arrayRisposta[2],
 					Float.parseFloat(arrayRisposta[3]));
-			snack.add(s);
+			this.snack.add(s);
 		}			
 	}
 	

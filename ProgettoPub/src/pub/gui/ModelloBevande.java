@@ -11,11 +11,11 @@ import pub.entita.Bevanda;
  *
  */
 
-public class MyListModelBevanda extends AbstractListModel {
+public class ModelloBevande extends AbstractListModel {
 
 	private ArrayList<Bevanda> bevande = null;
 
-	public MyListModelBevanda(String risposta){
+	public ModelloBevande(String risposta){
 		setData(risposta);
 	}
 

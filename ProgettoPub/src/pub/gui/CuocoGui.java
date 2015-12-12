@@ -65,7 +65,6 @@ public class CuocoGui extends JFrame{
 		jListOrdini.addMouseListener(ml);
 
 		return pane;
-
 	}
 	
 	public static void main(String[] args) {

@@ -14,7 +14,7 @@ import javax.swing.AbstractListModel;
 import pub.entita.Ordinazione;
 import pub.entita.Prodotto;
 
-public class MyListModelOrdini extends AbstractListModel {
+public class ModelloOrdini extends AbstractListModel {
 
 	//In prodotti vengono salvati i prodotti selezionati durante un'ordinazione.
 	private ArrayList<Prodotto> prodotti = null;
@@ -33,7 +33,7 @@ public class MyListModelOrdini extends AbstractListModel {
 	private int numeroProdottiUguali;
 	private int numeroProdottiDiversi;
 
-	public MyListModelOrdini(){	
+	public ModelloOrdini(){	
 		this.prodotti = new ArrayList<Prodotto>();
 		this.ordinazioni = new ArrayList<Ordinazione>();
 		this.prodotti.add(new Prodotto(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 

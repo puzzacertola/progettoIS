@@ -103,6 +103,23 @@ public class DAOCameriereImpl implements DAOCameriere {
 		return listaOrdini;		
 	}
 	
+	private ArrayList<Ordine> getListaOrdiniCameriere(ResultSet rs){
+		ArrayList<Ordine> listaOrdini = new ArrayList<Ordine>();
+
+		try {
+			while(rs.next()){
+				listaOrdini.add(new Ordine(rs.getInt("idOrdine"),
+						rs.getString("Nome"),
+						rs.getInt("Tavolo"),
+						rs.getString("Stato")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Errore nella stringa di risposta");
+		}
+		return listaOrdini;		
+	}
+	
 	/*
 	 * mostraBevande fa una select sulla tabella Menu mostrando tutti i campi delle bevande.
 	 * Fa un controllo sull'orario, in modo tale da non mostrare le bevande alcoliche dopo le 22:00.
@@ -207,16 +224,16 @@ public class DAOCameriereImpl implements DAOCameriere {
 	}
 	
 	/*
-	 * modificaOrdine() fa un update sulla tabella ordini, modificando l'id di un prodotto.
+	 * modificaOrdine() fa un update sulla tabella ordini, modificando lo stato di un ordine.
 	 */
 
 	@Override
-	public void modificaOrdine(int idOrdine, int idProdotto) {
+	public void modificaOrdine(int idOrdine, String stato) {
 		try {
 			Statement stat = DAOSetting.getStatement();
 
-			String query = "update Ordini set idProdotto = " + idProdotto + 
-					" where idOrdine = " + idOrdine;
+			String query = "update Ordini set Stato = '" + stato + 
+					"' where idOrdine = " + idOrdine;
 
 			stat.executeUpdate(query);
 
@@ -257,11 +274,14 @@ public class DAOCameriereImpl implements DAOCameriere {
 		ArrayList<Ordine> listaOrdini = new ArrayList<Ordine>();
 		try{
 			Statement stat = DAOSetting.getStatement();
-			String query = "select * from Ordini where idCameriere = " + idCameriere;
+			String query = "select o.idOrdine, m.Nome, o.Tavolo, o.Stato "
+					+ "from Ordini o, Menu m "
+					+ "where o.idCameriere = " + idCameriere + " and o.idProdotto = m.IdProdotto "
+					+ "order by(o.Tavolo)";
 
 			ResultSet rs = stat.executeQuery(query);
 
-			listaOrdini = this.getListaOrdini(rs);
+			listaOrdini = this.getListaOrdiniCameriere(rs);
 
 			DAOSetting.closeStatement(stat);
 

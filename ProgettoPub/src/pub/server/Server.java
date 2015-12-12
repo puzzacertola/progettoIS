@@ -79,6 +79,19 @@ public class Server {
 
 		return risposta;
 	}
+	
+	public static String rispostaOrdiniCameriere(List<Ordine> lista){
+		String risposta = "";
+
+		for(Ordine o: lista){
+			risposta += o.getIdOrdine() + ";";
+			risposta += o.getNomeProdotto() + ";";
+			risposta += o.getTavolo() + ";";
+			risposta += o.getStato() + "\n";
+		}
+
+		return risposta;
+	}
 
 	public static void main (String[] args) throws Exception{
 		String protocollo = "";
@@ -153,9 +166,9 @@ public class Server {
 				else if(comando.equals(UPDATE_CAMERIERE_ORDINI)){
 
 					int idOrdine = Integer.parseInt(in.readLine().replace("idOrdine:", ""));
-					int idProdotto = Integer.parseInt(in.readLine().replace("idProdotto:", ""));
+					String stato = in.readLine().replace("stato:", "");
 
-					DAOCameriereImpl.getInstance().modificaOrdine(idOrdine, idProdotto);
+					DAOCameriereImpl.getInstance().modificaOrdine(idOrdine, stato);
 				}
 				
 				//Query di selezione di un Ordine fatta da un Cameriere.
@@ -175,7 +188,7 @@ public class Server {
 					int idCameriere = Integer.parseInt(in.readLine().replace("id:", ""));
 					List<Ordine> lista = DAOCameriereImpl.getInstance().mostraOrdiniCameriere(idCameriere);
 
-					risposta = rispostaOrdini(lista);
+					risposta = rispostaOrdiniCameriere(lista);
 
 					out.println(risposta);
 				}
@@ -197,7 +210,7 @@ public class Server {
 				e.printStackTrace();	
 				System.out.println("Errore nella comunicazione");
 			}
-
+			
 		}
 	}
 

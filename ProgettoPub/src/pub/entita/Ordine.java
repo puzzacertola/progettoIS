@@ -15,6 +15,7 @@ public class Ordine {
 	private int tavolo;
 	private int idCameriere;
 	private String stato;
+	private String nomeProdotto;
 	
 	public Ordine(int idProdotto, int tavolo, int idCameriere, String stato){
 		this.idProdotto = idProdotto;
@@ -28,6 +29,13 @@ public class Ordine {
 		this.idProdotto = idProdotto;
 		this.tavolo = tavolo;
 		this.idCameriere = idCameriere;
+		this.stato = stato;		
+	}
+	
+	public Ordine(int idOrdine, String nomeProdotto, int tavolo, String stato){
+		this.setIdOrdine(idOrdine);
+		this.setNomeProdotto(nomeProdotto);
+		this.tavolo = tavolo;
 		this.stato = stato;		
 	}
 	
@@ -69,6 +77,14 @@ public class Ordine {
 
 	public void setIdOrdine(int idOrdine) {
 		this.idOrdine = idOrdine;
+	}
+
+	public String getNomeProdotto() {
+		return nomeProdotto;
+	}
+
+	public void setNomeProdotto(String nomeProdotto) {
+		this.nomeProdotto = nomeProdotto;
 	}
 	
 }
