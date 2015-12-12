@@ -80,6 +80,8 @@ public class Server {
 		return risposta;
 	}
 	
+	//rispostaOrdiniCameriere restituisce la risposta da inviare alla richiesta di una select nella tabella Ordini col vincolo di un cameriere
+	
 	public static String rispostaOrdiniCameriere(List<Ordine> lista){
 		String risposta = "";
 
