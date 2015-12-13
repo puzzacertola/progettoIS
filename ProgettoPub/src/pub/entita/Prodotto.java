@@ -15,7 +15,7 @@ public class Prodotto {
 	private String descrizione;
 	private float costo;
 	private String tipo;
-	
+
 	//Costruttore
 	public Prodotto(int id, String nome, String descrizione, float costo, String tipo){
 		this.idProdotto=id;
@@ -31,7 +31,7 @@ public class Prodotto {
 		this.descrizione=descrizione;
 		this.costo=costo;		
 	}
-	
+
 	//Get & Set
 	public int getIdProdotto() {
 		return idProdotto;
@@ -40,7 +40,7 @@ public class Prodotto {
 	public void setIdProdotto(int idProdotto) {
 		this.idProdotto = idProdotto;
 	}
-	
+
 	@Override
 	public boolean equals(Object o){
 		Prodotto p = (Prodotto)o;
@@ -70,4 +70,5 @@ public class Prodotto {
 	public void setCosto(float costo) {
 		this.costo = costo;
 	}
+
 }

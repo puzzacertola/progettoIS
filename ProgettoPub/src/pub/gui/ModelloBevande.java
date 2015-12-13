@@ -32,7 +32,7 @@ public class ModelloBevande extends AbstractListModel {
 	 * in un oggetto di tipo Bevanda, che sarà poi inserito nell'ArrayList bevande.
 	 * 
 	 */
-	
+
 	public void setData(String risposta){
 		bevande = new ArrayList<Bevanda>();
 
@@ -48,16 +48,17 @@ public class ModelloBevande extends AbstractListModel {
 	}
 
 	//getElementAt è il metodo utilizzato dalla JList per stampare le stringhe in un JScrollPane
-	
+
 	@Override
 	public String getElementAt(int index) {
 		return bevande.get(index).getNome() + " " + bevande.get(index).getCosto();
 	}
-	
+
 	//getSize ottiene la dimensione dell'ArrayList bevande.
 
 	@Override
 	public int getSize() {
 		return bevande.size();
 	}
+
 }

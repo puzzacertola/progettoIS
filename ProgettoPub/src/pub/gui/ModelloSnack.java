@@ -33,7 +33,7 @@ public class ModelloSnack extends AbstractListModel {
 	 * in un oggetto di tipo Snack, che sarà poi inserito nell'ArrayList snack.
 	 * 
 	 */
-	
+
 	public void setData(String risposta){
 		this.snack = new ArrayList<Snack>();
 
@@ -46,18 +46,19 @@ public class ModelloSnack extends AbstractListModel {
 			this.snack.add(s);
 		}			
 	}
-	
+
 	//getElementAt è il metodo utilizzato dalla JList per stampare le stringhe in un JScrollPane
 
 	@Override
 	public String getElementAt(int index) {
 		return snack.get(index).getNome() + " " + snack.get(index).getCosto();
 	}
-	
+
 	//getSize ottiene la dimensione dell'ArrayList snack.
 
 	@Override
 	public int getSize() {
 		return snack.size();
 	}
+
 }

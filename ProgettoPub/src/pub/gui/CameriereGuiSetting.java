@@ -24,7 +24,7 @@ import pub.server.Server;
  */
 
 abstract class CameriereGuiSetting {
-	
+
 	//mandaInsertAlServer riceve come parametro la richiesta di query di insert da fare e la manda al server
 
 	public static void mandaInsertAlServer(String req){
@@ -38,7 +38,7 @@ abstract class CameriereGuiSetting {
 			System.out.println("Errore nella connessione al server");
 		}
 	}
-	
+
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
 	 */
@@ -70,7 +70,7 @@ abstract class CameriereGuiSetting {
 		}
 		return null;
 	}
-	
+
 	// Listener del bottone reset. Resetta la Jlist degli Ordini correnti.
 
 	public static class MyButtonResetListener implements ActionListener {
@@ -84,7 +84,7 @@ abstract class CameriereGuiSetting {
 	/* Listener del bottone StatoOrdini. Visualizza nella Gui OrdiniGui, le ordinazioni fatte da un cameriere segnate
 	 * come "Pronto" presenti nella tabella Ordini.
 	 */
-	
+
 	public static class StatoOrdiniButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			if(!CameriereGui.idCameriereTextField.getText().equals("id")){
@@ -101,7 +101,7 @@ abstract class CameriereGuiSetting {
 	/* Listener bottone invia. Controlla se tutti i campi sono inseriti correttamente. 
 	 * Fa un insert di ogni ordine presente nella JList Ordini. 	
 	 */
-	
+
 	public static class MyButtonInviaListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			boolean inserito = true;
@@ -133,7 +133,7 @@ abstract class CameriereGuiSetting {
 	/* Listener della selezione di un campo della JList delle Bevande.
 	 * Aggiunge una bevanda alla JList degli ordini, e la salva in memoria.
 	 */
-	
+
 	public static class BevandeSelezioneListener extends MouseAdapter {	
 
 		@Override
@@ -149,7 +149,7 @@ abstract class CameriereGuiSetting {
 			}
 		}
 	}
-	
+
 	/* Listener della selezione di un campo della JList degli Ordini.
 	 * Quando viene selezionato un ordine, viene chiesto se questo deve essere cancellato.
 	 */
@@ -178,7 +178,7 @@ abstract class CameriereGuiSetting {
 	/* Listener della selezione di un campo della JList degli Snack.
 	 * Aggiunge uno snack alla JList degli ordini, e lo salva in memoria.
 	 */
-	
+
 	public static class SnackSelezioneListener extends MouseAdapter{		
 		@Override
 		public void mouseClicked(MouseEvent evt) {
@@ -193,4 +193,5 @@ abstract class CameriereGuiSetting {
 			}
 		}
 	}
+
 }

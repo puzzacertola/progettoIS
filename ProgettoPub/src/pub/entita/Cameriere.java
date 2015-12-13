@@ -24,6 +24,6 @@ public class Cameriere {
 	public int getIdCameriere() {
 		return IdCameriere;
 	}
-	
+
 }
 

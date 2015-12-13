@@ -11,7 +11,7 @@ public class Ordinazione {
 	private int quantita;
 	private float costo;
 	private String nome;
-	
+
 	public Ordinazione(int quantita, float costo, String nome){
 		this.quantita = quantita;
 		this.costo = costo;
@@ -41,4 +41,5 @@ public class Ordinazione {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 }

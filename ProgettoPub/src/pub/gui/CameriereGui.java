@@ -66,7 +66,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//Label Cameriere:
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -82,7 +82,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//TextField dell'id del cameriere
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -91,7 +91,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(idCameriereTextField, c);
-		
+
 		//Label Ordini
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -107,7 +107,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//Label Bevande
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -123,7 +123,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//HList degli Snack
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -132,7 +132,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel("Snack"), c);
-		
+
 		//JList degli Ordini
 
 		c.fill = GridBagConstraints.BOTH;
@@ -148,7 +148,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//JList delle bevande
 
 		c.fill = GridBagConstraints.BOTH;
@@ -171,7 +171,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(getListSnack(), c);
-		
+
 		//Label Tavolo
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -187,7 +187,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//TextField del tavolo
 
 		c.fill = GridBagConstraints.RELATIVE;
@@ -196,7 +196,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(tavoloTextField, c);
-		
+
 		//Bottone Invia
 
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -228,7 +228,7 @@ public class CameriereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel (" "), c);
-		
+
 		//Bottone StatoOrdini
 
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -243,7 +243,7 @@ public class CameriereGui extends JFrame{
 		setVisible(true);
 
 		//Chiamata dei vari Listener
-		
+
 		MyButtonInviaListener inviaListener = new MyButtonInviaListener();
 		inviaButton.addActionListener(inviaListener);
 		MyButtonResetListener resetListner = new MyButtonResetListener();
@@ -254,7 +254,7 @@ public class CameriereGui extends JFrame{
 	}
 
 	//Creazione JList delle Bevande 
-	
+
 	private static JScrollPane getListBevande(){
 		jListBevande = new JList(modelloBevande);
 
@@ -268,7 +268,7 @@ public class CameriereGui extends JFrame{
 	}
 
 	//Creazione JList degli snack
-	
+
 	private static JScrollPane getListSnack(){
 		jListSnack = new JList(modelloSnack);
 
@@ -280,7 +280,7 @@ public class CameriereGui extends JFrame{
 
 		return pane;
 	}
-	
+
 	//Creazione JList degli Ordini
 
 	private static JScrollPane getListOrdini(){
@@ -337,8 +337,6 @@ public class CameriereGui extends JFrame{
 				new CameriereGui();
 			}
 		}); 
-
-
 	}
 
 }

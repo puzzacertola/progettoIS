@@ -10,13 +10,14 @@ import java.sql.Statement;
  * Crea la connessione con il database da utilizzare.
  * 
  */
+
 public class DAOSetting {
-	
+
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String USER = "server";
 	static final String PASS = "server";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/IngDelSw";
-	
+
 	static{
 		try {
 			Class.forName(JDBC_DRIVER);
@@ -33,6 +34,6 @@ public class DAOSetting {
 		stat.getConnection().close();
 		stat.close();
 	}
-	
+
 }
 

@@ -4,18 +4,10 @@ import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 import pub.entita.Ordine;
 
-/**
- * @authors Giuseppe, Giovanni
- * 
- * Modello utilizzato dalla JList riferita agli ordini in OrdiniGui.
- *
- */
-
-public class ModelloStatoOrdini extends AbstractListModel{
-
+public class ModelloOrdiniBarECucina extends AbstractListModel{
 	private ArrayList<Ordine> ordini = null;
 
-	public ModelloStatoOrdini(String risposta){
+	public ModelloOrdiniBarECucina(String risposta){
 		setData(risposta);
 	}
 
@@ -37,7 +29,7 @@ public class ModelloStatoOrdini extends AbstractListModel{
 		for(int i=0;i<arrayRiga.length-1;i++){ //-1 perchè ogni stringa termina con \n => l'ultima è vuota
 			String[] arrayRisposta = arrayRiga[i].split("\\;",-1);
 			Ordine o = new Ordine(Integer.parseInt(arrayRisposta[0]), arrayRisposta[1],
-					Integer.parseInt(arrayRisposta[2]), arrayRisposta[3]);
+					Integer.parseInt(arrayRisposta[2]), Integer.parseInt(arrayRisposta[3]));
 			this.ordini.add(o);
 		}			
 	}
@@ -46,8 +38,9 @@ public class ModelloStatoOrdini extends AbstractListModel{
 
 	@Override
 	public String getElementAt(int index) {
-		return this.ordini.get(index).getTavolo() + " " + this.ordini.get(index).getNomeProdotto() + " "
-				+ this.ordini.get(index).getStato();
+		return this.ordini.get(index).getQuantita() + "x " + this.ordini.get(index).getNomeProdotto() 
+				+ " | Tavolo: " + this.ordini.get(index).getTavolo() + " | idCameriere: "
+				+ this.ordini.get(index).getIdCameriere();
 	}
 
 	//getSize ottiene la dimensione dell'ArrayList ordini.
@@ -59,8 +52,8 @@ public class ModelloStatoOrdini extends AbstractListModel{
 
 	//consegnaOrdine rimuove dalla lista l'ordine consegnato
 
-	public void consegnaOrdine(int index){
+	public void ordinePronto(int index){
 		this.ordini.remove(index);
 	}
-
+	
 }

@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
+import pub.gui.CassiereGuiSetting.TavoloTextFieldListener;
 import pub.server.Server;
 
 /**
@@ -26,55 +27,59 @@ public class CassiereGui extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private static Container pane ;
-	private static JTextField tavoloTextArea= new JTextField("",5);
-	private static JTextArea contoTextArea = new JTextArea(20,10);
-	
+	public static JTextField tavoloTextField = new JTextField("",5);
+	public static JTextArea contoTextArea = new JTextArea(20,10);
+
 	//creazione interfaccia
 	public CassiereGui(){
-		
+
 		super("Conto");
 		pane = getContentPane();
 		pane.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-		
+
+		//Label Tavolo 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel("Tavolo: "), c);
-		
+
+		//TextField del Tavolo 
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 1;
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(tavoloTextArea, c);
-		
+		pane.add(tavoloTextField, c);
+
+		//TextArea del Conto 
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 1;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(contoTextArea, c);
-	
+
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 1;
 		c.gridy = 1;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel(""), c);
-		
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
-				
+
 	}
-	   
-	
-	
+
 	public static void main(String[] args) {
-		
+
+		TavoloTextFieldListener tavoloListener = new TavoloTextFieldListener();
+		tavoloTextField.getDocument().addDocumentListener(tavoloListener);
+
 		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 		} catch (UnsupportedLookAndFeelException ex) {
@@ -100,8 +105,6 @@ public class CassiereGui extends JFrame{
 				new CassiereGui();
 			}
 		}); 
-
-
 	}
-	
+
 }

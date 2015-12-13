@@ -21,7 +21,7 @@ public class ModelloOrdini extends AbstractListModel {
 
 	//In ordinazioni vengono salvati i prodotti ordinati con le rispettive quantità per poi stamparli a video.
 	private ArrayList<Ordinazione> ordinazioni = null;
-	
+
 	private static final int ID_PRODOTTO_INIZIALIZZAZIONE = -1;
 	private static final int COSTO_INIZIALIZZAZIONE = 0;
 	private static final int NUMERO_PRODOTTI_UGUALI_INIZIALIZZAZIONE = 1;
@@ -49,7 +49,7 @@ public class ModelloOrdini extends AbstractListModel {
 	public ArrayList<Ordinazione> getOrdinazioni(){
 		return ordinazioni;
 	}
-	
+
 	/*
 	 * addProdotti aggiunge all'ArrayList prodotti il prodotto selezionato nella JList delle Bevande o degli Snack.
 	 * Verifica se l'array prodotti contiene gia un prodotto con lo stesso id. Nel caso non lo contiene, il prodotto
@@ -74,7 +74,7 @@ public class ModelloOrdini extends AbstractListModel {
 		if(this.prodotti.get(0).getIdProdotto() == ID_PRODOTTO_INIZIALIZZAZIONE)
 			this.prodotti.remove(0);	
 	}
-	
+
 	/*
 	 * deleteProdotto elimina sia in prodotti che in ordinazioni il prodotto selezionato.
 	 */
@@ -106,7 +106,7 @@ public class ModelloOrdini extends AbstractListModel {
 					COSTO_INIZIALIZZAZIONE));
 		}
 	}
-	
+
 	/*
 	 * getElementAt è il metodo utilizzato dalla JList per stampare le stringhe in un JScrollPane.
 	 * Viene stampato a video il contenuto dell' ArrayList Ordinazioni.
@@ -121,14 +121,14 @@ public class ModelloOrdini extends AbstractListModel {
 		return this.ordinazioni.get(index).getQuantita() + "x " + this.ordinazioni.get(index).getNome() + " "
 		+ this.ordinazioni.get(index).getCosto();
 	}
-	
+
 	//getSize Restituisce il numero di prodotti diversi presenti nell'ArrayList prodotti.
 
 	@Override
 	public int getSize() {
 		return this.numeroProdottiDiversi;
 	}
-	
+
 	//resetta tutti i campi del modello.
 
 	public void resetta(){
@@ -139,7 +139,7 @@ public class ModelloOrdini extends AbstractListModel {
 		prodotti.add(new Prodotto(ID_PRODOTTO_INIZIALIZZAZIONE, NOME_INIZIALIZZAZIONE, DESCRIZIONE_INIZIALIZZAZIONE, 
 				COSTO_INIZIALIZZAZIONE));
 	}
-	
+
 	//numeroProdottiUguali ottiene il numero dei prodotti uguali presenti all'interno dell' ArrayList prodotti ogni volta che si aggiunge un Prodotto
 
 	public void numeroProdottiUguali(Prodotto p){
@@ -151,14 +151,14 @@ public class ModelloOrdini extends AbstractListModel {
 	}
 
 	//numeroProdottiDiversi ottiene il numero dei prodotti diversi presenti all'interno dell' ArrayList prodotti ogni volta che si aggiunge un Prodotto
-	
+
 	public void numeroProdottiDiversi(Prodotto p){
 		if(!this.prodotti.contains(p))
 			this.numeroProdottiDiversi++;
 	}
 
 	//getSizeOfProdotti restituisce la dimensione dell' ArrayList prodotti.
-	
+
 	public int getSizeOfProdotti(){
 		return this.prodotti.size();
 	}

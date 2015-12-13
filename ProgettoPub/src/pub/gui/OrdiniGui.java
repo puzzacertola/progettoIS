@@ -34,14 +34,14 @@ public class OrdiniGui extends JFrame{
 		GridBagConstraints c = new GridBagConstraints();
 
 		//Label Ordinazioni Pronte
-		
+
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel("Ordinazioni pronte:"), c);
-		
+
 		//JList degli ordini
 
 		c.fill = GridBagConstraints.BOTH;
@@ -52,14 +52,14 @@ public class OrdiniGui extends JFrame{
 		pane.add(getListOrdini(elenco), c);
 
 		//Label tavolo
-		
+
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel("tavolo:"), c);
-		
+
 		//TextArea tavolo (da fare)
 
 		c.fill = GridBagConstraints.BOTH;
@@ -79,24 +79,24 @@ public class OrdiniGui extends JFrame{
 			public void keyTyped(KeyEvent arg0) {
 				//query ordina vista per tavolo
 			}
-			
+
 			@Override
 			public void keyPressed(KeyEvent arg0) {
-			
+
 			}
-			
+
 			public void keyReleased(KeyEvent arg0) {
-			
+
 			}
 		});
 
 	}
-	
+
 	//Creazione JList degli ordini
-	
+
 	private static JScrollPane getListOrdini(String elenco){
 		modelloStatoOrdini = new ModelloStatoOrdini(elenco);
-		
+
 		jListOrdini = new JList(modelloStatoOrdini);
 
 		JScrollPane pane = new JScrollPane(jListOrdini);

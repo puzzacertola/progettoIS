@@ -37,7 +37,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 	 * getListaBevande restituisce un ArrayList di Bevanda.
 	 * Ogni Bevanda è costituita dai valori ottenuti dal ResultSet della query eseguita.  
 	 */
-	
+
 	private ArrayList<Bevanda> getListaBevande(ResultSet rs){
 		ArrayList<Bevanda> listaBevande = new ArrayList<Bevanda>();
 
@@ -56,7 +56,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaBevande;		
 	}
-	
+
 	/*
 	 * getListaSnack restituisce un ArrayList di Snack.
 	 * Ogni Snack è costituito dai valori ottenuti dal ResultSet della query eseguita.  
@@ -79,7 +79,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaSnack;		
 	}
-	
+
 	/*
 	 * getListaOrdini restituisce un ArrayList di Ordine.
 	 * Ogni Ordine è costituito dai valori ottenuti dal ResultSet della query eseguita.  
@@ -102,7 +102,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;		
 	}
-	
+
 	private ArrayList<Ordine> getListaOrdiniCameriere(ResultSet rs){
 		ArrayList<Ordine> listaOrdini = new ArrayList<Ordine>();
 
@@ -119,7 +119,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;		
 	}
-	
+
 	/*
 	 * mostraBevande fa una select sulla tabella Menu mostrando tutti i campi delle bevande.
 	 * Fa un controllo sull'orario, in modo tale da non mostrare le bevande alcoliche dopo le 22:00.
@@ -150,7 +150,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaBevande;
 	}
-	
+
 	/*
 	 * mostraSnack() fa una select sulla tabella Menu mostrando tutti i campi degli snack
 	 */
@@ -174,7 +174,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaSnack;
 	}
-	
+
 	/*
 	 * inserisciOrdini fa un insert nella tabella Ordini, inserendo una singola ordinazione specificando
 	 * l'id del prodotto ordinato, il tavolo da servire, il cameriere che ha fatto l'ordinazione, e lo stato
@@ -198,11 +198,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
-	
+
 	/*
 	 * mostraOrdini() fa una select sulla tabella Ordini mostrando tutti i campi di ogni Ordine.
 	 */	
-	
+
 	@Override
 	public List<Ordine> mostraOrdini() {
 		ArrayList<Ordine> listaOrdini = new ArrayList<Ordine>();
@@ -222,7 +222,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;
 	}
-	
+
 	/*
 	 * modificaOrdine() fa un update sulla tabella ordini, modificando lo stato di un ordine.
 	 */
@@ -243,7 +243,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
-	
+
 	/*
 	 * eliminaOrdine() fa un delete sulla tabella ordini andando ad eliminare un ordine inserito.
 	 */
@@ -276,7 +276,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 			Statement stat = DAOSetting.getStatement();
 			String query = "select o.idOrdine, m.Nome, o.Tavolo, o.Stato "
 					+ "from Ordini o, Menu m "
-					+ "where o.idCameriere = " + idCameriere + " and o.idProdotto = m.IdProdotto "
+					+ "where o.idCameriere = " + idCameriere + " and o.idProdotto = m.IdProdotto and o.Stato != 'Consegnato' "
 					+ "order by(o.Tavolo)";
 
 			ResultSet rs = stat.executeQuery(query);
@@ -291,7 +291,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return listaOrdini;
 	}
-	
+
 	/*
 	 * mostraOrdiniTavolo() fa una select sulla tabella Ordini, mostrando tutti gli ordini fatti
 	 * ad un tavolo.
@@ -317,4 +317,5 @@ public class DAOCameriereImpl implements DAOCameriere {
 		return listaOrdini;
 
 	}
+	
 }

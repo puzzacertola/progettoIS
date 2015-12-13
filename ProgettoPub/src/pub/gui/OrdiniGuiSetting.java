@@ -2,7 +2,9 @@ package pub.gui;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import javax.swing.JFrame;
@@ -32,7 +34,7 @@ abstract class OrdiniGuiSetting {
 			System.out.println("Errore nella connessione al server");
 		}
 	}
-	
+
 	/* Listener della selezione di un campo della JList degli Ordini.
 	 * Quando viene selezionato un ordine, viene chiesto se questo deve essere segnato come "Consegnato".
 	 * Se l'ordine viene segnato come "Consegnato", viene generata una richiesta di 
@@ -44,11 +46,11 @@ abstract class OrdiniGuiSetting {
 		public void mouseClicked(MouseEvent evt) {
 			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
 				int index = OrdiniGui.jListOrdini.locationToIndex(evt.getPoint());
-				
+
 				if(index >= 0){
 					int n = JOptionPane.showConfirmDialog(new JFrame(),"Segnare ordine come consegnato?"
 							,"Consegna Ordine",JOptionPane.YES_NO_OPTION);
-					
+
 					if (n == 0){
 						if (OrdiniGui.jListOrdini.getSelectedIndex() != -1) {
 							String req = "pub:\n" + Server.UPDATE_CAMERIERE_ORDINI + "\nidOrdine:" 
@@ -65,5 +67,5 @@ abstract class OrdiniGuiSetting {
 			}
 		}
 	}
-	
+
 }
