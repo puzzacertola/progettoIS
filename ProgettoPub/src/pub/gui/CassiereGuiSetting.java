@@ -1,5 +1,7 @@
 package pub.gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -75,6 +77,7 @@ public class CassiereGuiSetting {
 
 	/* Listener del TextField Tavolo. Visualizza nella Gui
 	 * le ordinazioni consegnate ad un Tavolo e mostra il conto da pagare.
+	 * verifica che nel campo tavolo sia inserito un valore numerico
 	 */
 
 	public static class TavoloTextFieldListener implements DocumentListener{
@@ -84,6 +87,13 @@ public class CassiereGuiSetting {
 
 		@Override
 		public void insertUpdate(DocumentEvent e) {
+			try{
+				Integer.parseInt(CassiereGui.tavoloTextField.getText());}
+			catch (NumberFormatException ex){
+				ex.getMessage();
+				JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			if(!CassiereGui.tavoloTextField.getText().equals("")){
 
 				String req = "pub:\n" + Server.SELECT_CASSIERE_ORDINI + "\nTavolo:" + CassiereGui.tavoloTextField.getText();
@@ -93,14 +103,26 @@ public class CassiereGuiSetting {
 				risposta = ottieniTotaleDalDataBase(req);
 				CassiereGui.contoTextArea.append("Totale: " + risposta + " €");
 			}
+			
 			else
 				JOptionPane.showMessageDialog(new JFrame(), "Errore: id Cameriere errato" 
 						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
-
+			
+			
 		}
 
 		@Override
 		public void removeUpdate(DocumentEvent e) {}
 	}
+	
+	// elimina dal database tutti gli ordini del tavolo che ha effettuato il pagamento
+	
+	public static class MyButtonPagatoListener implements ActionListener {
+		public void actionPerformed(ActionEvent evt) {
+			//query elimina i prodotti ordinati per il tavolo che ha pagato
+			
+		}
+		}
+	
 
 }
