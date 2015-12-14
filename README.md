@@ -44,4 +44,4 @@ applicazioni.
 
 # Contributors
 
-Giovanni & Giuseppe: team "coffe break".
+Giovanni & Giuseppe: team "coffee break".
