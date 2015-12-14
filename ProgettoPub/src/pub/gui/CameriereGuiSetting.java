@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Calendar;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -24,7 +25,43 @@ import pub.server.Server;
  */
 
 abstract class CameriereGuiSetting {
+public static final int ESTATE=6;
 
+	//confronta il numero di tavolo inserito con il mese attuale, se l'inserimento non è valido da un messaggio di errore
+	public static boolean verificaTavoli(){
+		
+		boolean c=false;
+		Calendar cal = Calendar.getInstance();
+		try{
+			Integer.parseInt(CameriereGui.tavoloTextField.getText());}
+		catch(NumberFormatException ex){
+			ex.getMessage();
+			JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);
+		}
+		if(ESTATE<=cal.get(Calendar.MONTH)&& Integer.parseInt(CameriereGui.tavoloTextField.getText())<= 40|| ESTATE>cal.get(Calendar.MONTH)&&Integer.parseInt(CameriereGui.tavoloTextField.getText())<=25){
+			c=true;
+		}
+			
+		return c;
+	}
+	
+	//confronta l'id cameriere con i camerieri presenti nel database altrimenti da errore
+	
+	public static boolean verificaCameriere(){
+		boolean c=false;
+		try{
+			Integer.parseInt(CameriereGui.idCameriereTextField.getText());
+		}
+		catch(NumberFormatException ex){
+			ex.getMessage();
+			JOptionPane.showMessageDialog(new JFrame(),"Nel campo Cameriere va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);	
+		}
+			/*if(query se id cameriere è in lista){c=true}
+			*/
+		return c;
+	}
+		
+	
 	//mandaInsertAlServer riceve come parametro la richiesta di query di insert da fare e la manda al server
 
 	public static void mandaInsertAlServer(String req){
@@ -104,10 +141,10 @@ abstract class CameriereGuiSetting {
 
 	public static class MyButtonInviaListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			boolean inserito = true;
+
 			if(CameriereGui.modelloOrdini.getProdotti().get(0).getIdProdotto() != -1 && 
 					!CameriereGui.idCameriereTextField.getText().equals("id") && 
-					!CameriereGui.tavoloTextField.getText().equals("")){
+					verificaTavoli()==true){
 
 				for(int i=0;i<CameriereGui.modelloOrdini.getSizeOfProdotti();i++){
 
@@ -116,17 +153,18 @@ abstract class CameriereGuiSetting {
 							+ "\ntavolo:" + CameriereGui.tavoloTextField.getText() + "\nidCameriere:" 
 							+ CameriereGui.idCameriereTextField.getText() + "\n";
 					mandaInsertAlServer(req);										 					
-
 				}
-
-			}else
-				inserito = false;
-
-			if(inserito == false)
-				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
-						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
-			else
 				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");
+			}
+			else
+				if(verificaTavoli() == false)
+					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
+						+ "Tavolo inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+				//if (verificaCameriere()==false)
+				//	JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
+				//			+ "Cameriere inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(new JFrame(),"", "Errore",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
