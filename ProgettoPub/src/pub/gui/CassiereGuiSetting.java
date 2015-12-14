@@ -101,7 +101,7 @@ public class CassiereGuiSetting {
 				CassiereGui.contoTextArea.append(risposta);
 				req = "pub:\n" + Server.SELECT_CASSIERE_TOTALE + "\nTavolo:" + CassiereGui.tavoloTextField.getText();
 				risposta = ottieniTotaleDalDataBase(req);
-				CassiereGui.contoTextArea.append("Totale: " + risposta + " €");
+				CassiereGui.totaleTextArea.append("Totale: " + risposta + " €");
 			}
 			
 			else
@@ -120,6 +120,7 @@ public class CassiereGuiSetting {
 	public static class MyButtonPagatoListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			//query elimina i prodotti ordinati per il tavolo che ha pagato
+			//se si elimina una cosa ancora da consegnare o da fare notificarlo a cameriere e barista e cuoco
 			
 		}
 		}

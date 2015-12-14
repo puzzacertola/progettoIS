@@ -7,18 +7,12 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
-import pub.gui.CameriereGuiSetting.MyButtonInviaListener;
-import pub.gui.CameriereGuiSetting.OrdiniSelezioneListener;
 import pub.gui.CassiereGuiSetting.TavoloTextFieldListener;
 import pub.gui.CassiereGuiSetting.MyButtonPagatoListener;
-import pub.server.Server;
 
 /**
  * @authors Giuseppe, Giovanni
@@ -35,7 +29,8 @@ public class CassiereGui extends JFrame{
 	public static JTextField tavoloTextField = new JTextField("",5);
 	public static JTextArea contoTextArea = new JTextArea(20,10);
 	public static JButton pagato= new JButton("pagato");
-
+	public static JTextArea totaleTextArea = new JTextArea(1,5);
+	
 	//creazione interfaccia
 	public CassiereGui(){
 
@@ -75,7 +70,30 @@ public class CassiereGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(pagato, c);
-
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 3;
+		c.weightx = 1;
+		c.weighty = 1;
+		pane.add(new JLabel(""), c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 3;
+		c.weightx = 1;
+		c.weighty = 1;
+		pane.add(totaleTextArea, c);
+		totaleTextArea.setEditable(false);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 3;
+		c.weightx = 1;
+		c.weighty = 1;
+		pane.add(new JLabel("totale"), c);
+		
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
