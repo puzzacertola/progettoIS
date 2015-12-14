@@ -37,7 +37,7 @@ inoltre l'utilizzo di una gestione informatizzata degli ordini può dare una ves
 
 il sistema è composto da un database che va aggiornato giornalmente, un applicazione da installare sul terminale del cassiere,
 un'altra da installare su un terminale in cucina, una su un terminale al per il barista ed infine un'ultima da installare
-su ogni tablet in dotazione ai camerieri. per l'utilizzo accendere prima il server e successivaente far partire le altre
+su ogni tablet in dotazione ai camerieri. per l'utilizzo accendere prima il server e successivamente far partire le altre
 applicazioni.
 
 
