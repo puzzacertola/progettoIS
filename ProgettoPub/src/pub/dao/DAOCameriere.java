@@ -26,4 +26,5 @@ public interface DAOCameriere {
 	public void eliminaOrdine (int idOrdine);
 	public List<Ordine> mostraOrdiniCameriere(int idCameriere);
 	public List<Ordine>	mostraOrdiniTavolo(int tavolo);
+	public String cercaCameriere(int idCameriere);
 }

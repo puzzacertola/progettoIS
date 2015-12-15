@@ -16,4 +16,5 @@ import pub.entita.Conto;
 public interface DAOCassiere {
 	public List<Conto> mostraOrdiniDaPagare(int tavolo);
 	public String ottieniTotale(int tavolo);
+	public void contoPagato(int numeroTavolo);
 }

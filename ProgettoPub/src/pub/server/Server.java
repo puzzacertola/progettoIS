@@ -44,6 +44,8 @@ public class Server {
 	public static final String UPDATE_CUOCO_ORDINI = "req_update_cuoco_ordini";
 	public static final String SELECT_CASSIERE_ORDINI = "req_select_cassiere_ordini";
 	public static final String SELECT_CASSIERE_TOTALE = "req_select_cassiere_totale";
+	public static final String SELECT_CAMERIERE_IN_DB = "req_select_cameriere_in_db";
+	public static final String DELETE_CASSIERE_ORDINI = "req_cassiere_ordini";
 
 	//rispostaBevande restituisce la risposta da inviare al client, alla richiesta di una select delle bevande nella tabella Menu
 
@@ -312,6 +314,28 @@ public class Server {
 					risposta = DAOCassiereImpl.getInstance().ottieniTotale(tavolo);
 
 					out.println(risposta);
+				}
+				
+				else if(comando.equals(SELECT_CASSIERE_TOTALE)){
+					int tavolo = Integer.parseInt(in.readLine().replace("Tavolo:", ""));
+
+					risposta = DAOCassiereImpl.getInstance().ottieniTotale(tavolo);
+
+					out.println(risposta);
+				}
+				
+				else if(comando.equals(SELECT_CAMERIERE_IN_DB)){
+					int idCameriere = Integer.parseInt(in.readLine().replace("id:", ""));
+
+					risposta = DAOCameriereImpl.getInstance().cercaCameriere(idCameriere);
+
+					out.println(risposta);
+				}
+				
+				else if(comando.equals(DELETE_CASSIERE_ORDINI)){
+					int numeroTavolo = Integer.parseInt(in.readLine().replace("tavolo:", ""));
+
+					DAOCassiereImpl.getInstance().contoPagato(numeroTavolo);
 				}
 
 				s.close();

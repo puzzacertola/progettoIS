@@ -25,7 +25,9 @@ import pub.server.Server;
  */
 
 abstract class CameriereGuiSetting {
-public static final int ESTATE=6;
+public static final int ESTATE = 6;
+public static final int NUMERO_MASSIMO_TAVOLI_ESTATE = 40;
+public static final int NUMERO_MASSIMO_TAVOLI = 25;
 
 	//confronta il numero di tavolo inserito con il mese attuale, se l'inserimento non è valido da un messaggio di errore
 	public static boolean verificaTavoli(){
@@ -36,10 +38,15 @@ public static final int ESTATE=6;
 			Integer.parseInt(CameriereGui.tavoloTextField.getText());}
 		catch(NumberFormatException ex){
 			ex.getMessage();
-			JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", 
+					"Errore", JOptionPane.ERROR_MESSAGE);
+			return c;
 		}
-		if(ESTATE<=cal.get(Calendar.MONTH)&& Integer.parseInt(CameriereGui.tavoloTextField.getText())<= 40|| ESTATE>cal.get(Calendar.MONTH)&&Integer.parseInt(CameriereGui.tavoloTextField.getText())<=25){
-			c=true;
+		if(ESTATE <= cal.get(Calendar.MONTH) && 
+				Integer.parseInt(CameriereGui.tavoloTextField.getText())<= NUMERO_MASSIMO_TAVOLI_ESTATE || 
+				ESTATE > cal.get(Calendar.MONTH) &&
+				Integer.parseInt(CameriereGui.tavoloTextField.getText()) <= NUMERO_MASSIMO_TAVOLI){
+			c = true;
 		}
 			
 		return c;
@@ -48,19 +55,25 @@ public static final int ESTATE=6;
 	//confronta l'id cameriere con i camerieri presenti nel database altrimenti da errore
 	
 	public static boolean verificaCameriere(){
-		boolean c=false;
+		boolean c = false;
+		
 		try{
 			Integer.parseInt(CameriereGui.idCameriereTextField.getText());
 		}
 		catch(NumberFormatException ex){
 			ex.getMessage();
-			JOptionPane.showMessageDialog(new JFrame(),"Nel campo Cameriere va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);	
+			JOptionPane.showMessageDialog(new JFrame(),"Nel campo Cameriere va inserito un valore numerico", 
+					"Errore", JOptionPane.ERROR_MESSAGE);	
+			return c;
 		}
-			/*if(query se id cameriere è in lista){c=true}
-			*/
+			String req = "pub:\n" + Server.SELECT_CAMERIERE_IN_DB + "\nid:" 
+					+ CameriereGui.idCameriereTextField.getText() + "\n" ;
+			
+			if(!controllaIdCameriere(req).equals("Non presente.")) 
+				c = true;
+
 		return c;
-	}
-		
+	}		
 	
 	//mandaInsertAlServer riceve come parametro la richiesta di query di insert da fare e la manda al server
 
@@ -88,8 +101,12 @@ public static final int ESTATE=6;
 			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
 			out.println(req);
-
-			String line = in.readLine();
+			String line = null;
+			try{
+				line = in.readLine();
+			}catch(IOException e){
+				return null;
+			}
 			String risposta = line;
 
 			while(line.length() > 0){
@@ -101,7 +118,23 @@ public static final int ESTATE=6;
 			return risposta;
 
 		}catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Errore nella connessione al server");
+		}
+		return null;
+	}
+	
+	public static String controllaIdCameriere(String req){
+		Socket s;
+		try {
+			s = new Socket(Server.HOST, Server.PORTA);
+			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+
+			out.println(req);
+
+			return in.readLine();
+
+		}catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Errore nella connessione al server");
 		}
@@ -125,7 +158,9 @@ public static final int ESTATE=6;
 	public static class StatoOrdiniButton implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			if(!CameriereGui.idCameriereTextField.getText().equals("id")){
-				String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" + CameriereGui.idCameriereTextField.getText() + "\n";
+				String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" 
+						+ CameriereGui.idCameriereTextField.getText() + "\n";
+				
 				String risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
 				new OrdiniGui(risposta);
 			}
@@ -144,7 +179,7 @@ public static final int ESTATE=6;
 
 			if(CameriereGui.modelloOrdini.getProdotti().get(0).getIdProdotto() != -1 && 
 					!CameriereGui.idCameriereTextField.getText().equals("id") && 
-					verificaTavoli()==true){
+					verificaTavoli() == true && verificaCameriere() == true){
 
 				for(int i=0;i<CameriereGui.modelloOrdini.getSizeOfProdotti();i++){
 
@@ -154,17 +189,17 @@ public static final int ESTATE=6;
 							+ CameriereGui.idCameriereTextField.getText() + "\n";
 					mandaInsertAlServer(req);										 					
 				}
+
 				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");
 			}
-			else
+
 				if(verificaTavoli() == false)
 					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
-						+ "Tavolo inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
-				//if (verificaCameriere()==false)
-				//	JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
-				//			+ "Cameriere inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
-				else
-					JOptionPane.showMessageDialog(new JFrame(),"", "Errore",JOptionPane.ERROR_MESSAGE);
+							+ " Tavolo inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+				if (verificaCameriere() == false)
+					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
+							+ " Cameriere inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+
 		}
 	}
 

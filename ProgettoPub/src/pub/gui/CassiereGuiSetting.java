@@ -25,6 +25,18 @@ public class CassiereGuiSetting {
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
 	 */
+	
+	public static void mandaDeleteAlServer(String req){
+		Socket s;
+		try {
+			s = new Socket(Server.HOST, Server.PORTA);
+			PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+			out.println(req);
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Errore nella connessione al server");
+		}
+	}
 
 	public static String ottieniStringaDalDatabase(String req){
 		Socket s;
@@ -83,7 +95,30 @@ public class CassiereGuiSetting {
 	public static class TavoloTextFieldListener implements DocumentListener{
 
 		@Override
-		public void changedUpdate(DocumentEvent e) {}
+		public void changedUpdate(DocumentEvent e) {
+			try{
+				Integer.parseInt(CassiereGui.tavoloTextField.getText());}
+			catch (NumberFormatException ex){
+				ex.getMessage();
+				JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			if(!CassiereGui.tavoloTextField.getText().equals("")){
+
+				String req = "pub:\n" + Server.SELECT_CASSIERE_ORDINI + "\nTavolo:" + CassiereGui.tavoloTextField.getText();
+				String risposta = ottieniStringaDalDatabase(req);
+				CassiereGui.contoTextArea.setText("");
+				CassiereGui.contoTextArea.append(risposta);
+				req = "pub:\n" + Server.SELECT_CASSIERE_TOTALE + "\nTavolo:" + CassiereGui.tavoloTextField.getText();
+				risposta = ottieniTotaleDalDataBase(req);
+				CassiereGui.totaleTextArea.setText("");
+				CassiereGui.totaleTextArea.append(risposta + " €");
+			}
+			
+			else
+				JOptionPane.showMessageDialog(new JFrame(), "Errore: id Cameriere errato" 
+						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
+		}
 
 		@Override
 		public void insertUpdate(DocumentEvent e) {
@@ -98,32 +133,36 @@ public class CassiereGuiSetting {
 
 				String req = "pub:\n" + Server.SELECT_CASSIERE_ORDINI + "\nTavolo:" + CassiereGui.tavoloTextField.getText();
 				String risposta = ottieniStringaDalDatabase(req);
+				CassiereGui.contoTextArea.setText("");
 				CassiereGui.contoTextArea.append(risposta);
 				req = "pub:\n" + Server.SELECT_CASSIERE_TOTALE + "\nTavolo:" + CassiereGui.tavoloTextField.getText();
 				risposta = ottieniTotaleDalDataBase(req);
-				CassiereGui.totaleTextArea.append("Totale: " + risposta + " €");
+				CassiereGui.totaleTextArea.setText("");
+				CassiereGui.totaleTextArea.append(risposta + " €");
 			}
 			
 			else
 				JOptionPane.showMessageDialog(new JFrame(), "Errore: id Cameriere errato" 
 						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
 			
-			
 		}
 
 		@Override
 		public void removeUpdate(DocumentEvent e) {}
+		
 	}
 	
 	// elimina dal database tutti gli ordini del tavolo che ha effettuato il pagamento
 	
 	public static class MyButtonPagatoListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			//query elimina i prodotti ordinati per il tavolo che ha pagato
-			//se si elimina una cosa ancora da consegnare o da fare notificarlo a cameriere e barista e cuoco
-			
+			String req = "pub:\n" + Server.DELETE_CASSIERE_ORDINI + "\ntavolo:" 
+					+ CassiereGui.tavoloTextField.getText() + "\n";
+			mandaDeleteAlServer(req);
+			JOptionPane.showMessageDialog(new JFrame(), "Ordine Pagato!");
+			CassiereGui.contoTextArea.setText("");
 		}
-		}
+	}
 	
 
 }

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import pub.entita.Bevanda;
 import pub.entita.Ordine;
 import pub.entita.Snack;
@@ -51,7 +54,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaBevande;		
@@ -74,7 +76,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 						rs.getString("Tipo")));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaSnack;		
@@ -97,7 +98,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 						rs.getString("Stato")));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaOrdini;		
@@ -114,7 +114,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 						rs.getString("Stato")));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
 			System.out.println("Errore nella stringa di risposta");
 		}
 		return listaOrdini;		
@@ -145,7 +144,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 			DAOSetting.closeStatement(stat);
 
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaBevande;
@@ -169,7 +167,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaSnack;
@@ -194,7 +191,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
@@ -217,7 +213,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 			DAOSetting.closeStatement(stat);
 
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaOrdini;
@@ -239,7 +234,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
@@ -259,7 +253,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
@@ -286,7 +279,6 @@ public class DAOCameriereImpl implements DAOCameriere {
 			DAOSetting.closeStatement(stat);
 
 		} catch (SQLException e){
-			e.printStackTrace();
 			System.out.println("Errore nella richiesta al DB");
 		}
 		return listaOrdini;
@@ -312,10 +304,33 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 		} catch (SQLException e){
 			System.out.println("Errore nella richiesta al DB");
-			e.printStackTrace();
 		}
 		return listaOrdini;
 
 	}
+
+	@Override
+	public String cercaCameriere(int idCameriere) {
+		String cameriere = "";
+		try{
+			Statement stat = DAOSetting.getStatement();
+			String query = "select Nome "
+					+ "from Cameriere "
+					+ "where idCameriere = " + idCameriere;
+
+			ResultSet rs = stat.executeQuery(query);
+			if(rs.next())
+				cameriere = rs.getString("Nome");
+			else
+				cameriere = "Non presente.";
+			
+			DAOSetting.closeStatement(stat);
+
+		} catch (SQLException e){
+			System.out.println("Errore nella richiesta al DB");
+		}
+		return cameriere;		
+	}
+	
 	
 }

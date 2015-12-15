@@ -105,4 +105,20 @@ public class DAOCassiereImpl implements DAOCassiere {
 		return totale;		
 	}
 
+	@Override
+	public void contoPagato(int numeroTavolo) {
+		try {
+			Statement stat = DAOSetting.getStatement();
+
+			String query = "delete from Ordini where Tavolo = " + numeroTavolo;
+
+			stat.executeUpdate(query);
+
+			DAOSetting.closeStatement(stat);
+		} catch (SQLException e){
+			System.out.println("Errore nella richiesta al DB");
+		}
+		
+	}
+
 }

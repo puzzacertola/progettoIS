@@ -91,7 +91,7 @@ public class CassiereGui extends JFrame{
 		c.gridy = 3;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(new JLabel("totale"), c);
+		pane.add(new JLabel("Totale"), c);
 		
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
