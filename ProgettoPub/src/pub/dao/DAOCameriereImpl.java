@@ -234,6 +234,8 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
+			JOptionPane.showMessageDialog(new JFrame(), "Errore" 
+					+ "Ordinazione non trovata", "Errore", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
