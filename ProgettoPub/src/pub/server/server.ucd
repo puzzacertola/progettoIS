@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="server" size="783,623" id="pub.server" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D31302050726F676574746F507562">
+  <children xsi:type="editmodel:ClassEditModel" name="Server" location="50,50" size="279,553" id="pub.server/Server" runTimeClassModel="pASS,iNSERT_CAMERIERE_ORDINI,rispostaOrdini(Ljava.util.List;),sELECT_CAMERIERE_IDORDINI,uPDATE_CUOCO_ORDINI,uPDATE_CAMERIERE_ORDINI,pORTA,sELECT_CUOCO_ORDINI,sELECT_CAMERIERE_IN_DB,rispostaOrdiniCameriere(Ljava.util.List;),sELECT_CAMERIERE_ORDINI,sELECT_CASSIERE_ORDINI,main([Ljava.lang.String;),rispostaOrdiniBarECucina(Ljava.util.List;),sELECT_CAMERIERE_ORDINI_TAVOLO,uSER,sELECT_CAMERIERE_MENU_BEVANDE,rispostaSnack(Ljava.util.List;),sELECT_CAMERIERE_ORDINI_CAMERIERE,dELETE_CAMERIERE_ORDINI,sELECT_BARISTA_ORDINI,dELETE_CASSIERE_ORDINI,uPDATE_BARISTA_ORDINI,hOST,sELECT_CASSIERE_TOTALE,sELECT_CAMERIERE_MENU_SNACK,rispostaOrdiniCassa(Ljava.util.List;),rispostaBevande(Ljava.util.List;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="256,378">
+      <children xsi:type="editmodel:AttributeEditModel" name="dELETE_CAMERIERE_ORDINI" id="pub.server/Server#dELETE_CAMERIERE_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dELETE_CASSIERE_ORDINI" id="pub.server/Server#dELETE_CASSIERE_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hOST" id="pub.server/Server#hOST"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="iNSERT_CAMERIERE_ORDINI" id="pub.server/Server#iNSERT_CAMERIERE_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pASS" id="pub.server/Server#pASS"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pORTA" id="pub.server/Server#pORTA"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_BARISTA_ORDINI" id="pub.server/Server#sELECT_BARISTA_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_IDORDINI" id="pub.server/Server#sELECT_CAMERIERE_IDORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_IN_DB" id="pub.server/Server#sELECT_CAMERIERE_IN_DB"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_MENU_BEVANDE" id="pub.server/Server#sELECT_CAMERIERE_MENU_BEVANDE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_MENU_SNACK" id="pub.server/Server#sELECT_CAMERIERE_MENU_SNACK"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_ORDINI" id="pub.server/Server#sELECT_CAMERIERE_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_ORDINI_CAMERIERE" id="pub.server/Server#sELECT_CAMERIERE_ORDINI_CAMERIERE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CAMERIERE_ORDINI_TAVOLO" id="pub.server/Server#sELECT_CAMERIERE_ORDINI_TAVOLO"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CASSIERE_ORDINI" id="pub.server/Server#sELECT_CASSIERE_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CASSIERE_TOTALE" id="pub.server/Server#sELECT_CASSIERE_TOTALE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sELECT_CUOCO_ORDINI" id="pub.server/Server#sELECT_CUOCO_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="uPDATE_BARISTA_ORDINI" id="pub.server/Server#uPDATE_BARISTA_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="uPDATE_CAMERIERE_ORDINI" id="pub.server/Server#uPDATE_CAMERIERE_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="uPDATE_CUOCO_ORDINI" id="pub.server/Server#uPDATE_CUOCO_ORDINI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="uSER" id="pub.server/Server#uSER"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,126">
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="pub.server/Server#main([Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rispostaBevande" id="pub.server/Server#rispostaBevande(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rispostaOrdini" id="pub.server/Server#rispostaOrdini(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rispostaOrdiniBarECucina" id="pub.server/Server#rispostaOrdiniBarECucina(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rispostaOrdiniCameriere" id="pub.server/Server#rispostaOrdiniCameriere(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rispostaOrdiniCassa" id="pub.server/Server#rispostaOrdiniCassa(Ljava.util.List;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="rispostaSnack" id="pub.server/Server#rispostaSnack(Ljava.util.List;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

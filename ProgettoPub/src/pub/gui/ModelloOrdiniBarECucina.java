@@ -5,6 +5,10 @@ import javax.swing.AbstractListModel;
 import pub.entita.Ordine;
 
 public class ModelloOrdiniBarECucina extends AbstractListModel{
+	/**
+	 * @uml.property  name="ordini"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="pub.entita.Ordine"
+	 */
 	private ArrayList<Ordine> ordini = null;
 
 	public ModelloOrdiniBarECucina(String risposta){

@@ -10,8 +10,17 @@ package pub.entita;
 public class Cameriere {
 	//Istanze
 	static final int PORTA = 80;
+	/**
+	 * @uml.property  name="idCameriere"
+	 */
 	private int IdCameriere;
+	/**
+	 * @uml.property  name="nome"
+	 */
 	private String Nome;
+	/**
+	 * @uml.property  name="cognome"
+	 */
 	private String Cognome;
 
 	//Costruttore
@@ -21,6 +30,10 @@ public class Cameriere {
 
 	//get and setters
 
+	/**
+	 * @return
+	 * @uml.property  name="idCameriere"
+	 */
 	public int getIdCameriere() {
 		return IdCameriere;
 	}

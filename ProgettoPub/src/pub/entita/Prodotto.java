@@ -10,10 +10,25 @@ package pub.entita;
 
 public class Prodotto {	
 	//Istanze
+	/**
+	 * @uml.property  name="idProdotto"
+	 */
 	private int idProdotto;
+	/**
+	 * @uml.property  name="nome"
+	 */
 	private String nome;
+	/**
+	 * @uml.property  name="descrizione"
+	 */
 	private String descrizione;
+	/**
+	 * @uml.property  name="costo"
+	 */
 	private float costo;
+	/**
+	 * @uml.property  name="tipo"
+	 */
 	private String tipo;
 
 	//Costruttore
@@ -33,10 +48,18 @@ public class Prodotto {
 	}
 
 	//Get & Set
+	/**
+	 * @return
+	 * @uml.property  name="idProdotto"
+	 */
 	public int getIdProdotto() {
 		return idProdotto;
 	}
 
+	/**
+	 * @param idProdotto
+	 * @uml.property  name="idProdotto"
+	 */
 	public void setIdProdotto(int idProdotto) {
 		this.idProdotto = idProdotto;
 	}
@@ -47,26 +70,50 @@ public class Prodotto {
 		return p.idProdotto == this.idProdotto;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="nome"
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * @param nome
+	 * @uml.property  name="nome"
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="descrizione"
+	 */
 	public String getDescrizione() {
 		return descrizione;
 	}
 
+	/**
+	 * @param descrizione
+	 * @uml.property  name="descrizione"
+	 */
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="costo"
+	 */
 	public float getCosto() {
 		return costo;
 	}
 
+	/**
+	 * @param costo
+	 * @uml.property  name="costo"
+	 */
 	public void setCosto(float costo) {
 		this.costo = costo;
 	}

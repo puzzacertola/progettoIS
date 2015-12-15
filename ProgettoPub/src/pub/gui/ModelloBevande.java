@@ -13,6 +13,10 @@ import pub.entita.Bevanda;
 
 public class ModelloBevande extends AbstractListModel {
 
+	/**
+	 * @uml.property  name="bevande"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="pub.entita.Bevanda"
+	 */
 	private ArrayList<Bevanda> bevande = null;
 
 	public ModelloBevande(String risposta){

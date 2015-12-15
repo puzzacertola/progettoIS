@@ -17,9 +17,17 @@ import pub.entita.Prodotto;
 public class ModelloOrdini extends AbstractListModel {
 
 	//In prodotti vengono salvati i prodotti selezionati durante un'ordinazione.
+	/**
+	 * @uml.property  name="prodotti"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="pub.entita.Prodotto"
+	 */
 	private ArrayList<Prodotto> prodotti = null;
 
 	//In ordinazioni vengono salvati i prodotti ordinati con le rispettive quantità per poi stamparli a video.
+	/**
+	 * @uml.property  name="ordinazioni"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="pub.entita.Ordinazione"
+	 */
 	private ArrayList<Ordinazione> ordinazioni = null;
 
 	private static final int ID_PRODOTTO_INIZIALIZZAZIONE = -1;
@@ -30,7 +38,13 @@ public class ModelloOrdini extends AbstractListModel {
 	private static final String NOME_INIZIALIZZAZIONE = " ";
 
 	//indici per sapere quanti prodotti uguali ci sono e quanti diversi.
+	/**
+	 * @uml.property  name="numeroProdottiUguali"
+	 */
 	private int numeroProdottiUguali;
+	/**
+	 * @uml.property  name="numeroProdottiDiversi"
+	 */
 	private int numeroProdottiDiversi;
 
 	public ModelloOrdini(){	

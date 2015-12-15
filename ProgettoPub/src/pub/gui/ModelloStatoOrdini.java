@@ -13,6 +13,10 @@ import pub.entita.Ordine;
 
 public class ModelloStatoOrdini extends AbstractListModel{
 
+	/**
+	 * @uml.property  name="ordini"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="pub.entita.Ordine"
+	 */
 	private ArrayList<Ordine> ordini = null;
 
 	public ModelloStatoOrdini(String risposta){

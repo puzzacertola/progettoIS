@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="gui" size="2182,3813" id="pub.gui" metadata="uml2-1.0" initialized="true" zoom="0.25" tag="10" key="32303037303533312D31302050726F676574746F507562">
+  <children xsi:type="editmodel:ClassEditModel" name="CassiereGuiSetting" location="3654,778" size="220,287" id="pub.gui/CassiereGuiSetting" runTimeClassModel="ottieniTotaleDalDataBase(Ljava.lang.String;),ottieniStringaDalDatabase(Ljava.lang.String;),pub.gui.CassiereGuiSetting.MyButtonPagatoListener,pub.gui.CassiereGuiSetting.TavoloTextFieldListener,mandaDeleteAlServer(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,54">
+      <children xsi:type="editmodel:MethodEditModel" name="mandaDeleteAlServer" id="pub.gui/CassiereGuiSetting#mandaDeleteAlServer(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ottieniStringaDalDatabase" id="pub.gui/CassiereGuiSetting#ottieniStringaDalDatabase(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ottieniTotaleDalDataBase" id="pub.gui/CassiereGuiSetting#ottieniTotaleDalDataBase(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="197,174"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="OrdiniGuiSetting" location="3924,778" size="252,146" id="pub.gui/OrdiniGuiSetting" runTimeClassModel="mandaUpdateAlServer(Ljava.lang.String;),pub.gui.OrdiniGuiSetting.StatoOrdiniSelezioneListener">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="139,18">
+      <children xsi:type="editmodel:MethodEditModel" name="mandaUpdateAlServer" id="pub.gui/OrdiniGuiSetting#mandaUpdateAlServer(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="229,69"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.1" name="MyButtonPagatoListener" location="1339,375" size="197,81" id="pub.gui/CassiereGuiSetting$MyButtonPagatoListener" runTimeClassModel="actionPerformed(Ljava.awt.event.ActionEvent;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,18">
+      <children xsi:type="editmodel:MethodEditModel" name="actionPerformed" id="pub.gui/CassiereGuiSetting$MyButtonPagatoListener#actionPerformed(Ljava.awt.event.ActionEvent;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="TavoloTextFieldListener" location="1851,405" size="194,117" id="pub.gui/CassiereGuiSetting$TavoloTextFieldListener" runTimeClassModel="removeUpdate(Ljavax.swing.event.DocumentEvent;),insertUpdate(Ljavax.swing.event.DocumentEvent;),changedUpdate(Ljavax.swing.event.DocumentEvent;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="106,54">
+      <children xsi:type="editmodel:MethodEditModel" name="changedUpdate" id="pub.gui/CassiereGuiSetting$TavoloTextFieldListener#changedUpdate(Ljavax.swing.event.DocumentEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="insertUpdate" id="pub.gui/CassiereGuiSetting$TavoloTextFieldListener#insertUpdate(Ljavax.swing.event.DocumentEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeUpdate" id="pub.gui/CassiereGuiSetting$TavoloTextFieldListener#removeUpdate(Ljavax.swing.event.DocumentEvent;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CassiereGui" location="1595,394" size="168,157" id="pub.gui/CassiereGui" runTimeClassModel="main([Ljava.lang.String;),pagato,CassiereGui(),totaleTextArea,tavoloTextField,contoTextArea">
+    <children xsi:type="editmodel:CompartmentEditModel" size="145,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="contoTextArea" id="pub.gui/CassiereGui#contoTextArea"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pagato" id="pub.gui/CassiereGui#pagato"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tavoloTextField" id="pub.gui/CassiereGui#tavoloTextField"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="totaleTextArea" id="pub.gui/CassiereGui#totaleTextArea"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="89,36">
+      <children xsi:type="editmodel:MethodEditModel" name="CassiereGui" id="pub.gui/CassiereGui#CassiereGui()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="pub.gui/CassiereGui#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CassiereGui->pub.gui/CassiereGuiSetting$TavoloTextFieldListener*pub.gui/CassiereGui-Soyatec::Import->pub.gui/CassiereGuiSetting$TavoloTextFieldListener" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="168,69" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,58"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CassiereGui->pub.gui/CassiereGuiSetting$MyButtonPagatoListener*pub.gui/CassiereGui-Soyatec::Import->pub.gui/CassiereGuiSetting$MyButtonPagatoListener" source="//@children.4" target="//@children.2" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,31" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="197,50"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.3" name="ModelloBevande" location="2902,846" size="149,157" id="pub.gui/ModelloBevande" runTimeClassModel="setBevande(Ljava.util.ArrayList;),getBevande(),setData(Ljava.lang.String;),ModelloBevande(Ljava.lang.String;),getSize(),getElementAt(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,108">
+      <children xsi:type="editmodel:MethodEditModel" name="ModelloBevande" id="pub.gui/ModelloBevande#ModelloBevande(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getBevande" id="pub.gui/ModelloBevande#getBevande()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElementAt" id="pub.gui/ModelloBevande#getElementAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSize" id="pub.gui/ModelloBevande#getSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setBevande" id="pub.gui/ModelloBevande#setBevande(Ljava.util.ArrayList;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setData" id="pub.gui/ModelloBevande#setData(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="pub.entita/Bevanda@bevande+pub.gui/ModelloBevande@" source="//@children.5" target="//@children.21" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,147" id="pub.entita/Bevanda@bevande+pub.gui/ModelloBevande@|pub.gui/ModelloBevande#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="bevande" location="88,0" id="pub.entita/Bevanda@bevande+pub.gui/ModelloBevande@|pub.entita/Bevanda#bevande" multiplicityLabel="//@children.5/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - bevande" location="2473,1419" size="52,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="2539,1419" size="4,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/ModelloBevande->pub.entita/Bevanda*pub.gui/ModelloBevande->pub.entita/Bevanda*pub.gui/ModelloBevande-Soyatec::Import->pub.entita/Bevanda" source="//@children.5" target="//@children.21" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,151" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="113,10"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.8" name="ModelloSnack" location="2658,574" size="132,157" id="pub.gui/ModelloSnack" runTimeClassModel="setData(Ljava.lang.String;),setSnack(Ljava.util.ArrayList;),ModelloSnack(Ljava.lang.String;),getSnack(),getSize(),getElementAt(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="96,108">
+      <children xsi:type="editmodel:MethodEditModel" name="ModelloSnack" id="pub.gui/ModelloSnack#ModelloSnack(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElementAt" id="pub.gui/ModelloSnack#getElementAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSize" id="pub.gui/ModelloSnack#getSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSnack" id="pub.gui/ModelloSnack#getSnack()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setData" id="pub.gui/ModelloSnack#setData(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSnack" id="pub.gui/ModelloSnack#setSnack(Ljava.util.ArrayList;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="pub.entita/Snack@snack+pub.gui/ModelloSnack@" source="//@children.6" target="//@children.22" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,147" id="pub.entita/Snack@snack+pub.gui/ModelloSnack@|pub.gui/ModelloSnack#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="snack" location="73,0" id="pub.entita/Snack@snack+pub.gui/ModelloSnack@|pub.entita/Snack#snack" multiplicityLabel="//@children.6/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - snack" location="2598,1419" size="39,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="2651,1419" size="4,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/ModelloSnack->pub.entita/Snack*pub.gui/ModelloSnack->pub.entita/Snack*pub.gui/ModelloSnack-Soyatec::Import->pub.entita/Snack" source="//@children.6" target="//@children.22" targetEnd="//@children.6/@sourceConnections.1/@children.2" label="//@children.6/@sourceConnections.1/@children.0" sourceEnd="//@children.6/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,151" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,10"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="CameriereGui" location="3399,516" size="206,247" id="pub.gui/CameriereGui" runTimeClassModel="main([Ljava.lang.String;),jListBevande,jListOrdini,modelloBevande,modelloSnack,idCameriereTextField,modelloOrdini,statoOrdiniButton,CameriereGui(),tavoloTextField,jListSnack">
+    <children xsi:type="editmodel:CompartmentEditModel" size="183,162">
+      <children xsi:type="editmodel:AttributeEditModel" name="idCameriereTextField" id="pub.gui/CameriereGui#idCameriereTextField"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jListBevande" id="pub.gui/CameriereGui#jListBevande"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jListOrdini" id="pub.gui/CameriereGui#jListOrdini"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="jListSnack" id="pub.gui/CameriereGui#jListSnack"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modelloBevande" id="pub.gui/CameriereGui#modelloBevande"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modelloOrdini" id="pub.gui/CameriereGui#modelloOrdini"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modelloSnack" id="pub.gui/CameriereGui#modelloSnack"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="statoOrdiniButton" id="pub.gui/CameriereGui#statoOrdiniButton"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tavoloTextField" id="pub.gui/CameriereGui#tavoloTextField"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="95,36">
+      <children xsi:type="editmodel:MethodEditModel" name="CameriereGui" id="pub.gui/CameriereGui#CameriereGui()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="pub.gui/CameriereGui#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting$MyButtonInviaListener*pub.gui/CameriereGui-Soyatec::Import->pub.gui/CameriereGuiSetting$MyButtonInviaListener" source="//@children.7" target="//@children.8/@children.2/@children.1" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,195" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="43,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting$MyButtonResetListener*pub.gui/CameriereGui-Soyatec::Import->pub.gui/CameriereGuiSetting$MyButtonResetListener" source="//@children.7" target="//@children.8/@children.2/@children.2" targetEnd="//@children.7/@sourceConnections.1/@children.2" label="//@children.7/@sourceConnections.1/@children.0" sourceEnd="//@children.7/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,194" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="45,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting" source="//@children.7" target="//@children.8" targetEnd="//@children.7/@sourceConnections.2/@children.2" label="//@children.7/@sourceConnections.2/@children.0" sourceEnd="//@children.7/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,86" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="241,531"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/ModelloBevande*pub.gui/CameriereGui-Soyatec::Import->pub.gui/ModelloBevande" source="//@children.7" target="//@children.5" targetEnd="//@children.7/@sourceConnections.3/@children.2" label="//@children.7/@sourceConnections.3/@children.0" sourceEnd="//@children.7/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,179" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="149,37"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting$OrdiniSelezioneListener*pub.gui/CameriereGui-Soyatec::Import->pub.gui/CameriereGuiSetting$OrdiniSelezioneListener" source="//@children.7" target="//@children.8/@children.2/@children.3" targetEnd="//@children.7/@sourceConnections.4/@children.2" label="//@children.7/@sourceConnections.4/@children.0" sourceEnd="//@children.7/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,197" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="52,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/ModelloOrdini*pub.gui/CameriereGui-Soyatec::Import->pub.gui/ModelloOrdini" source="//@children.7" target="//@children.9" targetEnd="//@children.7/@sourceConnections.5/@children.2" label="//@children.7/@sourceConnections.5/@children.0" sourceEnd="//@children.7/@sourceConnections.5/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="55,247" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="136,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting$StatoOrdiniButton*pub.gui/CameriereGui-Soyatec::Import->pub.gui/CameriereGuiSetting$StatoOrdiniButton" source="//@children.7" target="//@children.8/@children.2/@children.5" targetEnd="//@children.7/@sourceConnections.6/@children.2" label="//@children.7/@sourceConnections.6/@children.0" sourceEnd="//@children.7/@sourceConnections.6/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,208" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="37,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting$BevandeSelezioneListener*pub.gui/CameriereGui-Soyatec::Import->pub.gui/CameriereGuiSetting$BevandeSelezioneListener" source="//@children.7" target="//@children.8/@children.2/@children.0" targetEnd="//@children.7/@sourceConnections.7/@children.2" label="//@children.7/@sourceConnections.7/@children.0" sourceEnd="//@children.7/@sourceConnections.7/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,202" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="63,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/ModelloSnack*pub.gui/CameriereGui-Soyatec::Import->pub.gui/ModelloSnack" source="//@children.7" target="//@children.6" targetEnd="//@children.7/@sourceConnections.8/@children.2" label="//@children.7/@sourceConnections.8/@children.0" sourceEnd="//@children.7/@sourceConnections.8/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,136" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="132,78"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGui->pub.gui/CameriereGuiSetting$SnackSelezioneListener*pub.gui/CameriereGui-Soyatec::Import->pub.gui/CameriereGuiSetting$SnackSelezioneListener" source="//@children.7" target="//@children.8/@children.2/@children.4" targetEnd="//@children.7/@sourceConnections.9/@children.2" label="//@children.7/@sourceConnections.9/@children.0" sourceEnd="//@children.7/@sourceConnections.9/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,198" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="53,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.2" name="CameriereGuiSetting" location="2837,71" size="241,617" id="pub.gui/CameriereGuiSetting" runTimeClassModel="controllaIdCameriere(Ljava.lang.String;),pub.gui.CameriereGuiSetting.StatoOrdiniButton,verificaTavoli(),verificaCameriere(),pub.gui.CameriereGuiSetting.OrdiniSelezioneListener,pub.gui.CameriereGuiSetting.BevandeSelezioneListener,pub.gui.CameriereGuiSetting.MyButtonInviaListener,pub.gui.CameriereGuiSetting.MyButtonResetListener,pub.gui.CameriereGuiSetting.SnackSelezioneListener,nUMERO_MASSIMO_TAVOLI,mandaInsertAlServer(Ljava.lang.String;),nUMERO_MASSIMO_TAVOLI_ESTATE,ottieniStringaDalDatabase(Ljava.lang.String;),eSTATE">
+    <children xsi:type="editmodel:CompartmentEditModel" size="218,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="eSTATE" id="pub.gui/CameriereGuiSetting#eSTATE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="nUMERO_MASSIMO_TAVOLI" id="pub.gui/CameriereGuiSetting#nUMERO_MASSIMO_TAVOLI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="nUMERO_MASSIMO_TAVOLI_ESTATE" id="pub.gui/CameriereGuiSetting#nUMERO_MASSIMO_TAVOLI_ESTATE"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,90">
+      <children xsi:type="editmodel:MethodEditModel" name="controllaIdCameriere" id="pub.gui/CameriereGuiSetting#controllaIdCameriere(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mandaInsertAlServer" id="pub.gui/CameriereGuiSetting#mandaInsertAlServer(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ottieniStringaDalDatabase" id="pub.gui/CameriereGuiSetting#ottieniStringaDalDatabase(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="verificaCameriere" id="pub.gui/CameriereGuiSetting#verificaCameriere()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="verificaTavoli" id="pub.gui/CameriereGuiSetting#verificaTavoli()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="213,414">
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.7" name="BevandeSelezioneListener" location="9584,7457" size="213,67" id="pub.gui/CameriereGuiSetting$BevandeSelezioneListener" runTimeClassModel="mouseClicked(Ljava.awt.event.MouseEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="96,18">
+          <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="pub.gui/CameriereGuiSetting$BevandeSelezioneListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0" name="MyButtonInviaListener" location="9120,6470" size="183,67" id="pub.gui/CameriereGuiSetting$MyButtonInviaListener" runTimeClassModel="actionPerformed(Ljava.awt.event.ActionEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="109,18">
+          <children xsi:type="editmodel:MethodEditModel" name="actionPerformed" id="pub.gui/CameriereGuiSetting$MyButtonInviaListener#actionPerformed(Ljava.awt.event.ActionEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.1" name="MyButtonResetListener" location="9468,6688" size="187,67" id="pub.gui/CameriereGuiSetting$MyButtonResetListener" runTimeClassModel="actionPerformed(Ljava.awt.event.ActionEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="109,18">
+          <children xsi:type="editmodel:MethodEditModel" name="actionPerformed" id="pub.gui/CameriereGuiSetting$MyButtonResetListener#actionPerformed(Ljava.awt.event.ActionEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.4" name="OrdiniSelezioneListener" location="9640,7058" size="196,67" id="pub.gui/CameriereGuiSetting$OrdiniSelezioneListener" runTimeClassModel="mouseClicked(Ljava.awt.event.MouseEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="96,18">
+          <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="pub.gui/CameriereGuiSetting$OrdiniSelezioneListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.9" name="SnackSelezioneListener" location="8714,6474" size="196,67" id="pub.gui/CameriereGuiSetting$SnackSelezioneListener" runTimeClassModel="mouseClicked(Ljava.awt.event.MouseEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="96,18">
+          <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="pub.gui/CameriereGuiSetting$SnackSelezioneListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.6" name="StatoOrdiniButton" location="9293,7718" size="155,67" id="pub.gui/CameriereGuiSetting$StatoOrdiniButton" runTimeClassModel="actionPerformed(Ljava.awt.event.ActionEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="109,18">
+          <children xsi:type="editmodel:MethodEditModel" name="actionPerformed" id="pub.gui/CameriereGuiSetting$StatoOrdiniButton#actionPerformed(Ljava.awt.event.ActionEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CameriereGuiSetting-Soyatec::Access->pub.gui/CameriereGui" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access»" size="50,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="241,511" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,66"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.5" name="ModelloOrdini" location="3136,1239" size="164,283" id="pub.gui/ModelloOrdini" runTimeClassModel="ModelloOrdini(),getOrdinazioni(),numeroProdottiUguali(Lpub.entita.Prodotto;),numeroProdottiUguali,getSize(),numeroProdottiDiversi,getElementAt(I),numeroProdottiDiversi(Lpub.entita.Prodotto;),deleteProdotto(I),resetta(),getSizeOfProdotti(),getProdotti(),addProdotti(Lpub.entita.Prodotto;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="141,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="numeroProdottiDiversi" id="pub.gui/ModelloOrdini#numeroProdottiDiversi"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="numeroProdottiUguali" id="pub.gui/ModelloOrdini#numeroProdottiUguali"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="135,198">
+      <children xsi:type="editmodel:MethodEditModel" name="ModelloOrdini" id="pub.gui/ModelloOrdini#ModelloOrdini()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addProdotti" id="pub.gui/ModelloOrdini#addProdotti(Lpub.entita.Prodotto;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="deleteProdotto" id="pub.gui/ModelloOrdini#deleteProdotto(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElementAt" id="pub.gui/ModelloOrdini#getElementAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOrdinazioni" id="pub.gui/ModelloOrdini#getOrdinazioni()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProdotti" id="pub.gui/ModelloOrdini#getProdotti()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSize" id="pub.gui/ModelloOrdini#getSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSizeOfProdotti" id="pub.gui/ModelloOrdini#getSizeOfProdotti()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="numeroProdottiDiversi" id="pub.gui/ModelloOrdini#numeroProdottiDiversi(Lpub.entita.Prodotto;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="numeroProdottiUguali" id="pub.gui/ModelloOrdini#numeroProdottiUguali(Lpub.entita.Prodotto;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="resetta" id="pub.gui/ModelloOrdini#resetta()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="pub.entita/Ordinazione@ordinazioni+pub.gui/ModelloOrdini@" source="//@children.9" target="//@children.10" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,283" id="pub.entita/Ordinazione@ordinazioni+pub.gui/ModelloOrdini@|pub.gui/ModelloOrdini#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ordinazioni" location="59,0" id="pub.entita/Ordinazione@ordinazioni+pub.gui/ModelloOrdini@|pub.entita/Ordinazione#ordinazioni" multiplicityLabel="//@children.9/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.9/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - ordinazioni" location="3247,1887" size="62,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="3229,1887" size="4,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="pub.entita/Prodotto@prodotti+pub.gui/ModelloOrdini@" source="//@children.9" target="//@children.20" targetEnd="//@children.9/@sourceConnections.1/@children.2" label="//@children.9/@sourceConnections.1/@children.0" sourceEnd="//@children.9/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,75" id="pub.entita/Prodotto@prodotti+pub.gui/ModelloOrdini@|pub.gui/ModelloOrdini#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="prodotti" location="132,113" id="pub.entita/Prodotto@prodotti+pub.gui/ModelloOrdini@|pub.entita/Prodotto#prodotti" multiplicityLabel="//@children.9/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.9/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - prodotti" location="2627,1291" size="46,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="2627,1319" size="4,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/ModelloOrdini->pub.entita/Prodotto*pub.gui/ModelloOrdini->pub.entita/Prodotto*pub.gui/ModelloOrdini-Soyatec::Import->pub.entita/Prodotto" source="//@children.9" target="//@children.20" targetEnd="//@children.9/@sourceConnections.2/@children.2" label="//@children.9/@sourceConnections.2/@children.0" sourceEnd="//@children.9/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,55" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="132,82"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/ModelloOrdini->pub.entita/Ordinazione*pub.gui/ModelloOrdini->pub.entita/Ordinazione*pub.gui/ModelloOrdini-Soyatec::Import->pub.entita/Ordinazione" source="//@children.9" target="//@children.10" targetEnd="//@children.9/@sourceConnections.3/@children.2" label="//@children.9/@sourceConnections.3/@children.0" sourceEnd="//@children.9/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,283" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="38,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.0 //@children.9/@sourceConnections.3" name="Ordinazione" location="3181,1909" size="120,135" id="pub.entita/Ordinazione" runTimeClassModel="costo,Ordinazione(IFLjava.lang.String;),nome,quantita">
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="costo" id="pub.entita/Ordinazione#costo"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="nome" id="pub.entita/Ordinazione#nome"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="quantita" id="pub.entita/Ordinazione#quantita"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="88,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Ordinazione" id="pub.entita/Ordinazione#Ordinazione(IFLjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.19/@sourceConnections.0" name="StatoOrdiniSelezioneListener" location="1933,1366" size="229,81" id="pub.gui/OrdiniGuiSetting$StatoOrdiniSelezioneListener" runTimeClassModel="mouseClicked(Ljava.awt.event.MouseEvent;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="96,18">
+      <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="pub.gui/OrdiniGuiSetting$StatoOrdiniSelezioneListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.13/@sourceConnections.0 //@children.19/@sourceConnections.1" name="ModelloStatoOrdini" location="1350,1050" size="165,157" id="pub.gui/ModelloStatoOrdini" runTimeClassModel="setData(Ljava.lang.String;),getOrdini(),consegnaOrdine(I),ModelloStatoOrdini(Ljava.lang.String;),getSize(),getElementAt(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="119,108">
+      <children xsi:type="editmodel:MethodEditModel" name="ModelloStatoOrdini" id="pub.gui/ModelloStatoOrdini#ModelloStatoOrdini(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="consegnaOrdine" id="pub.gui/ModelloStatoOrdini#consegnaOrdine(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElementAt" id="pub.gui/ModelloStatoOrdini#getElementAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOrdini" id="pub.gui/ModelloStatoOrdini#getOrdini()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSize" id="pub.gui/ModelloStatoOrdini#getSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setData" id="pub.gui/ModelloStatoOrdini#setData(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/ModelloStatoOrdini->pub.entita/Ordine*pub.gui/ModelloStatoOrdini->pub.entita/Ordine*pub.gui/ModelloStatoOrdini-Soyatec::Import->pub.entita/Ordine" source="//@children.12" target="//@children.13" targetEnd="//@children.12/@sourceConnections.0/@children.2" label="//@children.12/@sourceConnections.0/@children.0" sourceEnd="//@children.12/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,48" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="142,212"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.16/@sourceConnections.0 //@children.16/@sourceConnections.1 //@children.12/@sourceConnections.0" name="Ordine" location="1048,886" size="142,261" id="pub.entita/Ordine" runTimeClassModel="idCameriere,stato,Ordine(IIILjava.lang.String;),idOrdine,nomeProdotto,tavolo,Ordine(IIIILjava.lang.String;),quantita,Ordine(ILjava.lang.String;ILjava.lang.String;),idProdotto,Ordine(ILjava.lang.String;II)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="119,126">
+      <children xsi:type="editmodel:AttributeEditModel" name="idCameriere" id="pub.entita/Ordine#idCameriere"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="idOrdine" id="pub.entita/Ordine#idOrdine"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="idProdotto" id="pub.entita/Ordine#idProdotto"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="nomeProdotto" id="pub.entita/Ordine#nomeProdotto"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="quantita" id="pub.entita/Ordine#quantita"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="stato" id="pub.entita/Ordine#stato"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tavolo" id="pub.entita/Ordine#tavolo"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="62,72">
+      <children xsi:type="editmodel:MethodEditModel" name="Ordine" id="pub.entita/Ordine#Ordine(IIIILjava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Ordine" id="pub.entita/Ordine#Ordine(ILjava.lang.String;ILjava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Ordine" id="pub.entita/Ordine#Ordine(ILjava.lang.String;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Ordine" id="pub.entita/Ordine#Ordine(IIILjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="pub.entita/Ordine@ordini+pub.gui/ModelloStatoOrdini@" source="//@children.13" target="//@children.12" targetEnd="//@children.13/@sourceConnections.0/@children.2" label="//@children.13/@sourceConnections.0/@children.0" sourceEnd="//@children.13/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ordini" location="142,181" id="pub.entita/Ordine@ordini+pub.gui/ModelloStatoOrdini@|pub.entita/Ordine#ordini" attachSource="true" multiplicityLabel="//@children.13/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.13/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - ordini" location="1195,1043" size="36,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="1195,1071" size="4,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,28" id="pub.entita/Ordine@ordini+pub.gui/ModelloStatoOrdini@|pub.gui/ModelloStatoOrdini#"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CuocoGui" location="722,330" size="232,121" id="pub.gui/CuocoGui" runTimeClassModel="CuocoGui(),main([Ljava.lang.String;),jListOrdini,modelloOrdini">
+    <children xsi:type="editmodel:CompartmentEditModel" size="209,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="jListOrdini" id="pub.gui/CuocoGui#jListOrdini"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modelloOrdini" id="pub.gui/CuocoGui#modelloOrdini"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="77,36">
+      <children xsi:type="editmodel:MethodEditModel" name="CuocoGui" id="pub.gui/CuocoGui#CuocoGui()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="pub.gui/CuocoGui#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CuocoGui->pub.gui/ModelloOrdiniBarECucina*pub.gui/CuocoGui-Soyatec::Import->pub.gui/ModelloOrdiniBarECucina" source="//@children.14" target="//@children.16" targetEnd="//@children.14/@sourceConnections.0/@children.2" label="//@children.14/@sourceConnections.0/@children.0" sourceEnd="//@children.14/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,121" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="102,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CuocoGui->pub.gui/CuocoGuiSetting" source="//@children.14" target="//@children.18" targetEnd="//@children.14/@sourceConnections.1/@children.2" label="//@children.14/@sourceConnections.1/@children.0" sourceEnd="//@children.14/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="228,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="3,164"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/CuocoGui->pub.gui/CuocoGuiSetting$OrdiniCuocoSelezioneListener*pub.gui/CuocoGui-Soyatec::Import->pub.gui/CuocoGuiSetting$OrdiniCuocoSelezioneListener" source="//@children.14" target="//@children.18/@children.2/@children.0" targetEnd="//@children.14/@sourceConnections.2/@children.2" label="//@children.14/@sourceConnections.2/@children.0" sourceEnd="//@children.14/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="199,121" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="73,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="BaristaGui" location="404,918" size="232,121" id="pub.gui/BaristaGui" runTimeClassModel="main([Ljava.lang.String;),jListOrdini,modelloOrdini,BaristaGui()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="209,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="jListOrdini" id="pub.gui/BaristaGui#jListOrdini"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modelloOrdini" id="pub.gui/BaristaGui#modelloOrdini"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="80,36">
+      <children xsi:type="editmodel:MethodEditModel" name="BaristaGui" id="pub.gui/BaristaGui#BaristaGui()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="pub.gui/BaristaGui#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/BaristaGui->pub.gui/ModelloOrdiniBarECucina*pub.gui/BaristaGui-Soyatec::Import->pub.gui/ModelloOrdiniBarECucina" source="//@children.15" target="//@children.16" targetEnd="//@children.15/@sourceConnections.0/@children.2" label="//@children.15/@sourceConnections.0/@children.0" sourceEnd="//@children.15/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="213,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,141"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/BaristaGui->pub.gui/BaristaGuiSetting$OrdiniBaristaSelezioneListener*pub.gui/BaristaGui-Soyatec::Import->pub.gui/BaristaGuiSetting$OrdiniBaristaSelezioneListener" source="//@children.15" target="//@children.17/@children.2/@children.0" targetEnd="//@children.15/@sourceConnections.1/@children.2" label="//@children.15/@sourceConnections.1/@children.0" sourceEnd="//@children.15/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="170,121" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="91,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/BaristaGui->pub.gui/BaristaGuiSetting" source="//@children.15" target="//@children.17" targetEnd="//@children.15/@sourceConnections.2/@children.2" label="//@children.15/@sourceConnections.2/@children.0" sourceEnd="//@children.15/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,51" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="263,113"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.15/@sourceConnections.0 //@children.14/@sourceConnections.0" name="ModelloOrdiniBarECucina" location="724,711" size="206,157" id="pub.gui/ModelloOrdiniBarECucina" runTimeClassModel="setData(Ljava.lang.String;),getOrdini(),ordinePronto(I),getSize(),ModelloOrdiniBarECucina(Ljava.lang.String;),getElementAt(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="150,108">
+      <children xsi:type="editmodel:MethodEditModel" name="ModelloOrdiniBarECucina" id="pub.gui/ModelloOrdiniBarECucina#ModelloOrdiniBarECucina(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getElementAt" id="pub.gui/ModelloOrdiniBarECucina#getElementAt(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOrdini" id="pub.gui/ModelloOrdiniBarECucina#getOrdini()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSize" id="pub.gui/ModelloOrdiniBarECucina#getSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ordinePronto" id="pub.gui/ModelloOrdiniBarECucina#ordinePronto(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setData" id="pub.gui/ModelloOrdiniBarECucina#setData(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="pub.entita/Ordine@ordini+pub.gui/ModelloOrdiniBarECucina@" source="//@children.16" target="//@children.13" targetEnd="//@children.16/@sourceConnections.0/@children.2" label="//@children.16/@sourceConnections.0/@children.0" sourceEnd="//@children.16/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="196,157" id="pub.entita/Ordine@ordini+pub.gui/ModelloOrdiniBarECucina@|pub.gui/ModelloOrdiniBarECucina#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ordini" location="0,10" id="pub.entita/Ordine@ordini+pub.gui/ModelloOrdiniBarECucina@|pub.entita/Ordine#ordini" multiplicityLabel="//@children.16/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.16/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - ordini" location="1005,903" size="36,14" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="1037,875" size="4,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/ModelloOrdiniBarECucina->pub.entita/Ordine*pub.gui/ModelloOrdiniBarECucina->pub.entita/Ordine*pub.gui/ModelloOrdiniBarECucina-Soyatec::Import->pub.entita/Ordine" source="//@children.16" target="//@children.13" targetEnd="//@children.16/@sourceConnections.1/@children.2" label="//@children.16/@sourceConnections.1/@children.0" sourceEnd="//@children.16/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,152" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="15,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.15/@sourceConnections.2" name="BaristaGuiSetting" location="50,856" size="263,164" id="pub.gui/BaristaGuiSetting" runTimeClassModel="mandaUpdateAlServer(Ljava.lang.String;),ottieniStringaDalDatabase(Ljava.lang.String;),pub.gui.BaristaGuiSetting.OrdiniBaristaSelezioneListener">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,36">
+      <children xsi:type="editmodel:MethodEditModel" name="mandaUpdateAlServer" id="pub.gui/BaristaGuiSetting#mandaUpdateAlServer(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ottieniStringaDalDatabase" id="pub.gui/BaristaGuiSetting#ottieniStringaDalDatabase(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="240,69">
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.15/@sourceConnections.1" name="OrdiniBaristaSelezioneListener" location="5251,5652" size="240,67" id="pub.gui/BaristaGuiSetting$OrdiniBaristaSelezioneListener" runTimeClassModel="mouseClicked(Ljava.awt.event.MouseEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="96,18">
+          <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="pub.gui/BaristaGuiSetting$OrdiniBaristaSelezioneListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.1" name="CuocoGuiSetting" location="947,50" size="259,164" id="pub.gui/CuocoGuiSetting" runTimeClassModel="mandaUpdateAlServer(Ljava.lang.String;),ottieniStringaDalDatabase(Ljava.lang.String;),pub.gui.CuocoGuiSetting.OrdiniCuocoSelezioneListener">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,36">
+      <children xsi:type="editmodel:MethodEditModel" name="mandaUpdateAlServer" id="pub.gui/CuocoGuiSetting#mandaUpdateAlServer(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ottieniStringaDalDatabase" id="pub.gui/CuocoGuiSetting#ottieniStringaDalDatabase(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="236,69">
+      <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.2" name="OrdiniCuocoSelezioneListener" location="5436,4460" size="236,67" id="pub.gui/CuocoGuiSetting$OrdiniCuocoSelezioneListener" runTimeClassModel="mouseClicked(Ljava.awt.event.MouseEvent;)">
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="96,18">
+          <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="pub.gui/CuocoGuiSetting$OrdiniCuocoSelezioneListener#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      </children>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="OrdiniGui" location="1644,1209" size="226,103" id="pub.gui/OrdiniGui" runTimeClassModel="jListOrdini,modelloStatoOrdini,OrdiniGui(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="203,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="jListOrdini" id="pub.gui/OrdiniGui#jListOrdini"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modelloStatoOrdini" id="pub.gui/OrdiniGui#modelloStatoOrdini"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="74,18">
+      <children xsi:type="editmodel:MethodEditModel" name="OrdiniGui" id="pub.gui/OrdiniGui#OrdiniGui(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/OrdiniGui->pub.gui/OrdiniGuiSetting$StatoOrdiniSelezioneListener*pub.gui/OrdiniGui-Soyatec::Import->pub.gui/OrdiniGuiSetting$StatoOrdiniSelezioneListener" source="//@children.19" target="//@children.11" targetEnd="//@children.19/@sourceConnections.0/@children.2" label="//@children.19/@sourceConnections.0/@children.0" sourceEnd="//@children.19/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="216,103" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="35,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui/OrdiniGui->pub.gui/ModelloStatoOrdini*pub.gui/OrdiniGui-Soyatec::Import->pub.gui/ModelloStatoOrdini" source="//@children.19" target="//@children.12" targetEnd="//@children.19/@sourceConnections.1/@children.2" label="//@children.19/@sourceConnections.1/@children.0" sourceEnd="//@children.19/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,5" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="165,112"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.21/@sourceConnections.0 //@children.21/@sourceConnections.1 //@children.9/@sourceConnections.1 //@children.9/@sourceConnections.2 //@children.22/@sourceConnections.0" name="Prodotto" location="2489,1201" size="132,189" id="pub.entita/Prodotto" runTimeClassModel="descrizione,costo,equals(Ljava.lang.Object;),Prodotto(ILjava.lang.String;Ljava.lang.String;F),nome,Prodotto(ILjava.lang.String;Ljava.lang.String;FLjava.lang.String;),idProdotto">
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="costo" id="pub.entita/Prodotto#costo"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="descrizione" id="pub.entita/Prodotto#descrizione"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="idProdotto" id="pub.entita/Prodotto#idProdotto"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="nome" id="pub.entita/Prodotto#nome"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="70,54">
+      <children xsi:type="editmodel:MethodEditModel" name="Prodotto" id="pub.entita/Prodotto#Prodotto(ILjava.lang.String;Ljava.lang.String;F)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Prodotto" id="pub.entita/Prodotto#Prodotto(ILjava.lang.String;Ljava.lang.String;FLjava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="pub.entita/Prodotto#equals(Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.5/@sourceConnections.1" name="Bevanda" location="2446,1440" size="98,99" id="pub.entita/Bevanda" runTimeClassModel="Bevanda(ILjava.lang.String;Ljava.lang.String;F),Bevanda(ILjava.lang.String;Ljava.lang.String;FLjava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="73,36">
+      <children xsi:type="editmodel:MethodEditModel" name="Bevanda" id="pub.entita/Bevanda#Bevanda(ILjava.lang.String;Ljava.lang.String;F)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Bevanda" id="pub.entita/Bevanda#Bevanda(ILjava.lang.String;Ljava.lang.String;FLjava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.entita/Bevanda->pub.entita/Prodotto" source="//@children.21" target="//@children.20" targetEnd="//@children.21/@sourceConnections.0/@children.2" label="//@children.21/@sourceConnections.0/@children.0" sourceEnd="//@children.21/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="70,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="27,189"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.22/@sourceConnections.1" autoLocated="true" id="pub.entita/Prodotto&lt;-pub.entita/Bevanda" source="//@children.21" target="//@children.20" targetEnd="//@children.21/@sourceConnections.1/@children.1" sourceEnd="//@children.21/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="60,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="17,189" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0 //@children.6/@sourceConnections.1" name="Snack" location="2574,1440" size="83,99" id="pub.entita/Snack" runTimeClassModel="Snack(ILjava.lang.String;Ljava.lang.String;FLjava.lang.String;),Snack(ILjava.lang.String;Ljava.lang.String;F)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="60,36">
+      <children xsi:type="editmodel:MethodEditModel" name="Snack" id="pub.entita/Snack#Snack(ILjava.lang.String;Ljava.lang.String;FLjava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Snack" id="pub.entita/Snack#Snack(ILjava.lang.String;Ljava.lang.String;F)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.entita/Snack->pub.entita/Prodotto" source="//@children.22" target="//@children.20" targetEnd="//@children.22/@sourceConnections.0/@children.2" label="//@children.22/@sourceConnections.0/@children.0" sourceEnd="//@children.22/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="23,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,189"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="pub.entita/Prodotto&lt;-pub.entita/Snack" source="//@children.22" target="//@children.21/@sourceConnections.1" targetEnd="//@children.22/@sourceConnections.1/@children.1" sourceEnd="//@children.22/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="41,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
