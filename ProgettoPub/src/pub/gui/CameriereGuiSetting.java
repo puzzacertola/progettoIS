@@ -28,6 +28,7 @@ abstract class CameriereGuiSetting {
 	public static final int ESTATE = 6;
 	public static final int NUMERO_MASSIMO_TAVOLI_ESTATE = 40;
 	public static final int NUMERO_MASSIMO_TAVOLI = 25;
+	private static final int FINE_ESTATE = 9;
 
 	//confronta il numero di tavolo inserito con il mese attuale, se l'inserimento non è valido da un messaggio di errore
 	public static boolean verificaTavoli(){
@@ -43,8 +44,9 @@ abstract class CameriereGuiSetting {
 			return c;
 		}
 		if(ESTATE <= cal.get(Calendar.MONTH) && 
-				Integer.parseInt(CameriereGui.tavoloTextField.getText())<= NUMERO_MASSIMO_TAVOLI_ESTATE || 
-				ESTATE > cal.get(Calendar.MONTH) &&
+				Integer.parseInt(CameriereGui.tavoloTextField.getText())<= NUMERO_MASSIMO_TAVOLI_ESTATE &&
+				FINE_ESTATE >= cal.get(Calendar.MONTH) || 
+				(FINE_ESTATE < cal.get(Calendar.MONTH) || ESTATE > cal.get(Calendar.MONTH)) &&
 				Integer.parseInt(CameriereGui.tavoloTextField.getText()) <= NUMERO_MASSIMO_TAVOLI){
 			c = true;
 		}
