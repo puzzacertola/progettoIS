@@ -20,7 +20,7 @@ import pub.server.Server;
  *
  */
 
-public class CassiereGuiSetting { 
+abstract class CassiereGuiSetting { 
 
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.

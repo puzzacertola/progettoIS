@@ -21,7 +21,7 @@ import pub.server.Server;
  *
  */
 
-public class BaristaGuiSetting {
+abstract class BaristaGuiSetting {
 
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
