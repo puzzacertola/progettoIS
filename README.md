@@ -8,7 +8,7 @@ di un tavolo tramite un tablet, tali ordini saranno divisi tra bevande
 e snack e visualizzati rispettivamente 
 dal barista e dal cuoco. Il cameriere potrà verificare quali prodotti sono pronti per essere 
 consegnati ad un tavolo, 
-il cuoco e il barista avranno un ordine cronologico degli ordini. 
+il cuoco e il barista avranno uno storico degli ordini raggruppati in ordine cronologico. 
 Inoltre viene gestita la creazione del conto da parte 
 del cassiere che potrà calcolarlo facilmente inserendo semplicemente 
 il numero del tavolo.
