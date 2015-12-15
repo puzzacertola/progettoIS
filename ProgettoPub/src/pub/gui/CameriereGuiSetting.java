@@ -25,9 +25,9 @@ import pub.server.Server;
  */
 
 abstract class CameriereGuiSetting {
-public static final int ESTATE = 6;
-public static final int NUMERO_MASSIMO_TAVOLI_ESTATE = 40;
-public static final int NUMERO_MASSIMO_TAVOLI = 25;
+	public static final int ESTATE = 6;
+	public static final int NUMERO_MASSIMO_TAVOLI_ESTATE = 40;
+	public static final int NUMERO_MASSIMO_TAVOLI = 25;
 
 	//confronta il numero di tavolo inserito con il mese attuale, se l'inserimento non è valido da un messaggio di errore
 	public static boolean verificaTavoli(){

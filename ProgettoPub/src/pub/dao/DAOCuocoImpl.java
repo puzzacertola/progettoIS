@@ -6,6 +6,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import pub.entita.Ordine;
 
 /**
@@ -96,7 +99,8 @@ public class DAOCuocoImpl implements DAOCuoco {
 
 			DAOSetting.closeStatement(stat);
 		} catch (SQLException e){
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(), "Errore" 
+					+ "Ordinazione non trovata", "Errore", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
