@@ -45,3 +45,4 @@ applicazioni.
 # Contributors
 
 Giovanni & Giuseppe: team "coffee break".
+![alt tag](https://cloud.githubusercontent.com/assets/15891383/11850191/0ec2a6b2-a42c-11e5-8a38-4d23c89511f3.jpg)
