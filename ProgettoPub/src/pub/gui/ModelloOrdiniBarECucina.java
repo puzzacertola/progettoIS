@@ -3,6 +3,7 @@ package pub.gui;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 import pub.entita.Ordine;
+import pub.entita.Prodotto;
 
 public class ModelloOrdiniBarECucina extends AbstractListModel{
 	/**
@@ -42,6 +43,8 @@ public class ModelloOrdiniBarECucina extends AbstractListModel{
 
 	@Override
 	public String getElementAt(int index) {
+		if (this.ordini.get(0).getQuantita() == -1)
+			return this.ordini.get(0).getNomeProdotto();
 		return this.ordini.get(index).getQuantita() + "x " + this.ordini.get(index).getNomeProdotto() 
 				+ " | Tavolo: " + this.ordini.get(index).getTavolo() + " | idCameriere: "
 				+ this.ordini.get(index).getIdCameriere();
@@ -59,5 +62,12 @@ public class ModelloOrdiniBarECucina extends AbstractListModel{
 	public void ordinePronto(int index){
 		this.ordini.remove(index);
 	}
-	
+
+	//aggiorna gli ordini fatti da un cameriere
+
+	public void aggiorna(String risposta){
+		this.ordini.clear();
+		setData(risposta);
+	}
+
 }

@@ -32,7 +32,7 @@ abstract class CameriereGuiSetting {
 
 	//confronta il numero di tavolo inserito con il mese attuale, se l'inserimento non è valido da un messaggio di errore
 	public static boolean verificaTavoli(){
-		
+
 		boolean c=false;
 		Calendar cal = Calendar.getInstance();
 		try{
@@ -50,15 +50,15 @@ abstract class CameriereGuiSetting {
 				Integer.parseInt(CameriereGui.tavoloTextField.getText()) <= NUMERO_MASSIMO_TAVOLI){
 			c = true;
 		}
-			
+
 		return c;
 	}
-	
+
 	//confronta l'id cameriere con i camerieri presenti nel database altrimenti da errore
-	
+
 	public static boolean verificaCameriere(){
 		boolean c = false;
-		
+
 		try{
 			Integer.parseInt(CameriereGui.idCameriereTextField.getText());
 		}
@@ -68,15 +68,15 @@ abstract class CameriereGuiSetting {
 					"Errore", JOptionPane.ERROR_MESSAGE);	
 			return c;
 		}
-			String req = "pub:\n" + Server.SELECT_CAMERIERE_IN_DB + "\nid:" 
-					+ CameriereGui.idCameriereTextField.getText() + "\n" ;
-			
-			if(!controllaIdCameriere(req).equals("Non presente.")) 
-				c = true;
+		String req = "pub:\n" + Server.SELECT_CAMERIERE_IN_DB + "\nid:" 
+				+ CameriereGui.idCameriereTextField.getText() + "\n" ;
+
+		if(!controllaIdCameriere(req).equals("Non presente.")) 
+			c = true;
 
 		return c;
 	}		
-	
+
 	//mandaInsertAlServer riceve come parametro la richiesta di query di insert da fare e la manda al server
 
 	public static void mandaInsertAlServer(String req){
@@ -124,7 +124,11 @@ abstract class CameriereGuiSetting {
 		}
 		return null;
 	}
-	
+
+	/* controllaIdCameriere riceve come parametro la richiesta di query di select da inviare al server.
+	 * Fa una select sulla tabella Camerieri, per controllare se un cameriere è presente nel database.
+	 */
+
 	public static String controllaIdCameriere(String req){
 		Socket s;
 		try {
@@ -162,7 +166,7 @@ abstract class CameriereGuiSetting {
 			if(!CameriereGui.idCameriereTextField.getText().equals("id")){
 				String req = "pub:\n" + Server.SELECT_CAMERIERE_ORDINI_CAMERIERE + "\nid:" 
 						+ CameriereGui.idCameriereTextField.getText() + "\n";
-				
+
 				String risposta = CameriereGuiSetting.ottieniStringaDalDatabase(req);
 				new OrdiniGui(risposta);
 			}
@@ -195,12 +199,12 @@ abstract class CameriereGuiSetting {
 				JOptionPane.showMessageDialog(new JFrame(), "Ordine inserito correttamente!");
 			}
 
-				if(verificaTavoli() == false)
-					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
-							+ " Tavolo inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
-				if (verificaCameriere() == false)
-					JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
-							+ " Cameriere inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+			if(verificaTavoli() == false)
+				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
+						+ " Tavolo inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+			if (verificaCameriere() == false)
+				JOptionPane.showMessageDialog(new JFrame(), "Errore nell'inserimento."
+						+ " Cameriere inserito non valido", "Errore", JOptionPane.ERROR_MESSAGE);
 
 		}
 	}

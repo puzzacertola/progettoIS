@@ -54,7 +54,7 @@ public class BaristaGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(getListOrdini(), c);
-		
+
 		//Bottone aggiorna
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
@@ -62,14 +62,14 @@ public class BaristaGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(refresh, c);
-		
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);	
-		
+
 		BaristaGuiSetting.MyButtonRefreshListener refreshListener = new BaristaGuiSetting.MyButtonRefreshListener();
 		refresh.addActionListener(refreshListener);
-		
+
 	}
 
 	//Crea il JScrollPane dove verrà mostrata la JList degli ordini

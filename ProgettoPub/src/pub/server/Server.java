@@ -315,15 +315,9 @@ public class Server {
 
 					out.println(risposta);
 				}
-				
-				else if(comando.equals(SELECT_CASSIERE_TOTALE)){
-					int tavolo = Integer.parseInt(in.readLine().replace("Tavolo:", ""));
 
-					risposta = DAOCassiereImpl.getInstance().ottieniTotale(tavolo);
+				//Query di selezione per controllare se un cameriere è presente nel db.
 
-					out.println(risposta);
-				}
-				
 				else if(comando.equals(SELECT_CAMERIERE_IN_DB)){
 					int idCameriere = Integer.parseInt(in.readLine().replace("id:", ""));
 
@@ -331,7 +325,9 @@ public class Server {
 
 					out.println(risposta);
 				}
-				
+
+				//Query di delete per eliminare tutti gli ordini fatti ad un tavolo, fatta da un cassiere.
+
 				else if(comando.equals(DELETE_CASSIERE_ORDINI)){
 					int numeroTavolo = Integer.parseInt(in.readLine().replace("tavolo:", ""));
 

@@ -25,22 +25,20 @@ import pub.server.Server;
 
 abstract class BaristaGuiSetting {
 
-	
-	
 	//Riesegue tutte le query che riempono le liste della gui del barista
-	
-		public static class MyButtonRefreshListener implements ActionListener {
-			public void actionPerformed(ActionEvent evt) {
-				String risposta=null;
-				String req = "pub:\n" + Server.SELECT_BARISTA_ORDINI;
-				risposta = ottieniStringaDalDatabase(req);
-				BaristaGui.modelloOrdini = new ModelloOrdiniBarECucina(risposta);
-				BaristaGui.jListOrdini.updateUI();
-				
-			}
+
+	public static class MyButtonRefreshListener implements ActionListener {
+		public void actionPerformed(ActionEvent evt) {
+			String risposta=null;
+			String req = "pub:\n" + Server.SELECT_BARISTA_ORDINI;
+			risposta = ottieniStringaDalDatabase(req);
+			BaristaGui.modelloOrdini.aggiorna(risposta);
+			BaristaGui.jListOrdini.updateUI();
+
 		}
-	
-	
+	}
+
+
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
 	 */

@@ -28,7 +28,7 @@ public class CuocoGui extends JFrame{
 	private static Container pane;
 	public static ModelloOrdiniBarECucina modelloOrdini = null;
 	static JList jListOrdini = new JList();
-	private static JButton refresh = new JButton("Aggiorna");	
+	private static JButton refreshBottone = new JButton("Aggiorna");	
 
 	public CuocoGui(){
 
@@ -52,21 +52,21 @@ public class CuocoGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(getListOrdini(), c);
-		
+
 		//Bottone aggiorna
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 2;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(refresh, c);
+		pane.add(refreshBottone, c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);			
-		
+
 		MyButtonRefreshListener refreshListener = new MyButtonRefreshListener();
-		refresh.addActionListener(refreshListener);
+		refreshBottone.addActionListener(refreshListener);
 	}   
 
 	//Crea il JScrollPane dove verrà mostrata la JList degli ordini

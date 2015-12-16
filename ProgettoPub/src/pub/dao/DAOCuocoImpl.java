@@ -104,5 +104,5 @@ public class DAOCuocoImpl implements DAOCuoco {
 			System.out.println("Errore nella richiesta al DB");
 		}
 	}
-	
+
 }

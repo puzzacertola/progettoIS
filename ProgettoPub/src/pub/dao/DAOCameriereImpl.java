@@ -311,6 +311,11 @@ public class DAOCameriereImpl implements DAOCameriere {
 
 	}
 
+	/*
+	 * cercaCameriere fa una select sulla tabella Cameriere.
+	 * Serve per vedere se un cameriere è presente nel database.
+	 */
+
 	@Override
 	public String cercaCameriere(int idCameriere) {
 		String cameriere = "";
@@ -325,7 +330,7 @@ public class DAOCameriereImpl implements DAOCameriere {
 				cameriere = rs.getString("Nome");
 			else
 				cameriere = "Non presente.";
-			
+
 			DAOSetting.closeStatement(stat);
 
 		} catch (SQLException e){
@@ -333,6 +338,5 @@ public class DAOCameriereImpl implements DAOCameriere {
 		}
 		return cameriere;		
 	}
-	
-	
+
 }

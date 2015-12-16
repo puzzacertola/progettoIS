@@ -47,7 +47,7 @@ abstract class OrdiniGuiSetting {
 			if (SwingUtilities.isLeftMouseButton(evt) && evt.getClickCount() == 1) {
 				int index = OrdiniGui.jListOrdini.locationToIndex(evt.getPoint());
 
-				if(index >= 0){
+				if(index >= 0 && OrdiniGui.modelloStatoOrdini.getOrdini().get(index).getStato().equals("Fatto")){
 					int n = JOptionPane.showConfirmDialog(new JFrame(),"Segnare ordine come consegnato?"
 							,"Consegna Ordine",JOptionPane.YES_NO_OPTION);
 
@@ -64,6 +64,9 @@ abstract class OrdiniGuiSetting {
 						}
 					}
 				}
+				else
+					JOptionPane.showMessageDialog(new JFrame(),  "Errore nella selezione."
+							+ " L'ordine selezionato non è ancora pronto", "Errore", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

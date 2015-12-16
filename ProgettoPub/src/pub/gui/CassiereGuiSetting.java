@@ -25,7 +25,7 @@ abstract class CassiereGuiSetting {
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
 	 */
-	
+
 	public static void mandaDeleteAlServer(String req){
 		Socket s;
 		try {
@@ -37,6 +37,10 @@ abstract class CassiereGuiSetting {
 			System.out.println("Errore nella connessione al server");
 		}
 	}
+
+	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
+	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
+	 */
 
 	public static String ottieniStringaDalDatabase(String req){
 		Socket s;
@@ -89,7 +93,9 @@ abstract class CassiereGuiSetting {
 
 	/* Listener del TextField Tavolo. Visualizza nella Gui
 	 * le ordinazioni consegnate ad un Tavolo e mostra il conto da pagare.
-	 * verifica che nel campo tavolo sia inserito un valore numerico
+	 * Verifica che nel campo tavolo sia inserito un valore numerico.
+	 * changeUpdate si attiva quando il valore inserito nella textBlock cambia, mentre
+	 * insertUpdate si attiva quando si inserisce un valore nella textBlock.
 	 */
 
 	public static class TavoloTextFieldListener implements DocumentListener{
@@ -100,7 +106,8 @@ abstract class CassiereGuiSetting {
 				Integer.parseInt(CassiereGui.tavoloTextField.getText());}
 			catch (NumberFormatException ex){
 				ex.getMessage();
-				JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", 
+						"Errore", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			if(!CassiereGui.tavoloTextField.getText().equals("")){
@@ -114,7 +121,7 @@ abstract class CassiereGuiSetting {
 				CassiereGui.totaleTextArea.setText("");
 				CassiereGui.totaleTextArea.append(risposta + " €");
 			}
-			
+
 			else
 				JOptionPane.showMessageDialog(new JFrame(), "Errore: id Cameriere errato" 
 						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
@@ -126,7 +133,8 @@ abstract class CassiereGuiSetting {
 				Integer.parseInt(CassiereGui.tavoloTextField.getText());}
 			catch (NumberFormatException ex){
 				ex.getMessage();
-				JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", "Errore", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(new JFrame(),"Nel campo tavolo va inserito un valore numerico", 
+						"Errore", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			if(!CassiereGui.tavoloTextField.getText().equals("")){
@@ -140,20 +148,20 @@ abstract class CassiereGuiSetting {
 				CassiereGui.totaleTextArea.setText("");
 				CassiereGui.totaleTextArea.append(risposta + " €");
 			}
-			
+
 			else
 				JOptionPane.showMessageDialog(new JFrame(), "Errore: id Cameriere errato" 
 						+ "Controllare che tutti i campi sono corretti!", "Errore", JOptionPane.ERROR_MESSAGE);
-			
+
 		}
 
 		@Override
 		public void removeUpdate(DocumentEvent e) {}
-		
+
 	}
-	
+
 	// elimina dal database tutti gli ordini del tavolo che ha effettuato il pagamento
-	
+
 	public static class MyButtonPagatoListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 			String req = "pub:\n" + Server.DELETE_CASSIERE_ORDINI + "\ntavolo:" 
@@ -161,8 +169,9 @@ abstract class CassiereGuiSetting {
 			mandaDeleteAlServer(req);
 			JOptionPane.showMessageDialog(new JFrame(), "Ordine Pagato!");
 			CassiereGui.contoTextArea.setText("");
+			CassiereGui.totaleTextArea.setText("");
 		}
 	}
-	
+
 
 }

@@ -17,5 +17,5 @@ public class Bevanda extends Prodotto {
 	public Bevanda(int id, String nome, String descrizione, float costo){		
 		super(id,nome,descrizione,costo);			
 	}
-	
+
 }

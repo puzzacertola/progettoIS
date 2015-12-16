@@ -28,9 +28,9 @@ public class CassiereGui extends JFrame{
 	private static Container pane ;
 	public static JTextField tavoloTextField = new JTextField("",5);
 	public static JTextArea contoTextArea = new JTextArea(20,10);
-	public static JButton pagato= new JButton("pagato");
+	public static JButton pagatoBottone = new JButton("pagato");
 	public static JTextArea totaleTextArea = new JTextArea(1,5);
-	
+
 	//creazione interfaccia
 	public CassiereGui(){
 
@@ -63,21 +63,23 @@ public class CassiereGui extends JFrame{
 		c.weighty = 1;
 		pane.add(contoTextArea, c);
 		contoTextArea.setEditable(false);
-		
+
+		//Bottone Pagato
 		c.fill = GridBagConstraints.RELATIVE;
 		c.gridx = 1;
 		c.gridy = 1;
 		c.weightx = 1;
 		c.weighty = 1;
-		pane.add(pagato, c);
-		
+		pane.add(pagatoBottone, c);
+
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 3;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel(""), c);
-		
+
+		//Text area del totale
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 3;
@@ -85,21 +87,22 @@ public class CassiereGui extends JFrame{
 		c.weighty = 1;
 		pane.add(totaleTextArea, c);
 		totaleTextArea.setEditable(false);
-		
+
+		//Label Totale
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 1;
 		c.gridy = 3;
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(new JLabel("Totale"), c);
-		
-		
+
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
 		setVisible(true);
-		
+
 		MyButtonPagatoListener pagatoListener = new MyButtonPagatoListener();
-		pagato.addActionListener(pagatoListener);
+		pagatoBottone.addActionListener(pagatoListener);
 
 	}
 

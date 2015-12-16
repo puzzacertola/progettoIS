@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
@@ -26,20 +27,20 @@ import pub.server.Server;
 abstract class CuocoGuiSetting {
 
 	//Riesegue tutte le query che riempono le liste della gui del cuoco
-	
+
 	public static class MyButtonRefreshListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			String risposta=null;
+			String risposta = null;
 			String req = "pub:\n" + Server.SELECT_CUOCO_ORDINI;
 			risposta = ottieniStringaDalDatabase(req);
-			CuocoGui.modelloOrdini = new ModelloOrdiniBarECucina(risposta);
+			CuocoGui.modelloOrdini.aggiorna(risposta);
 			CuocoGui.jListOrdini.updateUI();
-			
+
 		}
 	}
-	
-	
-	
+
+
+
 	/* ottieniStringaDalDatabase riceve come parametro la richiesta di query di select da inviare al server.
 	 * Ottiene la stringa di risposta dal server e la splitta per ogni tupla della tabella del database.
 	 */

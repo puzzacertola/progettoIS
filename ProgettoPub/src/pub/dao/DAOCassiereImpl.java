@@ -105,6 +105,11 @@ public class DAOCassiereImpl implements DAOCassiere {
 		return totale;		
 	}
 
+
+	/*
+	 * contoPagato elimina dalla tabella Ordini tutti gli ordini fatti ad un tavolo.
+	 */
+
 	@Override
 	public void contoPagato(int numeroTavolo) {
 		try {
@@ -118,7 +123,7 @@ public class DAOCassiereImpl implements DAOCassiere {
 		} catch (SQLException e){
 			System.out.println("Errore nella richiesta al DB");
 		}
-		
+
 	}
 
 }
