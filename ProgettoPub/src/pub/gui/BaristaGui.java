@@ -3,7 +3,6 @@ package pub.gui;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,9 +10,7 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 import pub.gui.BaristaGuiSetting.OrdiniBaristaSelezioneListener;
-import pub.gui.CuocoGuiSetting.MyButtonRefreshListener;
 import pub.server.Server;
 
 /**

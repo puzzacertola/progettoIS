@@ -3,7 +3,6 @@ package pub.gui;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 import pub.entita.Ordine;
-import pub.entita.Prodotto;
 
 public class ModelloOrdiniBarECucina extends AbstractListModel{
 	/**

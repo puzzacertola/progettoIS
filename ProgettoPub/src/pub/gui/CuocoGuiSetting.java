@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
