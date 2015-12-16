@@ -3,6 +3,8 @@ package pub.gui;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -11,6 +13,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import pub.gui.BaristaGuiSetting.OrdiniBaristaSelezioneListener;
+import pub.gui.CuocoGuiSetting.MyButtonRefreshListener;
 import pub.server.Server;
 
 /**
@@ -27,6 +30,7 @@ public class BaristaGui extends JFrame{
 	private static Container pane;
 	public static ModelloOrdiniBarECucina modelloOrdini = null;
 	static JList jListOrdini = new JList();
+	private static JButton refresh = new JButton("Aggiorna");	
 
 	public BaristaGui(){
 
@@ -50,10 +54,22 @@ public class BaristaGui extends JFrame{
 		c.weightx = 1;
 		c.weighty = 1;
 		pane.add(getListOrdini(), c);
-
+		
+		//Bottone aggiorna
+		c.fill = GridBagConstraints.BOTH;
+		c.gridx = 0;
+		c.gridy = 2;
+		c.weightx = 1;
+		c.weighty = 1;
+		pane.add(refresh, c);
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		pack();
-		setVisible(true);		
+		setVisible(true);	
+		
+		BaristaGuiSetting.MyButtonRefreshListener refreshListener = new BaristaGuiSetting.MyButtonRefreshListener();
+		refresh.addActionListener(refreshListener);
+		
 	}
 
 	//Crea il JScrollPane dove verrà mostrata la JList degli ordini
