@@ -51,3 +51,9 @@ Giovanni & Giuseppe: team "coffee break".
 # Postazione Sprint N° 1
 
 ![alt tag](https://cloud.githubusercontent.com/assets/15891383/11850191/0ec2a6b2-a42c-11e5-8a38-4d23c89511f3.jpg)
+
+
+
+# Postazione Sprint N° 2
+
+![alt tag](https://cloud.githubusercontent.com/assets/15891383/11850278/98788c5a-a42c-11e5-81e9-17b4ecac6cf2.jpg)
