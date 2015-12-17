@@ -67,7 +67,7 @@ public class DAOBaristaImpl implements DAOBarista {
 			String query = "select count(o.idOrdine) 'Quantita' , m.Nome, o.Tavolo, o.idCameriere "
 					+ "from Ordini o, Menu m "
 					+ "where o.idProdotto = m.IdProdotto and m.Tipo like 'B%' and o.Stato = 'Da Fare' "
-					+ "group by o.Tavolo, m.Nome "
+					+ "group by o.Tavolo, m.Nome, o.idCameriere "
 					+ "order by o.idOrdine";
 
 			ResultSet rs = stat.executeQuery(query);
