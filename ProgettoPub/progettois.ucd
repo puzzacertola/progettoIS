@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="progettois" size="795,312" id="" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D31302050726F676574746F507562">
-  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.3/@sourceConnections.0" name="pub.dao" location="75,90" size="87,60" id="pub.dao">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="progettois" size="1270,526" id="" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D31302050726F676574746F507562">
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.3/@sourceConnections.1" name="pub.dao" location="174,114" size="87,60" id="pub.dao">
     <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.dao->pub.entita*pub.dao-Soyatec::Import->pub.entita" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="87,30" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="0,30"/>
     </sourceConnections>
   </children>
-  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.2/@sourceConnections.0 //@children.3/@sourceConnections.1" name="pub.entita" location="210,90" size="99,60" id="pub.entita"/>
-  <children xsi:type="editmodel:PackageEditModel" name="pub.gui" location="360,90" size="83,60" id="pub.gui">
+  <children xsi:type="editmodel:PackageEditModel" targetConnections="//@children.3/@sourceConnections.0 //@children.0/@sourceConnections.0 //@children.2/@sourceConnections.0" name="pub.entita" location="360,114" size="99,60" id="pub.entita"/>
+  <children xsi:type="editmodel:PackageEditModel" name="pub.gui" location="540,120" size="83,60" id="pub.gui">
     <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.gui-Soyatec::Import->pub.entita*pub.gui->pub.entita" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="0,30" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="99,30"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,26" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,32"/>
     </sourceConnections>
   </children>
-  <children xsi:type="editmodel:PackageEditModel" name="pub.server" location="45,210" size="102,60" id="pub.server">
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.server->pub.dao" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
-      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="65,0" attachSource="true"/>
-      <children xsi:type="editmodel:AssociationEndEditModel" location="35,60"/>
-    </sourceConnections>
-    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.server-Soyatec::Import->pub.entita*pub.server->pub.entita" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+  <children xsi:type="editmodel:PackageEditModel" name="pub.server" location="167,255" size="102,60" id="pub.server">
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.server-Soyatec::Import->pub.entita*pub.server->pub.entita" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
       <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="41,14" anchorKind="MiddlePart"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="92,0" attachSource="true"/>
       <children xsi:type="editmodel:AssociationEndEditModel" location="8,60"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="pub.server->pub.dao" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="50,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="43,60"/>
     </sourceConnections>
   </children>
   <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
